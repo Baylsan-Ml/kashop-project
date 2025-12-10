@@ -7,7 +7,7 @@ import Login from "./src/pages/login/Login.jsx";
 import Register from "./src/pages/register/Register.jsx";
 
 
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
@@ -42,4 +42,4 @@ const router = createBrowserRouter([
   }
 ]);
 
-export default router;
+export default Router;
