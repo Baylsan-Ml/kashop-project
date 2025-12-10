@@ -17,7 +17,7 @@ export default function Regiester() {
   console.log(response);
 
   }catch(err){
-  console.log(err);}
+  console.log(err.response?.data);}
 }
   
 
@@ -36,6 +36,5 @@ sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 5, alignItems: 'cent
  <Button variant="contained" type="submit"  sx={{backgroundColor:'InfoText', width:'40%'}}>Register</Button>
  </Box>
 </Box>
-
   )
 }
