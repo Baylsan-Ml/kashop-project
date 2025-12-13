@@ -26,9 +26,9 @@ export default function Regiester() {
    
 <Box className ="register-form" >
 <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Register Page</Typography>
-{serverErrors>0 ?
-   serverErrors.map((err)=>
-    <Typography sx={color='red'}>{err}</Typography>
+    {serverErrors.length>0 ?
+      serverErrors.map((err)=>
+       <Typography sx={color='red'}>{err}</Typography>
   ) :null}
 <Box onSubmit={handleSubmit(registerForm)} component={"form"} 
 sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 5, alignItems: 'center'}}>
