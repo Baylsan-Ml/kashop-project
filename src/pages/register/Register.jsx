@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
@@ -6,36 +6,31 @@ import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from '../../validation/RegisterSchema';
 
-
-
-
-
 export default function Regiester() {
-
+  
+  const[serverErrors, setServerErrors]= useState([]);
   const {register, handleSubmit, formState:{errors}} = useForm({
     resolver:yupResolver(RegiesterSchema),
     mode: 'onBlur'
   })
-  
   const registerForm = async (values)=>{
-  
-
   console.log(values);
   try{
   const response = await axios.post(`https://knowledgeshop.runasp.net/api/Auth/Account/Register`, values);
-
   console.log(response);
-
   }catch(err){
+    setServerError(err.response.data.errors);
   console.log(err.response?.data);}
 }
-  
-
   return (
    
 <Box className ="register-form" >
 <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Register Page</Typography>
-
+{serverErrors>0 ?
+   serverErrors.map((err)=>
+    <Typography sx={color:'red'}>{err}</Typography>
+  )
+ :null}
 <Box onSubmit={handleSubmit(registerForm)} component={"form"} 
 sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 5, alignItems: 'center'}}>
 <TextField label="user name" {...register('userName')} sx={{width:'40%'}} variant="outlined"
