@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup';
@@ -9,7 +9,7 @@ import { RegiesterSchema } from '../../validation/RegisterSchema';
 export default function Regiester() {
   
   const[serverErrors, setServerErrors]= useState([]);
-  const {register, handleSubmit, formState:{errors}} = useForm({
+  const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(RegiesterSchema),
     mode: 'onBlur'
   })
@@ -42,7 +42,9 @@ error={errors.email} helperText={errors.email?.message}/>
 error={errors.password} helperText={errors.password?.message}/>
  <TextField label="phone number" {...register('phoneNumber')} sx={{width:'40%'}} variant="outlined" 
  error={errors.phoneNumber} helperText={errors.phoneNumber?.message}/>
- <Button variant="contained" type="submit"  sx={{backgroundColor:'InfoText', width:'40%'}}>Register</Button>
+ <Button variant="contained" type="submit" disabled={isSubmitting}  sx={{backgroundColor:'InfoText', width:'40%'}}>
+  {isSubmitting? <CircularProgress />: 'Regiester'}
+  </Button>
  </Box>
 </Box>
   )
