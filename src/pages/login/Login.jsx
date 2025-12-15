@@ -1,14 +1,16 @@
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography, Link } from '@mui/material'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import {Link as RouterLink } from 'react-router-dom'
+import '../sendCode/SendCode.jsx'
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Login() {
    const {register, handleSubmit} = useForm({})
-    
+    const navigate = useNavigate();
     const loginForm = async (values)=>{
-    
     // console.log(values);
-    
     try{
     const response = await axios.post(`https://knowledgeshop.runasp.net/api/Auth/Account/Login`, values);
     if(response.status==200){
@@ -21,10 +23,7 @@ export default function Login() {
     }catch(err){
     console.log(err.response?.data);}
   }
-    
-  
-    return (
-     
+    return ( 
   <Box className ="register-form">
   <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Login Page</Typography>
   
@@ -33,6 +32,7 @@ export default function Login() {
   <TextField label="user email" {...register('email')} sx={{width:'40%'}} variant="outlined"/>
   <TextField label="password" {...register('password')} sx={{width:'40%'}} variant="outlined"/>
    <Button variant="contained" type="submit"  sx={{backgroundColor:'InfoText', width:'40%'}}>Login</Button>
+   <Link component={RouterLink} to={'/sendCode'}>Forget Your Password?</Link>
    </Box>
   </Box>
     )

@@ -5,6 +5,8 @@ import Cart from "./src/pages/cart/Cart.jsx"
 import AuthLAyout from "./src/layout/AuthLAyout.jsx";
 import Login from "./src/pages/login/Login.jsx";
 import Register from "./src/pages/register/Register.jsx";
+import SendCode from "./src/pages/sendCode/SendCode.jsx";
+import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
 
 
 const Router = createBrowserRouter([
@@ -27,6 +29,14 @@ const Router = createBrowserRouter([
       {
        path: "register",
        element: <Register />
+      },
+      {
+       path: "sendCode",
+       element: <SendCode />
+      },
+      {
+       path: "resetPassword",
+       element: <ResetPassword />
       },
     ],
   },

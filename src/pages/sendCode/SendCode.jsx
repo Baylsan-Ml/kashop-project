@@ -1,0 +1,40 @@
+import React, { useState } from 'react'
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
+import axios from 'axios'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { RegiesterSchema } from '../../validation/RegisterSchema';
+import { useNavigate } from 'react-router-dom';
+
+export default function SendCode() {
+
+  const {register, handleSubmit, formState:{errors, isSubmitting}}= useForm({
+    resolver:yupResolver(RegiesterSchema),
+    mode:'onBlur'
+  })
+   
+  const navigate = useNavigate();
+  const sendCodeForm= async(value)=>{
+    console.log(value);
+    try{
+        const response= await axios.post(`https://knowledgeshop.runasp.net/api/Auth/Account/SendCode`, value);
+        console.log(response);
+    }catch(err){
+      console.log(err);
+    }
+  }
+  return (
+    <Box className='sendCode-Form'>
+      <Typography variant='h1' sx={{textAlign:'center'}} mt={15}>Send Code</Typography>
+      <Box component={"form"} onSubmit={handleSubmit(sendCodeForm)}
+      sx={{ display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:1}} mt={5}>
+        <TextField label="enter your email" {...register('email')} sx={{width:'40%',}} variant="outlined"
+        error={errors.email} helperText={errors.email?.message}/>
+        <Button onClick={() => navigate('/resetPassword')} variant="contained" type="submit" disabled={isSubmitting}  sx={{backgroundColor:'InfoText', width:'40%'}}>
+          {isSubmitting? <CircularProgress />: 'Send Code'}
+          </Button>
+      </Box>
+    </Box>
+  )
+}
