@@ -16,7 +16,7 @@ export default function Regiester() {
   const registerForm = async (values)=>{
   console.log(values);
   try{
-  const response = await axios.post(`https://knowledgeshop.runasp.net/api/Auth/Account/Register`, values);
+  const response = await axiosInstance.post(`/Auth/Account/Register`, values);
   console.log(response);
   }catch(err){
     setServerErrors(err.response.data.errors);

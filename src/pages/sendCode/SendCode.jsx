@@ -18,7 +18,7 @@ export default function SendCode() {
   const sendCodeForm= async(value)=>{
     console.log(value);
     try{
-        const response= await axios.post(`https://knowledgeshop.runasp.net/api/Auth/Account/SendCode`, value);
+        const response= await axiosInstance.post(`/Auth/Account/SendCode`, value);
         console.log(response);
     }catch(err){
       console.log(err);

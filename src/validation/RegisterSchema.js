@@ -11,5 +11,6 @@ export const RegiesterSchema = yup.object({
   .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
   .matches(/[a-z]/, "Password must contain at least one lowercase letter")
   .matches(/\d/, "Password must contain at least one number")
-  .matches(/[@!#$*&?]/, "Password must be at least one special Characters")
+  .matches(/[@!#$*&?]/, "Password must be at least one special Characters"),
+  code:yup.string().required("Code is Required").min(4, "Code must be at least 4 Characters")
 })
