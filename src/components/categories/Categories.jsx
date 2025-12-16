@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axiosInstance from '../../Api/axiosInstance';
 import { Box, Card, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
+import { useCategories } from '../../hooks/useCategories';
 
 export default function Categories() {
 
     const[categories, setCategoris]=useState([]);
-    const fetchCategories= async()=>{
-        const response= await axiosInstance.get(`/Categories`);
-        return response.data;
-    }
-    const {isLoading, isError, data}= useQuery({
-        queryKey:['categories'],
-        queryFn: fetchCategories
-    })
+    
+    const {isLoading, isError, data}= useCategories();
     // const getCategories= async()=>{
     //     try{
     //         const response= await axiosInstance.get(`/Categories`)
