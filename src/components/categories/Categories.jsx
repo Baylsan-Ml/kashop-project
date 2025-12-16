@@ -22,13 +22,13 @@ export default function Categories() {
   return (
     <>
 
-    <Box p={3}>
+    <Box p={3} sx={{textAlign:'center'}}>
         <Typography component={'h2'} variant='h4' m={3} >Categories</Typography>
         <Container maxWidth='xl'>
         <Grid container  sx={{textAlign:'center'}}>
             {categories.map((category)=>
       <Grid item key={category.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
-             <Card  sx={{p:4}}>{category.name}</Card> 
+             <Card  sx={{p:4, }}>{category.name}</Card> 
             </Grid>
       )
       }

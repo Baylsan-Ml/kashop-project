@@ -6,11 +6,13 @@ import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from '../../validation/RegisterSchema';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../Api/axiosInstance';
+import { SendCodeSchema } from '../../validation/SendCodeSchema';
 
 export default function SendCode() {
 
   const {register, handleSubmit, formState:{errors, isSubmitting}}= useForm({
-    resolver:yupResolver(RegiesterSchema),
+    resolver:yupResolver(SendCodeSchema),
     mode:'onBlur'
   })
    
@@ -19,9 +21,14 @@ export default function SendCode() {
     console.log(value);
     try{
         const response= await axiosInstance.post(`/Auth/Account/SendCode`, value);
-        console.log(response);
+        console.log(response.data);
+        if(response.data.success === true){
+          navigate('/resetPassword');
+        }else{
+          alert('Please Enter a Valid Email');
+        }
     }catch(err){
-      console.log(err);
+      console.log(err); 
     }
   }
   return (
@@ -31,7 +38,7 @@ export default function SendCode() {
       sx={{ display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:1}} mt={5}>
         <TextField label="enter your email" {...register('email')} sx={{width:'40%',}} variant="outlined"
         error={errors.email} helperText={errors.email?.message}/>
-        <Button onClick={() => navigate('/resetPassword')} variant="contained" type="submit" disabled={isSubmitting}  sx={{backgroundColor:'InfoText', width:'40%'}}>
+        <Button  variant="contained" type="submit" disabled={isSubmitting}  sx={{backgroundColor:'InfoText', width:'40%'}}>
           {isSubmitting? <CircularProgress />: 'Send Code'}
           </Button>
       </Box>
