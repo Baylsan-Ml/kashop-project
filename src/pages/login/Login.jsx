@@ -8,6 +8,8 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SendCodeSchema } from '../../validation/SendCodeSchema.js'
 import axiosInstance from '../../Api/axiosInstance.js'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext.jsx'
 
 
 export default function Login() {
@@ -16,6 +18,7 @@ export default function Login() {
        mode:'onBlur'
      })
     const navigate = useNavigate();
+    const {setToken}= useContext(AuthContext);
     const loginForm = async (values)=>{
     // console.log(values);
     try{
@@ -23,7 +26,8 @@ export default function Login() {
     if(response.status==200){
       console.log(response);
       navigate('/home');
-      localStorage.setItem("token", respoose.data.accessToken);
+      console.log(respoose.data.accessToken);
+      setToken(respoose.data.accessToken);
     }
   
     console.log(response);
