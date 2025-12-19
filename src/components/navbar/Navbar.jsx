@@ -7,8 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from '@mui/material';
 import {Link as RouterLink} from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 export default function Navbar() {
+  const {username , setUsername}= useContext(UserContext);
   return (
     <Box color='info' sx={{ flexGrow: 1}}>
       <AppBar position="static" sx={{ bgcolor: 'black' }}>
@@ -23,9 +26,12 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton> */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
-             KAshop
+             KAshop - {username}
           </Typography>
-          
+
+          <Button onClick={()=> setUsername('User Name')} variant='outlined' sx={{marginRight:3}}>
+            Change Name
+          </Button>
           <Box sx={{display:'flex', gap:2}}>
             <Link component={RouterLink} to='/home' color='inherit' underline='none'>Home</Link>
             <Link component={RouterLink} to='/cart' color='inherit' underline='none'>Cart</Link>

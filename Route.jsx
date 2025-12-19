@@ -7,12 +7,16 @@ import Login from "./src/pages/login/Login.jsx";
 import Register from "./src/pages/register/Register.jsx";
 import SendCode from "./src/pages/sendCode/SendCode.jsx";
 import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
+import UserContextProvider, { UserContext } from "./src/context/UserContext.jsx";
 
 
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: 
+    <UserContextProvider>
+    <MainLayout />
+    </UserContextProvider> ,
     children:[
       {
         path: "/home",
@@ -20,7 +24,9 @@ const Router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />
+        element:
+        
+          <Cart />
       },
       {
        path: "login",
