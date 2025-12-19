@@ -11,7 +11,11 @@ export default function AuthContextProvider({children}){
         setToken(null);
     }
 
-    return <AuthContext.Provider value={{token, setToken, logout}}>
+    const setAccessToken=(token)=>{
+        localStorage.setItem('token', token);
+    }
+
+    return <AuthContext.Provider value={{token, setToken, logout, setAccessToken}}>
         {children}
         </AuthContext.Provider>
         

@@ -18,16 +18,16 @@ export default function Login() {
        mode:'onBlur'
      })
     const navigate = useNavigate();
-    const {setToken}= useContext(AuthContext);
+    const {setToken, setAccessToken}= useContext(AuthContext);
     const loginForm = async (values)=>{
     // console.log(values);
     try{
     const response = await axiosInstance.post(`/Auth/Account/Login`, values);
     if(response.status==200){
       console.log(response);
+      setToken(response.data.accessToken);
+      setAccessToken(response.data.accessToken);
       navigate('/home');
-      console.log(respoose.data.accessToken);
-      setToken(respoose.data.accessToken);
     }
   
     console.log(response);
