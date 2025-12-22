@@ -1,9 +1,9 @@
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from 'react-router-dom';
 import { resetPasswordSchema } from '../../validation/ResetPasswordSchema';
-import axiosInstance from '../../Api/axiosInstance';
+import useResetPassword from '../../hooks/useResetPassword';
+
 
 export default function ResetPassword() {
 
@@ -11,19 +11,10 @@ export default function ResetPassword() {
     resolver:yupResolver(resetPasswordSchema),
     mode:'onBlur'
   })
-  const navigate= useNavigate();
+ 
+  const{resetPasswordMutation}=useResetPassword();
   const resetPasswordForm= async(values)=>{
-    try{
-      const response= await axiosInstance.patch(`/Auth/Account/ResetPassword`, values);
-      console.log(response.data);
-      if(response.data.success === true){
-          navigate('/login');
-        }else{
-          alert('Please Check the Code');
-        }
-    }catch(err){
-      console.log(err)
-    }
+    resetPasswordMutation.mutateAsync(values);
   }
   return (
     <Box className='resetPasswordForm'>
