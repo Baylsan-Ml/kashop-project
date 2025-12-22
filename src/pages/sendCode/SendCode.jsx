@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../Api/axiosInstance';
 import { SendCodeSchema } from '../../validation/SendCodeSchema';
-import { useMutation } from '@tanstack/react-query';
 import useSendCode from '../../hooks/useSendCode';
 
 export default function SendCode() {
