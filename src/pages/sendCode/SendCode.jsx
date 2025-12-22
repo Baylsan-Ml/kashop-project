@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../Api/axiosInstance';
 import { SendCodeSchema } from '../../validation/SendCodeSchema';
 import { useMutation } from '@tanstack/react-query';
+import useSendCode from '../../hooks/useSendCode';
 
 export default function SendCode() {
 
@@ -14,19 +15,8 @@ export default function SendCode() {
     mode:'onBlur'
   })
    
-  const navigate = useNavigate();
+  const {sendCodeMutation}=useSendCode();
 
-  const sendCodeMutation= useMutation({
-     mutationFn: async (value)=>{
-      return await axiosInstance.post(`/Auth/Account/SendCode`, value);
-            },
-    onSuccess:()=>{
-      navigate('/resetPassword');
-    },
-    onError:()=>{
-      alert('Please Enter a Valid Email');
-    }
-  });
   const sendCodeForm= async(value)=>{
     sendCodeMutation.mutateAsync(value);
     // console.log(value);
