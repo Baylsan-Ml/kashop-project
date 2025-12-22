@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from '../../validation/RegisterSchema';
+import { useMutation } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom';
 
 export default function Regiester() {
   
@@ -13,14 +15,20 @@ export default function Regiester() {
     resolver:yupResolver(RegiesterSchema),
     mode: 'onBlur'
   })
+  const navigate= useNavigate();
+  const registerMutation= useMutation({
+    mutationFn: async (values)=>{
+      return await axiosInstance.post(`/Auth/Account/Register`, values);
+    },
+    onSuccess:()=>{
+      navigate('/login');
+    },
+    onError:()=>{
+       setServerErrors(err.response.data.errors);
+    }
+  })
   const registerForm = async (values)=>{
-  console.log(values);
-  try{
-  const response = await axiosInstance.post(`/Auth/Account/Register`, values);
-  console.log(response);
-  }catch(err){
-    setServerErrors(err.response.data.errors);
-  console.log(err.response.data.errors);}
+   registerMutation.mutateAsync(values);
 }
   return (
    
