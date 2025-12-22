@@ -1,32 +1,17 @@
-import React, { useState } from 'react'
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
-import axios from 'axios'
 import { useForm } from 'react-hook-form'
-import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from '../../validation/RegisterSchema';
-import { useMutation } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom';
+import useRegister from '../../hooks/useRegister';
 
 export default function Regiester() {
-  
-  const[serverErrors, setServerErrors]= useState([]);
+
   const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(RegiesterSchema),
     mode: 'onBlur'
   })
-  const navigate= useNavigate();
-  const registerMutation= useMutation({
-    mutationFn: async (values)=>{
-      return await axiosInstance.post(`/Auth/Account/Register`, values);
-    },
-    onSuccess:()=>{
-      navigate('/login');
-    },
-    onError:()=>{
-       setServerErrors(err.response.data.errors);
-    }
-  })
+
+  const {serverErrors, registerMutation}=useRegister();
   const registerForm = async (values)=>{
    registerMutation.mutateAsync(values);
 }

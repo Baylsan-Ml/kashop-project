@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
-import axios from 'axios'
 import { useForm } from 'react-hook-form'
-import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RegiesterSchema } from '../../validation/RegisterSchema';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../Api/axiosInstance';
 import { SendCodeSchema } from '../../validation/SendCodeSchema';
+import { useMutation } from '@tanstack/react-query';
 
 export default function SendCode() {
 
@@ -17,19 +15,32 @@ export default function SendCode() {
   })
    
   const navigate = useNavigate();
-  const sendCodeForm= async(value)=>{
-    console.log(value);
-    try{
-        const response= await axiosInstance.post(`/Auth/Account/SendCode`, value);
-        console.log(response.data);
-        if(response.data.success === true){
-          navigate('/resetPassword');
-        }else{
-          alert('Please Enter a Valid Email');
-        }
-    }catch(err){
-      console.log(err); 
+
+  const sendCodeMutation= useMutation({
+     mutationFn: async (value)=>{
+      return await axiosInstance.post(`/Auth/Account/SendCode`, value);
+            },
+    onSuccess:()=>{
+      navigate('/resetPassword');
+    },
+    onError:()=>{
+      alert('Please Enter a Valid Email');
     }
+  });
+  const sendCodeForm= async(value)=>{
+    sendCodeMutation.mutateAsync(value);
+    // console.log(value);
+    // try{
+    //     const response= await axiosInstance.post(`/Auth/Account/SendCode`, value);
+    //     console.log(response.data);
+    //     if(response.data.success === true){
+    //       navigate('/resetPassword');
+    //     }else{
+    //       alert('Please Enter a Valid Email');
+    //     }
+    // }catch(err){
+    //   console.log(err); 
+    // }
   }
   return (
     <Box className='sendCode-Form'>
