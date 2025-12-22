@@ -1,15 +1,10 @@
 import { Box, Button, TextField, Typography, Link, CircularProgress } from '@mui/material'
-import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import {Link as RouterLink } from 'react-router-dom'
 import '../sendCode/SendCode.jsx'
-import { useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SendCodeSchema } from '../../validation/SendCodeSchema.js'
-import axiosInstance from '../../Api/axiosInstance.js'
-import { useContext } from 'react'
-import { AuthContext } from '../../context/AuthContext.jsx'
+import useLogin from '../../hooks/useLogin.js'
 
 
 export default function Login() {
@@ -17,23 +12,10 @@ export default function Login() {
        resolver:yupResolver(SendCodeSchema),
        mode:'onBlur'
      })
-    const navigate = useNavigate();
-    const {setToken, setAccessToken}= useContext(AuthContext);
+    
+     const {loginMutation}=useLogin();
     const loginForm = async (values)=>{
-    // console.log(values);
-    try{
-    const response = await axiosInstance.post(`/Auth/Account/Login`, values);
-    if(response.status==200){
-      console.log(response);
-      setToken(response.data.accessToken);
-      setAccessToken(response.data.accessToken);
-      navigate('/home');
-    }
-  
-    console.log(response);
-  
-    }catch(err){
-    console.log(err.response?.data);}
+      loginMutation.mutateAsync(values);
   }
     return ( 
   <Box className ="register-form">

@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from '../../Api/axiosInstance';
+import axiosInstance from "../Api/axiosInstance";
 
 export default function useRegister(){
     const[serverErrors, setServerErrors]= useState([]);
