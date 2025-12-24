@@ -21,7 +21,7 @@ export default function Categories() {
         <Grid container sx={{textAlign:'center',}}>
             {data.response.map((category)=>
       <Grid item key={category.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
-             <Card sx={{p:3, backgroundColor:'#f2f6ff',  cursor: 'pointer', width:'100%',}}>{category.name}</Card> 
+             <Card sx={{p:3, backgroundColor:'#d5cdc0',  cursor: 'pointer', width:'100%',}}>{category.name}</Card> 
             </Grid>
       )
       }

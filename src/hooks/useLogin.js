@@ -6,19 +6,29 @@ import axiosInstance from "../Api/axiosInstance";
 
 export default function useLogin(){
     const navigate = useNavigate();
+     const[serverErrors, setServerErrors]= useState([]);
     const {setToken, setAccessToken}= useContext(AuthContext);
     const loginMutation= useMutation({
       mutationFn:async(values)=>{
        return await axiosInstance.post(`/Auth/Account/Login`, values);
       },
-        onSuccess:()=>{
+        onSuccess:(response)=>{
         setToken(response.data.accessToken);
         setAccessToken(response.data.accessToken);
         navigate('/home');
       },
-      onError:()=>{
-        console.log('Please confirm your data and try again..')
-      }
+      // onError:()=>{
+      //   console.log('Please confirm your data and try again..')
+      // }
+
+        onError:(err)=>{
+          const errors =err.response?.data?.errors || err.response?.data?.message ||
+          ["Something went wrong"];
+      
+        setServerErrors([errors]);
+
+    
+        }
     });
 
     return {loginMutation};
