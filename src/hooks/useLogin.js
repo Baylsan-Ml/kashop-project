@@ -17,17 +17,11 @@ export default function useLogin(){
         setAccessToken(response.data.accessToken);
         navigate('/home');
       },
-      // onError:()=>{
-      //   console.log('Please confirm your data and try again..')
-      // }
-
         onError:(err)=>{
           const errors =err.response?.data?.errors || err.response?.data?.message ||
           ["Something went wrong"];
       
         setServerErrors([errors]);
-
-    
         }
     });
 

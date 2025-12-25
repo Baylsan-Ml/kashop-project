@@ -19,20 +19,22 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 export default function Products() {
 
-   const [search, setSearch] = useState('');
+  
    const [sort, setSort] = useState('');
+    const [search, setSearch] = useState('');
    const {username}=useContext(UserContext);
        const {isLoading, isError, data}= useProducts();
+       const [filteredProducts, setFilteredProducts] = useState([]);
+        useEffect(() => {
+    const result = data.response.filter(product =>
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredProducts(result);
+  }, [search]);
+
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
-    
-
-       let filteredProducts = [...data.response];
-       if(search){
-        filteredProducts=filteredProducts.filter(product=>{
-          product.name.toLowerCase().includes(search.toLowerCase())
-        });
-       }
+  
   return (
     <>
        <Box p={3} sx={{textAlign:'center'}}>

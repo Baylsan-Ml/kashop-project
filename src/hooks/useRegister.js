@@ -15,7 +15,7 @@ export default function useRegister(){
           navigate('/login');
         },
         onError:()=>{
-           setServerErrors(response.data.errors);
+          setServerErrors(response.data.errors);
         }
       })
       

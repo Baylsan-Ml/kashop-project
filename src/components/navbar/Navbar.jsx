@@ -33,60 +33,26 @@ export default function Navbar() {
     navigate('/login');
   }
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+ 
 
   return (
     <Box color='info' sx={{ flexGrow: 1}}>
       <AppBar position="static" sx={{ bgcolor: '#353d24' }}>
         <Container maxWidth="xl">
-        {/* <Toolbar>
-          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
-             KAshop - {username}
-          </Typography> */}
-
           <Toolbar disableGutters sx={{display:'flex' }}>
             <Box sx={{display:'flex', flexGrow: 1}}>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              flexGrow: 1
-            }}
-          >
+          <Typography variant="h6" noWrap component="a" href="#app-bar-with-responsive-menu"
+           sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
+             color: 'inherit', textDecoration: 'none', flexGrow: 1 }}>
             KA-Shop -{username}
           </Typography>
           </Box>
-
-          {/* <Button onClick={()=> setUsername('User Name')} variant='outlined' sx={{marginRight:3}}>
-            Change Name
-          </Button> */}
           <Box sx={{display:'flex', gap:2, alignItems:'center'}}>
             <Link component={RouterLink} to='/home' color='inherit' underline='none'>
             <HomeIcon title='Home' fontSize="large" />
