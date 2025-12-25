@@ -5,7 +5,7 @@ export function useCategories (){
     
     const fetchCategories= async()=>{
         const response= await axiosInstance.get(`/Categories`);
-        console.log(response.data);
+
         return response.data;
     }
     const query = useQuery({
