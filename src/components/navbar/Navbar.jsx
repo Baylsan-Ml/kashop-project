@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <Box color='info' sx={{ flexGrow: 1}}>
-      <AppBar position="static" sx={{ bgcolor: '#353d24' }}>
+      <AppBar position="static" sx={{ bgcolor: '#9dac71' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
             <Box sx={{display:'flex', flexGrow: 1}}>

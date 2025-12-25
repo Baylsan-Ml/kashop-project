@@ -71,20 +71,20 @@ export default function Products() {
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 Products
                 </Typography>
-                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px'}}>
+                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:'#e38792'}}>
                   Check out our products, don't forget to add your favorites to cart 
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
                 {/* Search products */}
-                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-end'}}>
+                <Container maxWidth={'xl'} sx={{display:'flex',}}>
                   <ManageSearchIcon fontSize="large" />
                   <TextField id="outlined-basic" label="Search products..." variant="outlined"
                 sx={{ mb: 3 }} value={search} onChange={(e)=>setSearch(e.target.value)}  />
-                </Container>
+                {/* </Container> */}
                 {/* Search products end */}
                 {/* Sort */}
-                 <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-start'}}>
-                   <Box>
+                 {/* <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-start'}}> */}
+                   <Box sx={{flexGrow:1}}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Sort</InputLabel>
         <Select
@@ -104,20 +104,11 @@ export default function Products() {
     </Box>
                 </Container>
                 {/* Sort */}
-
-               
-
-
-
-
-
-
-
               <Container maxWidth='xl'>
               <Grid container sx={{}}>
                   {filteredProducts.map((product)=>
             <Grid item key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
-                   <Card sx={{backgroundColor:'#d2cabd',  cursor: 'pointer', width:'100%',}}>
+                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%',}}>
                      <CardMedia  sx={{ height: 250,  }}
                     image={product.image} title="green iguana"/>
                     <CardContent>
@@ -140,7 +131,7 @@ export default function Products() {
           <FavoriteBorderIcon />
           Favorite</Button>
         </Box>
-        <Button fullWidth sx={{display:'flex', py:1,color:'#eaebe5', backgroundColor:'#767759', m:1}}>
+        <Button fullWidth sx={{display:'flex', py:1,color:'#eaebe5', backgroundColor:'#e38792', m:1}}>
           <StickyNote2Icon/>
            <Link component={RouterLink} to={`/productDetails/${product.id}`} color='inherit' underline='none' >
             Details</Link>
