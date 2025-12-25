@@ -17,20 +17,49 @@ import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import StarIcon from '@mui/icons-material/Star';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-export default function Products() {
 
-  
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
+
+
+export default function Products() {
    const [sort, setSort] = useState('');
     const [search, setSearch] = useState('');
    const {username}=useContext(UserContext);
+  const handleChange = (event) => {
+    setSort(event.target.value);
+  }
        const {isLoading, isError, data}= useProducts();
        const [filteredProducts, setFilteredProducts] = useState([]);
-        useEffect(() => {
+        useEffect(() => {  
+           if (!data?.response) {
+          setFilteredProducts([]); 
+         return;
+  }
     const result = data.response.filter(product =>
       product.name.toLowerCase().includes(search.toLowerCase())
     );
+     switch(sort) {
+      case 'name-asc':
+        result.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'name-desc':
+        result.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case 'price-asc':
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case 'price-desc':
+        result.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        break;
+    }
     setFilteredProducts(result);
-  }, [search]);
+  }, [search,sort, data]);
 
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
@@ -47,12 +76,43 @@ export default function Products() {
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
                 {/* Search products */}
-                <Box sx={{display:'flex'}}>
-                  <ManageSearchIcon />
+                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-end'}}>
+                  <ManageSearchIcon fontSize="large" />
                   <TextField id="outlined-basic" label="Search products..." variant="outlined"
                 sx={{ mb: 3 }} value={search} onChange={(e)=>setSearch(e.target.value)}  />
-                </Box>
+                </Container>
                 {/* Search products end */}
+                {/* Sort */}
+                 <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-start'}}>
+                   <Box>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Sort</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={sort}
+          label="Sort"
+          onChange={(e) => setSort(e.target.value)}
+        >
+          <MenuItem value=''>Sort By</MenuItem>
+          <MenuItem value='name-asc'>Name A-Z</MenuItem>
+          <MenuItem value='name-desc'>Name Z-A</MenuItem>
+          <MenuItem value='price-asc'>Price Low-High</MenuItem>
+          <MenuItem value='price-desc'>Price High-Low</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+                </Container>
+                {/* Sort */}
+
+               
+
+
+
+
+
+
+
               <Container maxWidth='xl'>
               <Grid container sx={{}}>
                   {filteredProducts.map((product)=>
