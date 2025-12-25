@@ -71,13 +71,12 @@ export default function Products() {
         </Box>
         <Button fullWidth sx={{display:'flex', py:1,color:'#eaebe5', backgroundColor:'#767759', mt:1}}>
           <StickyNote2Icon/>
-           <Link component={RouterLink} to='/productDetails' color='inherit' underline='none' width={{}}>
+           <Link component={RouterLink} to={`/productDetails/${product.id}`} color='inherit' underline='none' width={{}}>
             Details</Link>
         </Button>
       </CardActions>
-                    </Card> 
-
-                  </Grid>
+    </Card> 
+  </Grid>
             )
             }
               </Grid>
