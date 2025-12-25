@@ -18,6 +18,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LogoutIcon from '@mui/icons-material/Logout';
+import CategoryIcon from '@mui/icons-material/Category';
 
 
 
@@ -59,7 +61,8 @@ export default function Navbar() {
              KAshop - {username}
           </Typography> */}
 
-          <Toolbar disableGutters>
+          <Toolbar disableGutters sx={{display:'flex' }}>
+            <Box sx={{display:'flex', flexGrow: 1}}>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -79,20 +82,30 @@ export default function Navbar() {
           >
             KA-Shop -{username}
           </Typography>
+          </Box>
 
           {/* <Button onClick={()=> setUsername('User Name')} variant='outlined' sx={{marginRight:3}}>
             Change Name
           </Button> */}
           <Box sx={{display:'flex', gap:2, alignItems:'center'}}>
             <Link component={RouterLink} to='/home' color='inherit' underline='none'>
-            <HomeIcon />
+            <HomeIcon title='Home' fontSize="large" />
+            </Link>
+
+            <Link component={RouterLink} to='/products' color='inherit' underline='none'>
+            <CategoryIcon fontSize="large" />
             </Link>
             {token!=null?
             <>
             <Link component={RouterLink} to='/cart' color='inherit' underline='none'>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon fontSize="large" />
             </Link>
-            <Button color='inherit' onClick={handleLogout}>Logout</Button>
+            <Box>
+            <Button color='inherit' onClick={handleLogout} sx={{gap:1}}>
+              <LogoutIcon fontSize="large" />
+              Logout
+              </Button>
+              </Box>
             </>
             :
             <>
@@ -102,14 +115,15 @@ export default function Navbar() {
             }
           </Box>
 
-          <Box>
+          <Box sx={{display:'flex', justifyContent:'flex-end'}}>
             <Tooltip title="Profile">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, m: 3 }}>
-                <Avatar alt="Avatar" src="/static/images/avatar/2.jpg" />
+              <IconButton  component={RouterLink} onClick={handleOpenUserMenu} to='/' sx={{ p: 0, m: 3 }}>
+                <Avatar alt="Avatar" src="https://mui.com/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+            
           </Box>
-
+          
         </Toolbar>
         </Container>
       </AppBar>

@@ -8,6 +8,8 @@ import Register from "./src/pages/register/Register.jsx";
 import SendCode from "./src/pages/sendCode/SendCode.jsx";
 import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
 import UserContextProvider, { UserContext } from "./src/context/UserContext.jsx";
+import ProductDetails from "./src/components/products/ProductDetails.jsx";
+import Products from "./src/components/products/Products.jsx";
 
 
 const Router = createBrowserRouter([
@@ -25,8 +27,17 @@ const Router = createBrowserRouter([
       {
         path: "/cart",
         element:
-        
           <Cart />
+      },
+      {
+        path:'products',
+        element:
+        <Products />
+      },
+      {
+        path: "/productDetails",
+        element:
+        <ProductDetails />
       },
       {
        path: "login",
