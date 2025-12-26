@@ -20,6 +20,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+
 
 
 
@@ -41,55 +43,61 @@ export default function Navbar() {
  
 
   return (
-    <Box color='info' sx={{ flexGrow: 1}}>
+    <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
       <AppBar position="static" sx={{ bgcolor: '#9dac71' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
-            <Box sx={{display:'flex', flexGrow: 1}}>
+            <Box sx={{display:'flex', flex: 1}}>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" noWrap component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
-             color: 'inherit', textDecoration: 'none', flexGrow: 1 }}>
+             color: 'inherit', textDecoration: 'none' }}>
             KA-Shop -{username}
           </Typography>
           </Box>
-          <Box sx={{display:'flex', gap:2, alignItems:'center'}}>
-            <Link component={RouterLink} to='/home' color='inherit' underline='none'>
-            <HomeIcon title='Home' fontSize="large" />
-            </Link>
-
-            <Link component={RouterLink} to='/products' color='inherit' underline='none'>
-            <CategoryIcon fontSize="large" />
-            </Link>
-            {token!=null?
-            <>
-            <Link component={RouterLink} to='/cart' color='inherit' underline='none'>
-            <ShoppingCartIcon fontSize="large" />
-            </Link>
-            <Box>
-            <Button color='inherit' onClick={handleLogout} sx={{gap:1}}>
-              <LogoutIcon fontSize="large" />
-              Logout
-              </Button>
-              </Box>
-            </>
-            :
-            <>
-            <Link component={RouterLink} to='/login' color='inherit' underline='none'>Login</Link>
-            <Link component={RouterLink} to='/register' color='inherit' underline='none'>Register</Link>
-            </>
-            }
-          </Box>
-
-          <Box sx={{display:'flex', justifyContent:'flex-end'}}>
-            <Tooltip title="Profile">
-              <IconButton  component={RouterLink} onClick={handleOpenUserMenu} to='/' sx={{ p: 0, m: 3 }}>
-                <Avatar alt="Avatar" src="https://mui.com/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            
-          </Box>
           
+            <Box sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
+            <Link component={RouterLink} to='/home' color='inherit' underline='none' 
+            sx={{display:'flex', flexDirection:'column', alignItems:'center' ,}}>
+            <HomeIcon title='Home' fontSize="large" /> Home
+            </Link>
+            <Link component={RouterLink} to='/category' color='inherit' underline='none'
+            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <CategoryIcon fontSize="large" /> Categories
+            </Link>
+            <Link component={RouterLink} to='/products' color='inherit' underline='none'
+            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <Inventory2Icon fontSize="large" /> Products
+            </Link>
+            {token&&
+            <Link component={RouterLink} to='/cart' color='inherit' underline='none'
+            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <ShoppingCartIcon fontSize="large" /> Cart
+            </Link>}
+            </Box>
+
+            <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 1,}}>
+             {token ? (
+             <Button color="inherit" onClick={handleLogout} startIcon={<LogoutIcon />}>
+              Logout
+             </Button>
+            ) : (
+             <>
+              <Link component={RouterLink} to="/login" color="inherit">
+              Login
+               </Link>
+                <Link component={RouterLink} to="/register" color="inherit">
+                Register
+                </Link>
+               </>
+               )}
+
+              <Tooltip title="Profile">
+                 <IconButton sx={{ p: 0 }}>
+                 <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                  </IconButton>
+                 </Tooltip>
+                </Box>
         </Toolbar>
         </Container>
       </AppBar>
