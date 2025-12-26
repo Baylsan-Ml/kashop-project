@@ -2,12 +2,7 @@ import { Box, Container, Grid, Card, Typography, Button, Link, TextField, Circul
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import {Link as RouterLink} from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
-import { Search } from '@mui/icons-material';
-import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useProducts } from '../../hooks/useProducts';
@@ -23,11 +18,15 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
 
 
 export default function Products() {
    const [sort, setSort] = useState('');
     const [search, setSearch] = useState('');
+     const [page, setPage]=useState(1);
    const {username}=useContext(UserContext);
   const handleChange = (event) => {
     setSort(event.target.value);
@@ -61,6 +60,15 @@ export default function Products() {
     setFilteredProducts(result);
   }, [search,sort, data]);
 
+      const pageItems=[];
+      for(let i=1; i<=1; i++){
+        pageItems.push(
+           <Stack spacing={2} >
+              <Pagination count={10} onClick={()=> setPage(i)} sx={{display:'flex', justifyContent:'center'}}/>
+            </Stack>
+        )
+      };
+
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
   
@@ -76,24 +84,19 @@ export default function Products() {
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
                 {/* Search products */}
-                <Container maxWidth={'xl'} sx={{display:'flex',}}>
-                  <ManageSearchIcon fontSize="large" />
-                  <TextField id="outlined-basic" label="Search products..." variant="outlined"
-                sx={{ mb: 3 }} value={search} onChange={(e)=>setSearch(e.target.value)}  />
-                {/* </Container> */}
-                {/* Search products end */}
-                {/* Sort */}
-                 {/* <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'flex-start'}}> */}
-                   <Box sx={{flexGrow:1}}>
-      <FormControl fullWidth>
+                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'space-between' }}>
+                  <Box sx={{display: "flex", alignItems: "center", gap: 1, width: "50%" }}>
+                    <ManageSearchIcon fontSize="large" fullWidth sx={{display:'flex', alignItems:'center', marginBottom:'auto'}} />
+                   <TextField id="outlined-basic" label="Search products..." variant="outlined"
+                sx={{ mb: 3, display:'flex', }} value={search} onChange={(e)=>setSearch(e.target.value)} />
+                </Box>
+               {/* Search products */}
+             <FormControl sx={{display:'flex',width: "20%"}} >
         <InputLabel id="demo-simple-select-label">Sort</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+        <Select labelId="demo-simple-select-label" id="demo-simple-select"
           value={sort}
           label="Sort"
-          onChange={(e) => setSort(e.target.value)}
-        >
+          onChange={(e) => setSort(e.target.value)}>
           <MenuItem value=''>Sort By</MenuItem>
           <MenuItem value='name-asc'>Name A-Z</MenuItem>
           <MenuItem value='name-desc'>Name Z-A</MenuItem>
@@ -101,7 +104,6 @@ export default function Products() {
           <MenuItem value='price-desc'>Price High-Low</MenuItem>
         </Select>
       </FormControl>
-    </Box>
                 </Container>
                 {/* Sort */}
               <Container maxWidth='xl'>
@@ -143,6 +145,12 @@ export default function Products() {
             }
               </Grid>
               </Container>
+
+
+              {/* Pagination */}
+              {pageItems}
+
+
           </Box>
             
     </>
