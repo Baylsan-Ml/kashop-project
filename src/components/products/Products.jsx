@@ -33,12 +33,14 @@ export default function Products() {
   }
        const {isLoading, isError, data}= useProducts();
        const [filteredProducts, setFilteredProducts] = useState([]);
+
         useEffect(() => {  
-           if (!data?.response) {
+           if (!data) {
+            console.log('40Line')
           setFilteredProducts([]); 
          return;
   }
-    const result = data.response.filter(product =>
+    const result = data.filter(product =>
       product.name.toLowerCase().includes(search.toLowerCase())
     );
      switch(sort) {

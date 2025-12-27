@@ -2,7 +2,8 @@ import { Box, Card, Container, Grid, Typography } from '@mui/material';
 export default function Footer() {
   return (
    
-    <Box component={'footer'} mt='5' sx={{backgroundColor:'#4e090a' }}>
+    <Box component={'footer'} mt='5' 
+    sx={{background:'linear-gradient(140deg,rgba(227, 135, 146, 1) 25%, rgba(78, 9, 10, 1) 65%)' }}>
     <Grid container>
        <Container maxWidth='xl' sx={{display:'flex'}}>
       <Grid size={{sx:12, sm:6 , md:6, lg:6}}>
