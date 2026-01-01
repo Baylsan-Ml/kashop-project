@@ -27,6 +27,7 @@ export default function Navbar() {
   
   const navigate=useNavigate();
   const token= useAuthStore((state)=>state.token);
+  const logout=useAuthStore((state)=>state.logout);
   const handleLogout=()=>{
     logout();
     navigate('/login');
