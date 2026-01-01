@@ -18,7 +18,7 @@ export default function Login() {
       loginMutation.mutateAsync(values);
   }
     return ( 
-  <Box className ="register-form">
+  <Box className ="register-form" sx={{minHeight:'80vh', pt:'100px'}}>
   <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Login Page</Typography>
   
   <Box onSubmit={handleSubmit(loginForm)} component={"form"} 

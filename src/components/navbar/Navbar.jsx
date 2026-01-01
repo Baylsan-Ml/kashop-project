@@ -7,33 +7,31 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from '@mui/material';
 import {Link as RouterLink, useNavigate} from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { UserContext } from '../../context/UserContext';
-import { AuthContext } from '../../context/AuthContext';
-import Menu from '@mui/material/Menu';
+import { useState } from 'react';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
+import useAuthStore from '../../store/authStore';
 
 
 
 
 export default function Navbar() {
-  const{token, logout}=useContext(AuthContext);
-  const {username , setUsername}= useContext(UserContext);
+ 
+  
   const navigate=useNavigate();
-
+  const token= useAuthStore((state)=>state.token);
   const handleLogout=()=>{
     logout();
     navigate('/login');
   }
+
 
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -52,7 +50,7 @@ export default function Navbar() {
           <Typography variant="h6" noWrap component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
              color: 'inherit', textDecoration: 'none' }}>
-            KA-Shop -{username}
+            KA-Shop -
           </Typography>
           </Box>
           
@@ -73,11 +71,13 @@ export default function Navbar() {
             <Link component={RouterLink} to='/cart' color='inherit' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <ShoppingCartIcon fontSize="large" /> Cart
-            </Link>}
+            </Link>
+           }
             </Box>
 
             <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 1,}}>
-             {token ? (
+             {token ? 
+             (
              <Button color="inherit" onClick={handleLogout} startIcon={<LogoutIcon />}>
               Logout
              </Button>
@@ -90,7 +90,8 @@ export default function Navbar() {
                 Register
                 </Link>
                </>
-               )}
+               )
+             }
 
               <Tooltip title="Profile">
                  <IconButton sx={{ p: 0 }}>

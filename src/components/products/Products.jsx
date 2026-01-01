@@ -3,8 +3,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import {Link as RouterLink} from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../context/UserContext';
+import {useEffect, useState } from 'react';
+
 import { useProducts } from '../../hooks/useProducts';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -27,7 +27,6 @@ export default function Products() {
    const [sort, setSort] = useState('');
     const [search, setSearch] = useState('');
      const [page, setPage]=useState(1);
-   const {username}=useContext(UserContext);
   const handleChange = (event) => {
     setSort(event.target.value);
   }
@@ -43,6 +42,7 @@ export default function Products() {
     const result = data.filter(product =>
       product.name.toLowerCase().includes(search.toLowerCase())
     );
+
      switch(sort) {
       case 'name-asc':
         result.sort((a, b) => a.name.localeCompare(b.name));
@@ -63,20 +63,20 @@ export default function Products() {
   }, [search,sort, data]);
 
       const pageItems=[];
-      for(let i=1; i<=1; i++){
+      //for(let i=1; i<=1; i++){
         pageItems.push(
            <Stack spacing={2} >
               <Pagination count={10} onClick={()=> setPage(i)} sx={{display:'flex', justifyContent:'center'}}/>
             </Stack>
         )
-      };
+      //};
 
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
   
   return (
     <>
-       <Box p={3} sx={{textAlign:'center'}}>
+        <Box p={3} sx={{textAlign:'center'}}>
               <Typography component={'h2'} variant='h4' m={3} 
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 Products
@@ -113,7 +113,7 @@ export default function Products() {
                   {filteredProducts.map((product)=>
             <Grid item key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%',}}>
-                     <CardMedia  sx={{ height: 250,  }}
+                     <CardMedia  sx={{ height: 250, objectFit:'contain' }}
                     image={product.image} title="green iguana"/>
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -147,14 +147,9 @@ export default function Products() {
             }
               </Grid>
               </Container>
-
-
               {/* Pagination */}
               {pageItems}
-
-
-          </Box>
-            
+          </Box>       
     </>
   )
 }

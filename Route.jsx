@@ -7,7 +7,6 @@ import Login from "./src/pages/login/Login.jsx";
 import Register from "./src/pages/register/Register.jsx";
 import SendCode from "./src/pages/sendCode/SendCode.jsx";
 import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
-import UserContextProvider, { UserContext } from "./src/context/UserContext.jsx";
 import ProductDetails from "./src/components/products/ProductDetails.jsx";
 import Products from "./src/components/products/Products.jsx";
 import Categories from "./src/components/categories/Categories.jsx";
@@ -17,9 +16,9 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: 
-    <UserContextProvider>
-    <MainLayout />
-    </UserContextProvider> ,
+    
+    <MainLayout />,
+    
     children:[
       {
         path: "/home",
