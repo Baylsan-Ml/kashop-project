@@ -28,6 +28,7 @@ export default function Navbar() {
   const navigate=useNavigate();
   const token= useAuthStore((state)=>state.token);
   const logout=useAuthStore((state)=>state.logout);
+  const user=useAuthStore((state)=>state.user);
   const handleLogout=()=>{
     logout();
     navigate('/login');
@@ -51,7 +52,7 @@ export default function Navbar() {
           <Typography variant="h6" noWrap component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
              color: 'inherit', textDecoration: 'none' }}>
-            KA-Shop -
+            KA-Shop - {user?.name}
           </Typography>
           </Box>
           

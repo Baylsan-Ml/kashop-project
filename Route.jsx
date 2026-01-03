@@ -10,6 +10,7 @@ import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
 import ProductDetails from "./src/components/products/ProductDetails.jsx";
 import Products from "./src/components/products/Products.jsx";
 import Categories from "./src/components/categories/Categories.jsx";
+import ProtectedRouter from "./src/ProtectedRouter.jsx";
 
 
 const Router = createBrowserRouter([
@@ -27,7 +28,9 @@ const Router = createBrowserRouter([
       {
         path: "/cart",
         element:
+        <ProtectedRouter>
           <Cart />
+        </ProtectedRouter>  
       },
       {
         path:"/category",
