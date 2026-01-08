@@ -1,12 +1,13 @@
 import useProductDetails from '../../hooks/useProductDetails'
 import { Box, Button, Card, CardMedia, CircularProgress, Container, Grid, Rating, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import useAddToCart from '../../hooks/useAddToCart';
 
 export default function ProductDetails() {
   const {id} = useParams();
   console.log(id);
   const {isLoading, isError, data}=useProductDetails(id);
-  console.log(data);
+  const {mutate: addToCart, isPending: isAddingToCart}= useAddToCart();
   if(isLoading) return <CircularProgress />;
   if(isError) return <Typography>Error</Typography>;
   const product=data.response;
@@ -30,7 +31,10 @@ export default function ProductDetails() {
             <Typography component={'h3'} variant='span'>Price: {product.price}$</Typography>
             <Rating value={product.rate} readOnly></Rating>
             <Typography variant='span'>Available Quantity: {product.quantity}</Typography>
-            <Button variant='contained' color='error'>Add To Cart</Button>
+            <Button variant='contained' color='error' 
+            onClick={()=>addToCart({ProductId:product.id, Count:1})}
+            disabled={isAddingToCart}
+            >Add To Cart</Button>
           </Grid>
         </Grid>
 
