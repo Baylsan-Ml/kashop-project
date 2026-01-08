@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Card, Typography, Button, Link, TextField, CircularProgress, IconButton } from '@mui/material'
+import { Box, Container, Grid, Card, Typography, Button, Link, TextField, CircularProgress, IconButton, Rating } from '@mui/material'
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -39,16 +39,16 @@ export default function Products() {
           setFilteredProducts([]); 
          return;
   }
-    const result = data.filter(product =>
-      product.name.toLowerCase().includes(search.toLowerCase())
+    const result = data.response.data.filter(product =>
+      product.name?.toLowerCase().includes(search.toLowerCase())
     );
 
      switch(sort) {
       case 'name-asc':
-        result.sort((a, b) => a.name.localeCompare(b.name));
+        result.sort((a, b) => a.name?.localeCompare(b.name));
         break;
       case 'name-desc':
-        result.sort((a, b) => b.name.localeCompare(a.name));
+        result.sort((a, b) => b.name?.localeCompare(a.name));
         break;
       case 'price-asc':
         result.sort((a, b) => a.price - b.price);
@@ -63,14 +63,9 @@ export default function Products() {
   }, [search,sort, data]);
 
       const pageItems=[];
-      //for(let i=1; i<=1; i++){
         pageItems.push(
-           <Stack spacing={2} >
               <Pagination count={10} onClick={()=> setPage(i)} sx={{display:'flex', justifyContent:'center'}}/>
-            </Stack>
         )
-      //};
-
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
   
@@ -111,19 +106,18 @@ export default function Products() {
               <Container maxWidth='xl'>
               <Grid container sx={{}}>
                   {filteredProducts.map((product)=>
-            <Grid item key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
-                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%',}}>
-                     <CardMedia  sx={{ height: 250, objectFit:'contain' }}
-                    image={product.image} title="green iguana"/>
+            <Grid  key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
+                   <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
+                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%'}}>
+                     <CardMedia  sx={{height:500, objectFit:'contain', p:2}}
+                     image={product.image} title="green iguana" />
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
         </Typography>
         <Box sx={{display:'flex',}}>
-          <Typography sx={{display:'flex', flexGrow:1}}>Price: {product.price}</Typography>
-          <Typography sx={{display:'flex'}}>
-            <StarIcon sx={{color:'gold'}}/>
-            {product.rate}</Typography>  
+          <Typography sx={{display:'flex', flexGrow:1}}>Price: {product.price} $</Typography>
+            <Rating sx={{color:'gold'}}/>
         </Box> 
       </CardContent>
       <CardActions sx={{display:'flex', flexDirection:'column'}}>
@@ -135,13 +129,9 @@ export default function Products() {
           <FavoriteBorderIcon />
           Favorite</Button>
         </Box>
-        <Button fullWidth sx={{display:'flex', py:1,color:'#eaebe5', backgroundColor:'#e38792', m:1}}>
-          <StickyNote2Icon/>
-           <Link component={RouterLink} to={`/productDetails/${product.id}`} color='inherit' underline='none' >
-            Details</Link>
-        </Button>
       </CardActions>
     </Card> 
+                   </Link>
   </Grid>
             )
             }

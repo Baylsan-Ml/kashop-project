@@ -19,7 +19,8 @@ export default function Categories() {
             {data.response.map((category)=>
       <Grid item key={category.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
              <Card sx={{p:3,color:'#eaebe5', backgroundColor:'#e38792',  cursor: 'pointer', width:'100%', fontWeight:'bold'}}>
-              {category.name}
+              <Typography>{category.name}</Typography>
+              
               </Card> 
             </Grid>
       )
