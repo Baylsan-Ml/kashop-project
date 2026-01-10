@@ -5,13 +5,12 @@ import useAddToCart from '../../hooks/useAddToCart';
 
 export default function ProductDetails() {
   const {id} = useParams();
-  console.log(id);
   const {isLoading, isError, data}=useProductDetails(id);
   const {mutate: addToCart, isPending: isAddingToCart}= useAddToCart();
   if(isLoading) return <CircularProgress />;
   if(isError) return <Typography>Error</Typography>;
   const product=data.response;
-  console.log(product);
+  
 
   return (
     <Container>

@@ -35,7 +35,6 @@ export default function Products() {
 
         useEffect(() => {  
            if (!data) {
-            console.log('40Line')
           setFilteredProducts([]); 
          return;
   }
@@ -64,7 +63,7 @@ export default function Products() {
 
       const pageItems=[];
         pageItems.push(
-              <Pagination count={10} onClick={()=> setPage(i)} sx={{display:'flex', justifyContent:'center'}}/>
+              <Pagination key={pageItems.indexOf(pageItems)} count={10} onClick={()=> setPage(i)} sx={{display:'flex', justifyContent:'center'}}/>
         )
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>

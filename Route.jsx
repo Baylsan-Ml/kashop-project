@@ -11,14 +11,14 @@ import ProductDetails from "./src/components/products/ProductDetails.jsx";
 import Products from "./src/components/products/Products.jsx";
 import Categories from "./src/components/categories/Categories.jsx";
 import ProtectedRouter from "./src/ProtectedRouter.jsx";
+import { Container } from "@mui/material";
 
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: 
-    
-    <MainLayout />,
+      <MainLayout />,
     
     children:[
       {
