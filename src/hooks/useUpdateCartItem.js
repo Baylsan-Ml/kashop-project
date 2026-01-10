@@ -2,10 +2,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 import axiosAuthInstance from '../Api/axiosAuthInstance';
 
-export default function useRemoveFromCart() {
+export default function useUpdateCartItem() {
     const queryClient= useQueryClient();
-  return useMutation ({
-    mutationFn:(cartItemId)=> axiosAuthInstance.delete(`/Carts/${cartItemId}`),
+  return useMutation({
+    mutationFn: async({productId, count})=>
+        await axiosAuthInstance.patch(`/Carts/${productId}`, {count}),
     onSuccess:()=>{
         queryClient.invalidateQueries({queryKey:['carts']})
     }

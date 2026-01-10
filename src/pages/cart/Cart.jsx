@@ -1,8 +1,22 @@
 import useCart from '../../hooks/useCart'
-import { Box, Button, CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Container, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import useRemoveFromCart from '../../hooks/useRemoveFromCart';
+import useUpdateCartItem from '../../hooks/useUpdateCartItem';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function Cart() {
     const {data, isLoading, isError}= useCart();
+    const {mutate:removeItem, isPending:isRemovingItem}=useRemoveFromCart();
+    const {mutate:updateItem, isPending:isUpdatingItem}=useUpdateCartItem();
+    const handleUpdate=(productId, action)=>{
+        const item= data.items.find(i=>i.productId== productId)
+        if(action== '-'){
+            updateItem({productId, count:item.count-1})
+        }else{
+            updateItem({productId, count:item.count+1})
+        }
+    }
     if(isLoading) return <CircularProgress/>
     if(isError) return <Typography>Error</Typography>
 
@@ -21,13 +35,24 @@ export default function Cart() {
 
             <TableBody>
                 {data.items.map(item=>
-                    <TableRow key={item.id}>
+                    <TableRow key={item.productId}>
                         <TableCell>{item.productName}</TableCell>
                         <TableCell>{item.price}</TableCell>
-                        <TableCell>{item.count}</TableCell>
-                        <TableCell>{item.totalPrice}</TableCell>
+                        <TableCell >
+                            <IconButton
+                            onClick={()=>handleUpdate(item.productId, '-')}
+                            > <RemoveIcon sx={{color:'#e38792', mr:1}} /></IconButton>
+                            {item.count}
+                             <IconButton
+                            onClick={()=>handleUpdate(item.productId, '+')}
+                            > <AddIcon sx={{color:'#e38792', ml:1}}/> </IconButton>
+                            </TableCell>
+                        <TableCell >{item.totalPrice}</TableCell>
                         <TableCell>
-                            <Button color='error' variant='contained'>remove</Button>
+                            <Button sx={{backgroundColor:'#4e090a'}} variant='contained'
+                            onClick={()=>removeItem(item.productId)}
+                            disabled={isRemovingItem}>
+                                remove</Button>
                         </TableCell>
                     </TableRow>
                 )}
