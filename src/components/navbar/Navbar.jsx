@@ -18,17 +18,26 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import CategoryIcon from '@mui/icons-material/Category';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import useAuthStore from '../../store/authStore';
-
+import { useTranslation } from 'react-i18next';
+import TranslateIcon from '@mui/icons-material/Translate';
 
 
 
 export default function Navbar() {
  
-  
+  const { t, i18n } = useTranslation();
   const navigate=useNavigate();
   const token= useAuthStore((state)=>state.token);
   const logout=useAuthStore((state)=>state.logout);
   const user=useAuthStore((state)=>state.user);
+
+  const toggleLanguage = () => {
+    const newLang= i18n.language === 'ar'?'en':'ar'
+    i18n.changeLanguage(newLang);
+  }
+
+  
+
   const handleLogout=()=>{
     logout();
     navigate('/login');
@@ -59,20 +68,20 @@ export default function Navbar() {
             <Box sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
             <Link component={RouterLink} to='/home' color='inherit' underline='none' 
             sx={{display:'flex', flexDirection:'column', alignItems:'center' ,}}>
-            <HomeIcon title='Home' fontSize="large" /> Home
+            <HomeIcon title='Home' fontSize="large" /> {t("Home")}
             </Link>
             <Link component={RouterLink} to='/category' color='inherit' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <CategoryIcon fontSize="large" /> Categories
+            <CategoryIcon fontSize="large" /> {t("Categories")}
             </Link>
             <Link component={RouterLink} to='/products' color='inherit' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <Inventory2Icon fontSize="large" /> Products
+            <Inventory2Icon fontSize="large" /> {t("Products")}
             </Link>
             {token&&
             <Link component={RouterLink} to='/cart' color='inherit' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <ShoppingCartIcon fontSize="large" /> Cart
+            <ShoppingCartIcon fontSize="large" /> {t("Cart")}
             </Link>
            }
             </Box>
@@ -81,20 +90,27 @@ export default function Navbar() {
              {token ? 
              (
              <Button color="inherit" onClick={handleLogout} startIcon={<LogoutIcon />}>
-              Logout
+              {t("Logout")}
              </Button>
             ) : (
              <>
               <Link component={RouterLink} to="/login" color="inherit">
-              Login
+              {t("Login")}
                </Link>
                 <Link component={RouterLink} to="/register" color="inherit">
-                Register
+                {t("Register")}
                 </Link>
                </>
                )
              }
 
+             <Button
+             onClick={toggleLanguage}
+             >
+              {i18n.language=='ar' ? 'EN' : 'ع'}
+              <TranslateIcon />
+              
+             </Button>
               <Tooltip title="Profile">
                  <IconButton sx={{ p: 0 }}>
                  <Avatar src="https://mui.com/static/images/avatar/2.jpg" />

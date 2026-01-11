@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import { Box, Card, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import { useCategories } from '../../hooks/useCategories';
+import { useTranslation } from 'react-i18next';
 
 export default function Categories() {
     
     const[categories, setCategoris]=useState([]);
     const {isLoading, isError, data}= useCategories();
+     const { t, i18n } = useTranslation();
     if(isLoading) return <CircularProgress/>
     if(isError) return <Typography>Error</Typography>
   return (
     <>
         <Box p={3} sx={{textAlign:'center'}}>
         <Typography component={'h2'} variant='h4' m={3} sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
-          Categories</Typography>
+          {t("Categories")}</Typography>
           <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo saepe, nobis obcaecati nesciunt labore.</Typography>
         <Container maxWidth='xl'>
         <Grid container sx={{textAlign:'center'}}>

@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from '../../validation/RegisterSchema';
 import useRegister from '../../hooks/useRegister';
+import { useTranslation } from 'react-i18next';
 
 export default function Regiester() {
-
+   const { t, i18n } = useTranslation();
   const {register, handleSubmit, formState:{errors, isSubmitting}} = useForm({
     resolver:yupResolver(RegiesterSchema),
     mode: 'onBlur'
@@ -18,7 +19,7 @@ export default function Regiester() {
   return (
    
 <Box className ="register-form" >
-<Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Register Page</Typography>
+<Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >{t("Register")}</Typography>
     {serverErrors.length>0 ?
       serverErrors.map((err)=>
        <Typography sx={{color:'red'}}>{err}</Typography>

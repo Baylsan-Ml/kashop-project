@@ -6,10 +6,12 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SendCodeSchema } from '../../validation/SendCodeSchema.js'
 import useLogin from '../../hooks/useLogin.js'
 import { jwtDecode } from "jwt-decode";
+import { useTranslation } from 'react-i18next'
 
 
 
 export default function Login() {
+   const { t, i18n } = useTranslation();
     const {register, handleSubmit, formState:{errors, isSubmitting}}= useForm({
        resolver:yupResolver(SendCodeSchema),
        mode:'onBlur'
@@ -21,7 +23,7 @@ export default function Login() {
   }
     return ( 
   <Box className ="register-form" sx={{minHeight:'80vh', pt:'100px'}}>
-  <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >Login Page</Typography>
+  <Typography variant='h1'sx={{textAlign: 'center', mt:3 }} >{t("Login")}</Typography>
   
   <Box onSubmit={handleSubmit(loginForm)} component={"form"} 
   sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 5, alignItems: 'center'}}>
