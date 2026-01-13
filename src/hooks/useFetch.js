@@ -4,7 +4,7 @@ import axiosInstance from '../Api/axiosInstance';
 export default function useFetch(queryKey, url, inctanse= axiosInstance) {
    const fetchData= async()=>{
         const response= await inctanse.get(url);
-        // console.log(response.data);
+        console.log(response.data);
         return response.data;
     }
     const query = useQuery({

@@ -56,30 +56,30 @@ export default function Navbar() {
       <AppBar position="static" sx={{ bgcolor: '#9dac71' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
-            <Box sx={{display:'flex', flex: 1}}>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography variant="h6" noWrap component="a" href="#app-bar-with-responsive-menu"
+            <Box color={'secondary'} sx={{display:'flex', flex: 1}}>
+          <AdbIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
-             color: 'inherit', textDecoration: 'none' }}>
+              textDecoration: 'none' }}>
             KA-Shop - {user?.name}
           </Typography>
           </Box>
           
-            <Box sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
-            <Link component={RouterLink} to='/home' color='inherit' underline='none' 
+            <Box  sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
+            <Link color='secondary' component={RouterLink} to='/home'  underline='none' 
             sx={{display:'flex', flexDirection:'column', alignItems:'center' ,}}>
             <HomeIcon title='Home' fontSize="large" /> {t("Home")}
             </Link>
-            <Link component={RouterLink} to='/category' color='inherit' underline='none'
+            <Link component={RouterLink} to='/category' color='secondary' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <CategoryIcon fontSize="large" /> {t("Categories")}
             </Link>
-            <Link component={RouterLink} to='/products' color='inherit' underline='none'
+            <Link component={RouterLink} to='/products' color='secondary' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <Inventory2Icon fontSize="large" /> {t("Products")}
             </Link>
             {token&&
-            <Link component={RouterLink} to='/cart' color='inherit' underline='none'
+            <Link component={RouterLink} to='/cart' color='secondary' underline='none'
             sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <ShoppingCartIcon fontSize="large" /> {t("Cart")}
             </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
             <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 1,}}>
              {token ? 
              (
-             <Button color="inherit" onClick={handleLogout} startIcon={<LogoutIcon />}>
+             <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />}>
               {t("Logout")}
              </Button>
             ) : (
@@ -104,11 +104,11 @@ export default function Navbar() {
                )
              }
 
-             <Button
+             <Button color='secondary'
              onClick={toggleLanguage}
              >
-              {i18n.language=='ar' ? 'EN' : 'ع'}
-              <TranslateIcon />
+              {/* {i18n.language=='ar' ? 'EN' : 'ع'} */}
+              <TranslateIcon color='secondary' />
               
              </Button>
               <Tooltip title="Profile">

@@ -4,22 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import {Link as RouterLink} from 'react-router-dom';
 import {useEffect, useState } from 'react';
-
 import { useProducts } from '../../hooks/useProducts';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import StickyNote2Icon from '@mui/icons-material/StickyNote2';
-import StarIcon from '@mui/icons-material/Star';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 import { useTranslation } from 'react-i18next';
 
 
@@ -73,7 +67,7 @@ export default function Products() {
   return (
     <>
         <Box p={3} sx={{textAlign:'center'}}>
-              <Typography component={'h2'} variant='h4' m={3} 
+              <Typography component={'h2'} variant='h4' m={3} color='tertiary'
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {t("Products")}
                 </Typography>
@@ -109,8 +103,8 @@ export default function Products() {
                   {filteredProducts.map((product)=>
             <Grid  key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
-                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%'}}>
-                     <CardMedia  sx={{height:500, objectFit:'contain', p:2}}
+                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%' }}>
+                     <CardMedia  sx={{Height:'300px', objectFit:'contain', p:2}}
                      image={product.image} title="green iguana" />
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">

@@ -12,6 +12,8 @@ import Products from "./src/components/products/Products.jsx";
 import Categories from "./src/components/categories/Categories.jsx";
 import ProtectedRouter from "./src/ProtectedRouter.jsx";
 import { Container } from "@mui/material";
+import Sales from "./src/components/sales/Sales.jsx";
+import Hero from "./src/components/hero/Hero.jsx";
 
 
 const Router = createBrowserRouter([
@@ -33,14 +35,24 @@ const Router = createBrowserRouter([
         </ProtectedRouter>  
       },
       {
+        path:'/hero',
+        element:
+        <Hero />
+      },
+      {
         path:"/category",
         element:
         <Categories />
       },
       {
-        path:'products',
+        path:'/products',
         element:
         <Products />
+      },
+      {
+        path:'/sales',
+        element: 
+        <Sales />
       },
       {
         path: "/productDetails/:id",
