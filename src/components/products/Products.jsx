@@ -104,8 +104,8 @@ export default function Products() {
             <Grid  key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
                    <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%' }}>
-                     <CardMedia  sx={{Height:'300px', objectFit:'contain', p:2}}
-                     image={product.image} title="green iguana" />
+                     <CardMedia  sx={{Height:'500px', objectFit:'contain', p:2}}
+                     image={product.image} title="green iguana" Height='100%' />
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
@@ -116,14 +116,14 @@ export default function Products() {
         </Box> 
       </CardContent>
       <CardActions sx={{display:'flex', flexDirection:'column'}}>
-        <Box sx={{display:'flex',p:'8px'}}>
+        {/* <Box sx={{display:'flex',p:'8px'}}>
            <Button size="small" sx={{color:'#767759', backgroundColor:'eaebe5', display:'flex', flexGrow:1}}>
             <AddShoppingCartIcon sx={{color:'#767759'}}/>
             Add to Cart</Button>
         <Button size="small" sx={{color:'#767759', display:'flex', flexGrow:1}}>
           <FavoriteBorderIcon />
           Favorite</Button>
-        </Box>
+        </Box> */}
       </CardActions>
     </Card> 
                    </Link>

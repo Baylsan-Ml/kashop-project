@@ -1,37 +1,106 @@
-import { Box, Card, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, Container, Divider, Grid, TextField, Typography } from '@mui/material';
+import useAuthStore from '../../store/authStore';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
 export default function Footer() {
+      const user=useAuthStore((state)=>state.user);
+      const { t, i18n } = useTranslation();
   return (
    
     <Box component={'footer'} mt='5'  elevation={0}
-    sx={{background:'linear-gradient(140deg,rgba(227, 135, 146, 1) 25%, rgba(78, 9, 10, 1) 65%)',
+    sx={{ background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
        minHeight: '30vh', py: 7,
        color:'#eaebe5'
      }}>
-    <Grid container sx={{textAlign:'center'}}>
+    <Grid container sx={{textAlign:'center', display:'flex', justifyContent:'center'}}>
        <Container maxWidth="xl" sx={{display:'flex', justifyContent:'space-between'}}>
-      <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-      <Typography component={'h4'}>KA- Shop </Typography>
+      <Grid size={{xs:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center', display:'flex', flexDirection:'column', gap:2}}>
+     <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
+           sx={{ display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
+              textDecoration: 'none' }}>
+            KA-Shop - {user?.name}
+          </Typography>
+          <Box sx={{display:'flex', flexDirection:'column', gap:1}}>
+            <Typography component={'address'} variant='h6'
+            sx={{display:'flex', justifyContent:'center'}}
+            >{t("Tokyo's Beika Ward")}</Typography>
+            <Typography sx={{display:'flex', justifyContent:'center'}} >0011881188</Typography>
+            <TextField id="outlined-basic" label="Enter Your Email" variant="outlined" color="secondary" focused 
+            sx={{display:'flex', justifyContent:'center'}} />
+            <Box sx={{display:'flex', gap:2, justifyContent:'center' }}>
+              <InstagramIcon  fontSize="large"/>
+              <FacebookIcon  fontSize="large"/>
+              <WhatsAppIcon  fontSize="large"/>
+              <TwitterIcon  fontSize="large"/>
+              <YouTubeIcon  fontSize="large"/>
+            </Box>
+          </Box>
+           
 </Grid>
-      <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-Support
-<Typography component={'br'}></Typography>
+{/* <Divider orientation="vertical" flexItem fullWidth /> */}
+      <Grid size={{xs:12, sm:6 , md:4, lg:6}} sx={{textAlign:'center'}}>
+ <Typography variant="h6" noWrap color= 'secondary' 
+           sx={{  fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
+              textDecoration: 'none' }}>
+            {t("Support")}
+          </Typography>
+            <Grid container sx={{display:'flex', justifyContent:'center'}}>
+          <Grid size={{xs:12, sm:6 , md:4, lg:3}}>
+            <Typography sx={{fontSize:'19px', pb:2}}>{t("Information")}</Typography>
+            <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
+            <Typography sx={{fontSize:'13px'}}>{t("Privicy Policy")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Customer Services")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Shipping & Return")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Terms & Conditions")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Refud Policy")}</Typography>
+            </Box>
+          </Grid>
+          <Divider orientation="vertical" flexItem />
+          <Grid size={{xs:12, sm:6 , md:4, lg:3}}>
+            <Typography sx={{fontSize:'19px', pb:2}}>{t("Support")}</Typography>
+            <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
+            <Typography sx={{fontSize:'13px'}}>{t("Privicy Policy")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Customer Services")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Shipping & Return")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Terms & Conditions")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Refud Policy")}</Typography>
+            </Box>
+          </Grid>
+          <Divider orientation="vertical" flexItem />
+          <Grid size={{xs:12, sm:6 , md:4, lg:3}}>
+            <Typography sx={{fontSize:'19px', pb:2}}>{t("Contact Us")}</Typography>
+            <Box sx={{display:'flex', flexDirection:'column', gap:2}}>
+            <Typography sx={{fontSize:'13px'}}>{t("About Us")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Contact Us")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("FAQ's")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Store Location")}</Typography>
+            <Typography sx={{fontSize:'13px'}}>{t("Call Us")}</Typography>
+            </Box>
+          </Grid>
+        </Grid>   
+{/* <Typography component={'br'}></Typography> */}
 </Grid>
- <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-Contact Us</Grid>
-    </Container>
-      <Container maxWidth="xl" sx={{display:'flex', justifyContent:'space-between', mt:3}}>
-      <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptatem ab voluptatum dolores dignissimos corporis magni. Atque, ratione. Quasi sint omnis dolor corporis voluptatum maxime laboriosam commodi, iure rerum sunt ipsam? Non ut, assumenda perspiciatis nisi perferendis consequatur quia tempora beatae, odio voluptas tenetur aliquid voluptatem id modi natus at.      
-</Grid>
-      <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis tempore neque hic, tenetur unde ad exercitationem assumenda fuga velit quas, magni atque iste illum saepe. Quaerat distinctio incidunt aut eos atque sint quo perferendis, tempora voluptatum laudantium quibusdam aliquid nostrum earum accusantium magni quis quod asperiores. Modi ipsa error explicabo.      
-</Grid>
- <Grid size={{sx:12, sm:6 , md:4, lg:3}} sx={{textAlign:'center'}}>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis tempore neque hic, tenetur unde ad exercitationem assumenda fuga velit quas, magni atque iste illum saepe. Quaerat distinctio incidunt aut eos atque sint quo perferendis, tempora voluptatum laudantium quibusdam aliquid nostrum earum accusantium magni quis quod asperiores. Modi ipsa error explicabo.      
+{/* <Divider orientation="vertical" flexItem /> */}
+ <Grid size={{xs:12, sm:6 , md:4, lg:3}} 
+ sx={{textAlign:'center', display:'flex', flexDirection:'column', alignItems:'flex-start', gap:2}}>
+<Typography variant="h6" noWrap color= 'secondary' 
+           sx={{fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
+              textDecoration: 'none' }}>
+                  {t(" Have Something in Mind?")}
+          </Typography>
+   <TextField id="outlined-basic" label="Outlined" variant="outlined" fullWidth  multiline
+      color="secondary" focused  
+         rows={4} />
+         <Button variant="outlined" color='secodary'  >Send</Button>
 </Grid>
     </Container>
     </Grid>
-     </Box>
-      
+     </Box>  
   )
 }

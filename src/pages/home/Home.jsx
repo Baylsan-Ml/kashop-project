@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Sales from '../../components/sales/Sales';
 import Hero from '../../components/hero/Hero';
+import Clients from '../../components/clients/Clients';
 
 export default function Home() {
 
@@ -19,12 +20,8 @@ export default function Home() {
     <Hero />
     <Categories />
     <Sales />
-    <Products /> 
-
-
-
-
-    
+    <Products />
+    <Clients />
     </>
   )
 }
