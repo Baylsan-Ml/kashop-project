@@ -14,6 +14,7 @@ import ProtectedRouter from "./src/ProtectedRouter.jsx";
 import { Container } from "@mui/material";
 import Sales from "./src/components/sales/Sales.jsx";
 import Hero from "./src/components/hero/Hero.jsx";
+import Dashboard from "./src/pages/dash/Dashboard.jsx";
 
 
 const Router = createBrowserRouter([
@@ -23,6 +24,11 @@ const Router = createBrowserRouter([
       <MainLayout />,
     
     children:[
+      {
+        path:"/",
+        element:
+        <Dashboard />
+      },
       {
         path: "/home",
         element: <Home />
