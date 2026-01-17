@@ -39,9 +39,7 @@ export default function Login() {
   <TextField label="password" {...register('password')} sx={{width:'90%'}} variant="outlined"/>
   <Box sx={{display:'flex', width:'90%', gap:5, justifyContent:'center'}}>
      <Button variant="contained" type="submit"  disabled={isSubmitting} color='primary'
-    sx={{ width:'20%', boxShadow: 2, 
-      
-    }}>
+    sx={{ width:'20%', boxShadow: 2}}>
      {isSubmitting? <CircularProgress />: 'Login'}
     </Button >
     <Button variant="contained" type="submit" color='info'

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, Container, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SendCodeSchema } from '../../validation/SendCodeSchema';
 import useSendCode from '../../hooks/useSendCode';
+import { useTranslation } from 'react-i18next';
 
 export default function SendCode() {
 
@@ -13,33 +14,35 @@ export default function SendCode() {
   })
    
   const {sendCodeMutation}=useSendCode();
-
+  const { t } = useTranslation();
   const sendCodeForm= async(value)=>{
     sendCodeMutation.mutateAsync(value);
-    // console.log(value);
-    // try{
-    //     const response= await axiosInstance.post(`/Auth/Account/SendCode`, value);
-    //     console.log(response.data);
-    //     if(response.data.success === true){
-    //       navigate('/resetPassword');
-    //     }else{
-    //       alert('Please Enter a Valid Email');
-    //     }
-    // }catch(err){
-    //   console.log(err); 
-    // }
   }
   return (
-    <Box className='sendCode-Form'>
-      <Typography variant='h1' sx={{textAlign:'center'}} mt={15}>Send Code</Typography>
+     <Container component={'section'} sx={{display:'flex', justifyContent:'center' }}>
+       <Box 
+       sx={{minHeight:'70vh', m:5, boxShadow:2, border: 1, borderLeft: 0, borderTop: 0 , borderColor: 'grey.500', width:'70%',
+   display:'flex', flexDirection:'column', justifyContent:'center', borderRadius: '5px'}}
+       >
+      <Typography variant='h1' sx={{textAlign:'center'}}>{t("Send Code")}</Typography>
       <Box component={"form"} onSubmit={handleSubmit(sendCodeForm)}
       sx={{ display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:1}} mt={5}>
-        <TextField label="enter your email" {...register('email')} sx={{width:'40%',}} variant="outlined"
+        <TextField label="enter your email" {...register('email')} sx={{width:'40%'}} variant="outlined"
         error={errors.email} helperText={errors.email?.message}/>
-        <Button  variant="contained" type="submit" disabled={isSubmitting}  sx={{backgroundColor:'InfoText', width:'40%'}}>
+        <Box sx={{display:'flex', width:'90%', gap:5, justifyContent:'center'}}>
+          <Button  variant="contained" type="submit" disabled={isSubmitting}  
+         sx={{ width:'20%', boxShadow: 2}}>
           {isSubmitting? <CircularProgress />: 'Send Code'}
           </Button>
+          <Button variant="contained" type="submit" color='info'
+    sx={{ width:'20%', boxShadow: 2, color:'#f2efe8'}}>
+     Cancel
+    </Button >
+        </Box>
+        
       </Box>
     </Box>
+     </Container>
+   
   )
 }

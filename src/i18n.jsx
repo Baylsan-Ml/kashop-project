@@ -39,6 +39,7 @@ i18n
           "Product Name":"Product Name",
           "Remove":"Remove",
           "Cart Total":"Cart Total",
+          "Reset Password":"Reset Password",
         }
       },
        ar: {
@@ -72,7 +73,8 @@ i18n
           "Price":"السعر",
           "Product Name":"اسم المنتج",
           "Remove":"حذف",
-          "Cart Total":"إجمالي السلة "
+          "Cart Total":"إجمالي السلة",
+          "Reset Password":"إعادة تعيين كلمة المرور"
         }
       }
     },
