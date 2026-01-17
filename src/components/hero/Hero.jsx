@@ -31,9 +31,6 @@ export default function Hero() {
       <SwiperSlide>Slide 4</SwiperSlide>
       
       <Button onClick={()=> swiper.slideNext()}>next slide</Button>
-
-
-      
     </Swiper>
         </Box>    
     

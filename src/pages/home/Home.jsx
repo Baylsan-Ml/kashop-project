@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Sales from '../../components/sales/Sales';
 import Hero from '../../components/hero/Hero';
 import Clients from '../../components/clients/Clients';
+import Features from '../../components/features/Features';
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
     <Hero />
     <Categories />
     <Sales />
+    <Features/>
     <Products />
     <Clients />
     </>

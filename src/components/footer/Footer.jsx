@@ -47,7 +47,7 @@ export default function Footer() {
       <Grid size={{xs:12, sm:6 , md:4, lg:6}} sx={{textAlign:'center'}}>
  <Typography variant="h6" noWrap color= 'secondary' 
            sx={{  fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
-              textDecoration: 'none' }}>
+              textDecoration: 'none', pb:2 }}>
             {t("Support")}
           </Typography>
             <Grid container sx={{display:'flex', justifyContent:'center'}}>
@@ -94,7 +94,7 @@ export default function Footer() {
               textDecoration: 'none' }}>
                   {t(" Have Something in Mind?")}
           </Typography>
-   <TextField id="outlined-basic" label="Outlined" variant="outlined" fullWidth  multiline
+   <TextField id="outlined-basic" label="" variant="outlined" fullWidth  multiline
       color="secondary" focused  
          rows={4} />
          <Button variant="outlined" color='secodary'  >Send</Button>

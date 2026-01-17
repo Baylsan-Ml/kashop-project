@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import axiosInstance from '../Api/axiosInstance';
+import { keepPreviousData } from "@tanstack/react-query";
 
 export default function useFetch(queryKey, url, inctanse= axiosInstance) {
    const fetchData= async()=>{
@@ -10,7 +11,8 @@ export default function useFetch(queryKey, url, inctanse= axiosInstance) {
     const query = useQuery({
         queryKey:queryKey,
         staleTime:10 * 60 *1000,
-        queryFn: fetchData
+        queryFn: fetchData,
+        placeholderData: keepPreviousData
     })
 
     return query;
