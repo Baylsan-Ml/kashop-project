@@ -15,6 +15,7 @@ import { Container } from "@mui/material";
 import Sales from "./src/components/sales/Sales.jsx";
 import Hero from "./src/components/hero/Hero.jsx";
 import Dashboard from "./src/pages/dash/Dashboard.jsx";
+import Checkout from "./src/pages/cart/checkout/Checkout.jsx";
 
 
 const Router = createBrowserRouter([
@@ -39,6 +40,11 @@ const Router = createBrowserRouter([
         <ProtectedRouter>
           <Cart />
         </ProtectedRouter>  
+      },
+      {
+        path:"/checkout",
+        element:
+        <Checkout/>
       },
       {
         path:'/hero',

@@ -4,11 +4,14 @@ import useRemoveFromCart from '../../hooks/useRemoveFromCart';
 import useUpdateCartItem from '../../hooks/useUpdateCartItem';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
     const {data, isLoading, isError}= useCart();
+    console.log(data);
     const {mutate:removeItem, isPending:isRemovingItem}=useRemoveFromCart();
     const {mutate:updateItem, isPending:isUpdatingItem}=useUpdateCartItem();
+    const navigate = useNavigate();
     const handleUpdate=(productId, action)=>{
         const item= data.items.find(i=>i.productId== productId)
         if(action== '-'){
@@ -49,7 +52,7 @@ export default function Cart() {
                             </TableCell>
                         <TableCell >{item.totalPrice}</TableCell>
                         <TableCell>
-                            <Button sx={{backgroundColor:'#4e090a'}} variant='contained'
+                            <Button sx={{backgroundColor:'tertiary', color:'primary'}} variant='contained'
                             onClick={()=>removeItem(item.productId)}
                             disabled={isRemovingItem}>
                                 remove</Button>
@@ -63,6 +66,17 @@ export default function Cart() {
             </TableBody>
         </Table>
     </TableContainer>
+
+    <Box sx={{display:'flex', gap:2, mt:5}}>
+        <Button variant='contained' onClick={()=>navigate('checkout')} 
+        sx={{backgroundColor:'info', color:'', flex:1}}>
+            Proceed to Checkout
+            </Button>
+        <Button variant='contained' onClick={()=>navigate('/home')} 
+        sx={{backgroundColor:'primary', color:'', flex:1}}
+        >Continue Shopping
+        </Button>
+    </Box>
         </Box>
     </Container>
   )

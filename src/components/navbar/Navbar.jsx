@@ -94,10 +94,10 @@ export default function Navbar() {
              </Button>
             ) : (
              <>
-              <Link component={RouterLink} to="/login" color="inherit">
+              <Link component={RouterLink} to="/login" sx={{textDecoration:'none'}} color="secondary">
               {t("Login")}
                </Link>
-                <Link component={RouterLink} to="/register" color="inherit">
+                <Link component={RouterLink} to="/register" sx={{textDecoration:'none'}} color="secondary">
                 {t("Register")}
                 </Link>
                </>
