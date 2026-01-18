@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import { Box, Card, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Box, Card, CircularProgress, Container, Grid, Typography, Link} from '@mui/material';
 import { useCategories } from '../../hooks/useCategories';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink} from 'react-router-dom';
 
 export default function Categories() {
   
     const {isLoading, isError, data}= useCategories();
-    console.log(data);
+    
      const { t, i18n } = useTranslation();
     if(isLoading) return <CircularProgress/>
     if(isError) return <Typography>Error</Typography>
@@ -21,10 +21,16 @@ export default function Categories() {
         <Grid container sx={{textAlign:'center'}}>
             {data.response.map((category)=>
       <Grid  key={category.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
-             <Card backgroundColor='primary' sx={{p:3,color:'#eaebe5', backgroundColor:'#e38792',  cursor: 'pointer', width:'100%', fontWeight:'bold'}}>
+        <Link component={RouterLink}  to={`/Products/category/${category.id}`} sx={{textDecoration:'none'}}>
+         <Card 
+             sx={{p:1 ,color:'#eaebe5', backgroundColor:'#e38792', cursor: 'pointer', width:'100%', fontWeight:'bold',
+               boxShadow: 1
+             }}>
               <Typography>{category.name}</Typography>
               
               </Card> 
+        </Link>
+            
             </Grid>
       )
       }

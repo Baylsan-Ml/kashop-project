@@ -24,8 +24,9 @@ export default function Cart() {
     if(isError) return <Typography>Error</Typography>
 
   return (
-    <Container>
-        <Box component='section' sx={{py:5}}>
+    <Container component='section' sx={{display:'flex', justifyContent:'center' }}>
+        <Box sx={{minHeight:'70vh', m:5, width:'100%',
+   display:'flex', flexDirection:'column', justifyContent:'flex-start', borderRadius: '5px'}}>
             <TableContainer>
         <Table sx={{}}>
             <TableHead>
@@ -52,7 +53,7 @@ export default function Cart() {
                             </TableCell>
                         <TableCell >{item.totalPrice}</TableCell>
                         <TableCell>
-                            <Button sx={{backgroundColor:'tertiary', color:'primary'}} variant='contained'
+                            <Button sx={{ color:'#f2efe8', borderRadius:'10px'}} color='tertiary' variant='contained'
                             onClick={()=>removeItem(item.productId)}
                             disabled={isRemovingItem}>
                                 remove</Button>
@@ -67,15 +68,15 @@ export default function Cart() {
         </Table>
     </TableContainer>
 
-    <Box sx={{display:'flex', gap:2, mt:5}}>
-        <Button variant='contained' onClick={()=>navigate('checkout')} 
-        sx={{backgroundColor:'info', color:'', flex:1}}>
-            Proceed to Checkout
-            </Button>
-        <Button variant='contained' onClick={()=>navigate('/home')} 
-        sx={{backgroundColor:'primary', color:'', flex:1}}
+    <Box sx={{display:'flex', gap:2, mt:5, justifyContent:'space-between'}}>
+        <Button variant='contained' onClick={()=>navigate('/')} 
+        sx={{ color:'#4e090a', borderRadius:'10px'}}
         >Continue Shopping
         </Button>
+          <Button variant='contained' onClick={()=>navigate('/checkout')} color='info'
+        sx={{ color:'#f2efe8',  borderRadius:'10px'}}>
+            Proceed to Checkout
+            </Button>
     </Box>
         </Box>
     </Container>

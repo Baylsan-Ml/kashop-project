@@ -26,7 +26,7 @@ export default function useLogin(){
         setToken(accessToken);
         setUser(user);
         // const decodedUser=localStorage.setItem("user", user);
-        navigate('/home');
+        navigate('/');
       },
         onError:(err)=>{
           const errors =err.response?.data?.errors || err.response?.data?.message ||

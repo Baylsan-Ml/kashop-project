@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import axiosInstance from '../Api/axiosInstance';
 import { keepPreviousData } from "@tanstack/react-query";
 
-export default function useFetch(queryKey, url, inctanse= axiosInstance) {
+export default function useFetch(queryKey, url,params={}, inctanse= axiosInstance) {
    const fetchData= async()=>{
-        const response= await inctanse.get(url);
+        const response= await inctanse.get(url, {params});
         // console.log(response.data);
         return response.data;
     }
