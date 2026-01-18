@@ -24,25 +24,26 @@ export default function Checkout() {
    display:'flex', flexDirection:'column', justifyContent:'flex-start', borderRadius: '5px'}}>
     <TableContainer sx={{mb:3}}>
         <Table sx={{}}>
-            <TableHead>
-                <TableCell>Product Name</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Quantity</TableCell>
-                <TableCell>Total</TableCell>
+            <TableHead >
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Product Name</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Price</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Quantity</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Total</TableCell>
             </TableHead>
 
             <TableBody>
                {data.items.map(item=>
                 <TableRow key={item.productId}>
-                  <TableCell>{item.productName}</TableCell>
-                  <TableCell>{item.price}</TableCell>
-                  <TableCell>{item.count}</TableCell>
-                  <TableCell>{item.totalPrice}</TableCell>
+                  <TableCell sx={{fontSize:'17px'}}>{item.productName}</TableCell>
+                  <TableCell sx={{fontSize:'17px'}}>{item.price}</TableCell>
+                  <TableCell sx={{fontSize:'17px'}}>{item.count}</TableCell>
+                  <TableCell sx={{fontSize:'17px'}}>{item.totalPrice}</TableCell>
                 </TableRow>
                )}
 
                <TableRow >
-                    <TableCell colSpan={4} align='right' > Cart Total:{data.cartTotal}$</TableCell>
+                    <TableCell colSpan={4} align='right' sx={{fontWeight:'bold', fontSize:'large'}}
+                    > Cart Total: {data.cartTotal}$</TableCell>
                    </TableRow>
             </TableBody>
             </Table>
@@ -50,17 +51,17 @@ export default function Checkout() {
 
     <Box sx={{display:'flex', justifyContent:'space-between'}}>
        <FormControl fullWidth sx={{maxWidth:'30%'}}>
-      <InputLabel id="payment-method">Payment Method</InputLabel>
-       <Select labelId="payment-method"
+      <InputLabel id="payment-method" >Payment Method</InputLabel>
+       <Select labelId="payment-method" 
        value={paymentMethod}
        onChange={(e)=>setPaymentMethod(e.target.value)}
        >
-    <MenuItem value={'cash'}>Cash</MenuItem>
-    <MenuItem value={'visa'}>Visa</MenuItem>
+    <MenuItem value={'cash'} sx={{fontWeight:'bold'}}>Cash</MenuItem>
+    <MenuItem value={'visa'}  sx={{fontWeight:'bold'}}>Visa</MenuItem>
   </Select>
     </FormControl>
 
-    <Button variant='contained' sx={{width:'30%', py:2, borderRadius:'10px'}}
+    <Button variant='contained' sx={{width:'30%', py:2, borderRadius:'10px', fontWeight:'bold', fontSize:'15px'}}
     onClick={handleCheckout}
     >Pay Now</Button>
     </Box>

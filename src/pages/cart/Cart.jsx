@@ -30,19 +30,19 @@ export default function Cart() {
             <TableContainer>
         <Table sx={{}}>
             <TableHead>
-                <TableCell>Product Name</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Quantity</TableCell>
-                <TableCell>Total</TableCell>
-                <TableCell>Action</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Product Name</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Price</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Quantity</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Total</TableCell>
+                <TableCell sx={{fontWeight:'bold', fontSize:'large'}}>Action</TableCell>
             </TableHead>
 
             <TableBody>
                 {data.items.map(item=>
                     <TableRow key={item.productId}>
-                        <TableCell>{item.productName}</TableCell>
-                        <TableCell>{item.price}</TableCell>
-                        <TableCell >
+                        <TableCell sx={{fontSize:'17px', fontWeight:'bold'}}>{item.productName}</TableCell>
+                        <TableCell sx={{fontSize:'17px'}}>{item.price}</TableCell>
+                        <TableCell sx={{fontSize:'17px'}}>
                             <IconButton
                             onClick={()=>handleUpdate(item.productId, '-')}
                             > <RemoveIcon sx={{color:'#e38792', mr:1}} /></IconButton>
@@ -51,9 +51,9 @@ export default function Cart() {
                             onClick={()=>handleUpdate(item.productId, '+')}
                             > <AddIcon sx={{color:'#e38792', ml:1}}/> </IconButton>
                             </TableCell>
-                        <TableCell >{item.totalPrice}</TableCell>
-                        <TableCell>
-                            <Button sx={{ color:'#f2efe8', borderRadius:'10px'}} color='tertiary' variant='contained'
+                        <TableCell sx={{fontSize:'17px'}}>{item.totalPrice}</TableCell>
+                        <TableCell sx={{fontSize:'17px'}}>
+                            <Button sx={{ color:'#f2efe8', borderRadius:'10px', fontWidth:'bold'}} color='tertiary' variant='contained'
                             onClick={()=>removeItem(item.productId)}
                             disabled={isRemovingItem}>
                                 remove</Button>
@@ -62,7 +62,7 @@ export default function Cart() {
                 )}
 
                 <TableRow>
-                    <TableCell colSpan={4} align='right' > Cart Total:{data.cartTotal}$</TableCell>
+                    <TableCell colSpan={5} align='right' sx={{fontSize:'17px', fontWeight:'bold', pr:11}}> Cart Total:{data.cartTotal}$</TableCell>
                    </TableRow>
             </TableBody>
         </Table>
@@ -70,11 +70,11 @@ export default function Cart() {
 
     <Box sx={{display:'flex', gap:2, mt:5, justifyContent:'space-between'}}>
         <Button variant='contained' onClick={()=>navigate('/')} 
-        sx={{ color:'#4e090a', borderRadius:'10px'}}
+        sx={{ color:'#4e090a', borderRadius:'10px', fontWeight:'bold'}}
         >Continue Shopping
         </Button>
           <Button variant='contained' onClick={()=>navigate('/checkout')} color='info'
-        sx={{ color:'#f2efe8',  borderRadius:'10px'}}>
+        sx={{ color:'#f2efe8',  borderRadius:'10px', fontWeight:'bold'}}>
             Proceed to Checkout
             </Button>
     </Box>
