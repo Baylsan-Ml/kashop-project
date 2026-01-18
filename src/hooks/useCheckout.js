@@ -9,7 +9,11 @@ export default function useCheckout() {
     mutationFn: async({paymentMethod})=>
         await axiosAuthInstance.post('/checkouts', {paymentMethod}),
 
-    onSuccess:()=>
-        queryClient.invalidateQueries({queryKey:['carts']}),
+    onSuccess:(response)=>{
+         if(response.data.url){
+            location.href= response.data.url;
+        }
+        queryClient.invalidateQueries({queryKey:['carts']});
+    }   
   })
 }

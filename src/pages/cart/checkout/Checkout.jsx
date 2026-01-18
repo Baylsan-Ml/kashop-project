@@ -8,10 +8,13 @@ export default function Checkout() {
   const {data, isLoading, isError}=useCart();
   const[paymentMethod, setPaymentMethod]= useState('cash');
   const{mutate:checkout, isPending:isCheckoutPending, isError:isCheckotError}=useCheckout();
+  const handleCheckout= ()=>{
+    checkout({paymentMethod})
+  }
 
   if(isLoading) return <CircularProgress/>
   if(isError) return <Typography>Error</Typography>
-  console.log(data);
+  
 
 
 
@@ -57,7 +60,9 @@ export default function Checkout() {
   </Select>
     </FormControl>
 
-    <Button variant='contained' sx={{width:'30%', py:2, borderRadius:'10px'}}>Pay Now</Button>
+    <Button variant='contained' sx={{width:'30%', py:2, borderRadius:'10px'}}
+    onClick={handleCheckout}
+    >Pay Now</Button>
     </Box>
        
     </Box>
