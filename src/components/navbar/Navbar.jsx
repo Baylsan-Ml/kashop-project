@@ -66,7 +66,7 @@ export default function Navbar() {
           </Box>
           
             <Box  sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
-            <Link color='secondary' component={RouterLink} to='/home'  underline='none' 
+            <Link color='secondary' component={RouterLink} to='/'  underline='none' 
             sx={{display:'flex', flexDirection:'column', alignItems:'center' ,}}>
             <HomeIcon title='Home' fontSize="large" /> {t("Home")}
             </Link>

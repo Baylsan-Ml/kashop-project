@@ -16,6 +16,7 @@ import Sales from "./src/components/sales/Sales.jsx";
 import Hero from "./src/components/hero/Hero.jsx";
 import Dashboard from "./src/pages/dash/Dashboard.jsx";
 import Checkout from "./src/pages/cart/checkout/Checkout.jsx";
+import ProductByCategory from "./src/components/categories/ProductByCategory.jsx";
 
 
 const Router = createBrowserRouter([
@@ -25,13 +26,14 @@ const Router = createBrowserRouter([
       <MainLayout />,
     
     children:[
+      // {
+      //   path:"/",
+      //   element:
+      //   <Dashboard />
+      // },
       {
-        path:"/",
-        element:
-        <Dashboard />
-      },
-      {
-        path: "/home",
+        path: "/",
+        index:true,
         element: <Home />
       },
       {
@@ -55,6 +57,11 @@ const Router = createBrowserRouter([
         path:"/category",
         element:
         <Categories />
+      },
+      {
+        path:"/Products/category/:id",
+        element:
+        <ProductByCategory/>
       },
       {
         path:'/products',

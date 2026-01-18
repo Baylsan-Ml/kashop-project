@@ -5,8 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import {Link as RouterLink} from 'react-router-dom';
 import {useEffect, useState } from 'react';
 import { useProducts } from '../../hooks/useProducts';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import InputLabel from '@mui/material/InputLabel';
@@ -105,7 +103,7 @@ export default function Products() {
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
                    <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%',  }}>
                      <CardMedia  sx={{height:'500px', objectFit:'contain', p:2}}
-                     image={product.image} title="green iguana"  />
+                     image={product.image} title="product image"  />
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
@@ -115,16 +113,16 @@ export default function Products() {
             <Rating sx={{color:'gold'}}/>
         </Box> 
       </CardContent>
-      <CardActions sx={{display:'flex', flexDirection:'column'}}>
-        {/* <Box sx={{display:'flex',p:'8px'}}>
+      {/* <CardActions sx={{display:'flex', flexDirection:'column'}}>
+        <Box sx={{display:'flex',p:'8px'}}>
            <Button size="small" sx={{color:'#767759', backgroundColor:'eaebe5', display:'flex', flexGrow:1}}>
             <AddShoppingCartIcon sx={{color:'#767759'}}/>
             Add to Cart</Button>
         <Button size="small" sx={{color:'#767759', display:'flex', flexGrow:1}}>
           <FavoriteBorderIcon />
           Favorite</Button>
-        </Box> */}
-      </CardActions>
+        </Box>
+      </CardActions> */}
     </Card> 
                    </Link>
   </Grid>

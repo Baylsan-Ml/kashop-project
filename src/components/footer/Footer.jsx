@@ -88,16 +88,16 @@ export default function Footer() {
 </Grid>
 {/* <Divider orientation="vertical" flexItem /> */}
  <Grid size={{xs:12, sm:6 , md:4, lg:3}} 
- sx={{textAlign:'center', display:'flex', flexDirection:'column', alignItems:'flex-start', gap:2}}>
+ sx={{textAlign:'center', display:'flex', flexDirection:'column', alignItems:'flex-end', gap:2}}>
 <Typography variant="h6" noWrap color= 'secondary' 
            sx={{fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
               textDecoration: 'none' }}>
                   {t(" Have Something in Mind?")}
           </Typography>
    <TextField id="outlined-basic" label="" variant="outlined" fullWidth  multiline
-      color="secondary" focused  
+      color="secondary" focused 
          rows={4} />
-         <Button variant="outlined" color='secodary'  >Send</Button>
+         <Button variant="outlined" color='secodary' sx={{width:'30%', borderRadius:'10px'}}  >Send</Button>
 </Grid>
     </Container>
     </Grid>

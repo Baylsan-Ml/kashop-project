@@ -24,10 +24,10 @@ export default function SendCode() {
        sx={{minHeight:'70vh', m:5, boxShadow:2, border: 1, borderLeft: 0, borderTop: 0 , borderColor: 'grey.500', width:'70%',
    display:'flex', flexDirection:'column', justifyContent:'center', borderRadius: '5px'}}
        >
-      <Typography variant='h1' sx={{textAlign:'center'}}>{t("Send Code")}</Typography>
+      <Typography variant='h1' sx={{textAlign: 'center', mt:3, textShadow:'2px 2px 1px #4e090a'}} color='primary'>{t("Send Code")}</Typography>
       <Box component={"form"} onSubmit={handleSubmit(sendCodeForm)}
       sx={{ display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:1}} mt={5}>
-        <TextField label="enter your email" {...register('email')} sx={{width:'40%'}} variant="outlined"
+        <TextField label="enter your email" {...register('email')} sx={{width:'80%'}} variant="outlined"
         error={errors.email} helperText={errors.email?.message}/>
         <Box sx={{display:'flex', width:'90%', gap:5, justifyContent:'center'}}>
           <Button  variant="contained" type="submit" disabled={isSubmitting}  
