@@ -4,10 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from '@mui/material';
 import {Link as RouterLink, useNavigate} from 'react-router-dom';
-import { useState } from 'react';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
@@ -20,6 +18,9 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import useAuthStore from '../../store/authStore';
 import { useTranslation } from 'react-i18next';
 import TranslateIcon from '@mui/icons-material/Translate';
+import useThemeStore from '../../store/useThemeStore';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 
@@ -36,20 +37,12 @@ export default function Navbar() {
     i18n.changeLanguage(newLang);
   }
 
-  
-
   const handleLogout=()=>{
     logout();
     navigate('/login');
   }
-
-
-  const [anchorElUser, setAnchorElUser] = useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
- 
+  
+ const{mode, toggleTheme} = useThemeStore();
 
   return (
     <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
@@ -104,16 +97,22 @@ export default function Navbar() {
                )
              }
 
-             <Button color='secondary'
-             onClick={toggleLanguage}
-             >
+             <Button color='secondary' onClick={toggleLanguage}>
               {/* {i18n.language=='ar' ? 'EN' : 'ع'} */}
               <TranslateIcon color='secondary' />
-              
              </Button>
+
+              <IconButton
+               onClick={toggleTheme}
+              sx={{color:'secondary.main', transition: '0.3s','&:hover': { transform: 'rotate(20deg)'}}}>
+               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+              </IconButton>
+
               <Tooltip title="Profile">
                  <IconButton sx={{ p: 0 }}>
-                 <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                  <Link component={RouterLink} to="/profile" sx={{textDecoration:'none'}} color="secondary">
+                  <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                  </Link>
                   </IconButton>
                  </Tooltip>
                 </Box>
