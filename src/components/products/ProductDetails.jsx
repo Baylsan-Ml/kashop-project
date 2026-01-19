@@ -2,9 +2,11 @@ import useProductDetails from '../../hooks/useProductDetails'
 import { Box, Button, Card, CardMedia, CircularProgress, Container, Grid, Rating, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import useAddToCart from '../../hooks/useAddToCart';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductDetails() {
   const {id} = useParams();
+  const { t, i18n } = useTranslation();
   const {isLoading, isError, data}=useProductDetails(id);
   const {mutate: addToCart, isPending: isAddingToCart}= useAddToCart();
   if(isLoading) return <CircularProgress />;
@@ -27,13 +29,13 @@ export default function ProductDetails() {
 
           <Grid size={{xs:12, md:7}} sx={{display:'flex', flexDirection:'column',gap:2 , alignItems:'flex-start'}}>
             <Typography component={'h1'} variant='h3'>{product.name}</Typography>
-            <Typography component={'h3'} variant='span'>Price: {product.price}$</Typography>
+            <Typography component={'h3'} variant='span'>{t("Price")}: {product.price}$</Typography>
             <Rating value={product.rate} readOnly></Rating>
-            <Typography variant='span'>Available Quantity: {product.quantity}</Typography>
-            <Button variant='contained' color='error' 
+            <Typography variant='span'>{t("Available Quantity")}: {product.quantity}</Typography>
+            <Button variant='contained' color='primary' 
             onClick={()=>addToCart({ProductId:product.id, Count:1})}
             disabled={isAddingToCart}
-            >Add To Cart</Button>
+            >{t("Add To Cart")}</Button>
           </Grid>
         </Grid>
 

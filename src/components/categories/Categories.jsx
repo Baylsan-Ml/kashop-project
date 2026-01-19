@@ -22,8 +22,8 @@ export default function Categories() {
             {data.response.map((category)=>
       <Grid  key={category.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
         <Link component={RouterLink}  to={`/Products/category/${category.id}`} sx={{textDecoration:'none'}}>
-         <Card 
-             sx={{p:1 ,color:'#eaebe5', backgroundColor:'#e38792', cursor: 'pointer', width:'100%', fontWeight:'bold',
+         <Card color='primary' 
+             sx={{p:1 ,color:'#eaebe5', backgroundColor:'#e38792',cursor: 'pointer', width:'100%', fontWeight:'bold',
                boxShadow: 1
              }}>
               <Typography>{category.name}</Typography>

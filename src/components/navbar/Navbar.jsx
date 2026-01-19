@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-      <AppBar position="static" sx={{ bgcolor: '#9dac71' }}>
+      <AppBar position="static" color='info'>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
             <Box color={'secondary'} sx={{display:'flex', flex: 1}}>
@@ -80,11 +80,21 @@ export default function Navbar() {
             </Box>
 
             <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 1,}}>
-             {token ? 
+             {token? 
              (
+              <>
+              <Tooltip title="Profile">
+                 <IconButton sx={{ p: 0 }}>
+                  <Link component={RouterLink} to="/profile" sx={{textDecoration:'none'}} color="secondary">
+                  <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                  </Link>
+                  </IconButton>
+                 </Tooltip>
              <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />}>
               {t("Logout")}
              </Button>
+              </>
+             
             ) : (
              <>
               <Link component={RouterLink} to="/login" sx={{textDecoration:'none'}} color="secondary">
@@ -108,13 +118,7 @@ export default function Navbar() {
                {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
               </IconButton>
 
-              <Tooltip title="Profile">
-                 <IconButton sx={{ p: 0 }}>
-                  <Link component={RouterLink} to="/profile" sx={{textDecoration:'none'}} color="secondary">
-                  <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
-                  </Link>
-                  </IconButton>
-                 </Tooltip>
+              
                 </Box>
         </Toolbar>
         </Container>

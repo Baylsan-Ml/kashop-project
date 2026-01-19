@@ -17,6 +17,9 @@ import Hero from "./src/components/hero/Hero.jsx";
 import Dashboard from "./src/pages/dash/Dashboard.jsx";
 import Checkout from "./src/pages/cart/checkout/Checkout.jsx";
 import ProductByCategory from "./src/components/categories/ProductByCategory.jsx";
+import ProfileLayout from "./src/pages/profile/ProfileLayout.jsx";
+import ProfileOrders from "./src/pages/profile/ProfileOrders.jsx";
+import ProfileInfo from "./src/pages/profile/ProfileInfo.jsx";
 
 
 const Router = createBrowserRouter([
@@ -26,13 +29,7 @@ const Router = createBrowserRouter([
       <MainLayout />,
     
     children:[
-      // {
-      //   path:"/",
-      //   element:
-      //   <Dashboard />
-      // },
       {
-        path: "/",
         index:true,
         element: <Home />
       },
@@ -42,6 +39,22 @@ const Router = createBrowserRouter([
         <ProtectedRouter>
           <Cart />
         </ProtectedRouter>  
+      },
+      {
+        path:"/profile",
+        element:
+        <ProfileLayout/>,
+        children:[
+          {
+            index:true,
+            element:
+            <ProfileInfo/>
+          },{
+            path:"orders",
+            element:
+            <ProfileOrders/>
+          }
+        ]
       },
       {
         path:"/checkout",

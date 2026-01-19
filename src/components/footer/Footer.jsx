@@ -14,9 +14,8 @@ export default function Footer() {
   return (
    
     <Box component={'footer'} mt='5'  elevation={0}
-    sx={{ background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
-       minHeight: '30vh', py: 7,
-       color:'#eaebe5'
+    sx={{background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
+       minHeight: '30vh', py: 7, color:'#eaebe5'
      }}>
     <Grid container sx={{textAlign:'center', display:'flex', justifyContent:'center'}}>
        <Container maxWidth="xl" sx={{display:'flex', justifyContent:'space-between'}}>
@@ -84,15 +83,14 @@ export default function Footer() {
             </Box>
           </Grid>
         </Grid>   
-{/* <Typography component={'br'}></Typography> */}
 </Grid>
-{/* <Divider orientation="vertical" flexItem /> */}
+
  <Grid size={{xs:12, sm:6 , md:4, lg:3}} 
  sx={{textAlign:'center', display:'flex', flexDirection:'column', alignItems:'flex-end', gap:2}}>
 <Typography variant="h6" noWrap color= 'secondary' 
            sx={{fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
               textDecoration: 'none' }}>
-                  {t(" Have Something in Mind?")}
+                  {t("Subscribe to our newsletter")}
           </Typography>
    <TextField id="outlined-basic" label="" variant="outlined" fullWidth  multiline
       color="secondary" focused 

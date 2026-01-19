@@ -6,7 +6,7 @@ const getTheme = (mode)=>{
     mode:mode,
     primary:{
       main:  '#e38792',
-      dark: '#ffbdc5'
+      dark: '#373636'
     },
    secondary:{
     main:'#f2efe8'
@@ -20,8 +20,8 @@ const getTheme = (mode)=>{
       dark:'#4e090a'
     },
     background: {
-        default: mode === 'dark' ? '#1e2018' : '#f2efe8',
-        paper: mode === 'dark' ?  '#1e2018' : '#f2efe8',
+        default: mode === 'dark' ? '#000000' : '#f2efe8',
+        paper: mode === 'dark' ?  '#000000' : '#f2efe8',
     },
     
   },

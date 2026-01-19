@@ -101,7 +101,7 @@ export default function Products() {
                   {filteredProducts.map((product)=>
             <Grid  key={product.id} size={{sx:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
-                   <Card sx={{backgroundColor:'#f2efe8',  cursor: 'pointer', width:'100%',  }}>
+                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%',  }}>
                      <CardMedia  sx={{height:'500px', objectFit:'contain', p:2}}
                      image={product.image} title="product image"  />
                     <CardContent>
@@ -109,7 +109,7 @@ export default function Products() {
           {product.name}
         </Typography>
         <Box sx={{display:'flex',}}>
-          <Typography sx={{display:'flex', flexGrow:1}}>Price: {product.price} $</Typography>
+          <Typography sx={{display:'flex', flexGrow:1}}>{t("Price")} : {product.price}$</Typography>
             <Rating sx={{color:'gold'}}/>
         </Box> 
       </CardContent>

@@ -35,11 +35,16 @@ i18n
           "Check out our products, don't forget to add your favorites to cart",
           "Action":"Action",
           "Quantity Total": "Quantity Total",
-          "Price":"Price",
           "Product Name":"Product Name",
           "Remove":"Remove",
           "Cart Total":"Cart Total",
           "Reset Password":"Reset Password",
+          "Subscribe to our newsletter":"Subscribe to our newsletter",
+          "Price":"Price",
+          "Available Quantity":"Available Quantity",
+          "Add To Cart":"Add To Cart",
+          "My Proflie":"My Proflie",
+          "Info":"Info",
         }
       },
        ar: {
@@ -70,11 +75,16 @@ i18n
           "تصفح منتجاتنا ولا تنسَ اضافة ما تحب للسلة",
           "Action":"الإجراء",
           "Quantity	Total":"الكمية الإجمالية",
-          "Price":"السعر",
           "Product Name":"اسم المنتج",
           "Remove":"حذف",
           "Cart Total":"إجمالي السلة",
-          "Reset Password":"إعادة تعيين كلمة المرور"
+          "Reset Password":"إعادة تعيين كلمة المرور",
+          "Subscribe to our newsletter":"اشترك في نشرتنا الإخبارية",
+          "Price":"السعر",
+          "Available Quantity":"الكمية المتاحة",
+          "Add To Cart":"أضف الى السلة",
+          "My Proflie":"صفحتي الشخصية",
+          "Info":"معلوماتي"
         }
       }
     },
