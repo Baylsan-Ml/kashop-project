@@ -40,11 +40,14 @@ i18n
           "Cart Total":"Cart Total",
           "Reset Password":"Reset Password",
           "Subscribe to our newsletter":"Subscribe to our newsletter",
+          "Get the latest updates on new products and upcoming sales":
+          "Get the latest updates on new products and upcoming sales",
           "Price":"Price",
           "Available Quantity":"Available Quantity",
           "Add To Cart":"Add To Cart",
           "My Proflie":"My Proflie",
           "Info":"Info",
+          "Orders":"Orders"
         }
       },
        ar: {
@@ -80,11 +83,14 @@ i18n
           "Cart Total":"إجمالي السلة",
           "Reset Password":"إعادة تعيين كلمة المرور",
           "Subscribe to our newsletter":"اشترك في نشرتنا الإخبارية",
+          "Get the latest updates on new products and upcoming sales":
+          "احصل على آخر التحديثات حول المنتجات الجديدة والعروض القادمة",
           "Price":"السعر",
           "Available Quantity":"الكمية المتاحة",
           "Add To Cart":"أضف الى السلة",
           "My Proflie":"صفحتي الشخصية",
-          "Info":"معلوماتي"
+          "Info":"معلوماتي",
+          "Orders":"طلباتي"
         }
       }
     },

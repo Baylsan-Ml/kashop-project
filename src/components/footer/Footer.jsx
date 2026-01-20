@@ -92,6 +92,10 @@ export default function Footer() {
               textDecoration: 'none' }}>
                   {t("Subscribe to our newsletter")}
           </Typography>
+
+          <Typography>
+            {t("Get the latest updates on new products and upcoming sales")}
+          </Typography>
    <TextField id="outlined-basic" label="" variant="outlined" fullWidth  multiline
       color="secondary" focused 
          rows={4} />

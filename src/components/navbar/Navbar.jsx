@@ -21,6 +21,10 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import useThemeStore from '../../store/useThemeStore';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import MenuIcon from '@mui/icons-material/Menu';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { useState } from 'react';
 
 
 
@@ -31,30 +35,35 @@ export default function Navbar() {
   const token= useAuthStore((state)=>state.token);
   const logout=useAuthStore((state)=>state.logout);
   const user=useAuthStore((state)=>state.user);
+  const{mode, toggleTheme} = useThemeStore();
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const toggleLanguage = () => {
     const newLang= i18n.language === 'ar'?'en':'ar'
     i18n.changeLanguage(newLang);
   }
-
   const handleLogout=()=>{
     logout();
     navigate('/login');
   }
-  
- const{mode, toggleTheme} = useThemeStore();
+   const handleOpenMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
+  const handleCloseMenu = () => {
+    setAnchorElNav(null);
+  };
   return (
     <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
       <AppBar position="static" color='info'>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
-            <Box color={'secondary'} sx={{display:'flex', flex: 1}}>
+            {/* <Box color={'secondary'} sx={{display:'flex', flex: 1}}>
           <AdbIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
               textDecoration: 'none' }}>
-            KA-Shop - {user?.name}
+            KA-Shop {user?.name && `- ${user.name}`}
           </Typography>
           </Box>
           
@@ -108,7 +117,6 @@ export default function Navbar() {
              }
 
              <Button color='secondary' onClick={toggleLanguage}>
-              {/* {i18n.language=='ar' ? 'EN' : 'ع'} */}
               <TranslateIcon color='secondary' />
              </Button>
 
@@ -119,7 +127,115 @@ export default function Navbar() {
               </IconButton>
 
               
-                </Box>
+                </Box> */}
+
+                  {/* Logo */}
+          <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+            <AdbIcon color="secondary" sx={{ mr: 1 }} />
+            <Typography
+              variant="h6"
+              color="secondary"
+              sx={{ fontWeight: 700 }}
+            >
+              KA-Shop {user?.name && `- ${user.name}`}
+            </Typography>
+          </Box>
+
+
+                 <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton color="secondary" onClick={handleOpenMenu}>
+              <MenuIcon />
+            </IconButton>
+
+            <Menu
+              anchorEl={anchorElNav}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseMenu}
+            >
+              <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu}>
+                <HomeIcon sx={{ mr: 1 }} /> {t("Home")}
+              </MenuItem>
+
+              <MenuItem component={RouterLink} to="/category" onClick={handleCloseMenu}>
+                <CategoryIcon sx={{ mr: 1 }} /> {t("Categories")}
+              </MenuItem>
+
+              <MenuItem component={RouterLink} to="/products" onClick={handleCloseMenu}>
+                <Inventory2Icon sx={{ mr: 1 }} /> {t("Products")}
+              </MenuItem>
+
+              {token && (
+                <MenuItem component={RouterLink} to="/cart" onClick={handleCloseMenu}>
+                  <ShoppingCartIcon sx={{ mr: 1 }} /> {t("Cart")}
+                </MenuItem>
+              )}
+            </Menu>
+          </Box>
+
+          {/* Desktop Links */}
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              gap: 3,
+              flex: 1,
+              justifyContent: 'center',
+            }}
+          >
+            <Link component={RouterLink} to="/" color="secondary" underline="none">
+              <HomeIcon /> {t("Home")}
+            </Link>
+
+            <Link component={RouterLink} to="/category" color="secondary" underline="none">
+              <CategoryIcon /> {t("Categories")}
+            </Link>
+
+            <Link component={RouterLink} to="/products" color="secondary" underline="none">
+              <Inventory2Icon /> {t("Products")}
+            </Link>
+
+            {token && (
+              <Link component={RouterLink} to="/cart" color="secondary" underline="none">
+                <ShoppingCartIcon /> {t("Cart")}
+              </Link>
+            )}
+          </Box>
+
+          {/* Right actions */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+
+            {token ? (
+              <>
+                <Tooltip title="Profile">
+                  <IconButton component={RouterLink} to="/profile">
+                    <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                  </IconButton>
+                </Tooltip>
+
+                <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />}>
+                  {t("Logout")}
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link component={RouterLink} to="/login" color="secondary">
+                  {t("Login")}
+                </Link>
+                <Link component={RouterLink} to="/register" color="secondary">
+                  {t("Register")}
+                </Link>
+              </>
+            )}
+
+            <IconButton onClick={toggleLanguage} color="secondary">
+              <TranslateIcon />
+            </IconButton>
+
+            <IconButton onClick={toggleTheme} color="secondary">
+              {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+          </Box>
+
+                
         </Toolbar>
         </Container>
       </AppBar>

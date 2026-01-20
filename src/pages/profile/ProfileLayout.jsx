@@ -24,7 +24,7 @@ export default function Profile() {
            <Drawer variant="permanent" color='info' PaperProps={{
         sx: {
           width: 300,  backgroundColor:'#e38792',
-          position:'absolute', left:'-350px', 
+          position:'absolute', left:'-350px', overflowX:'hidden'
         },
       }} >
           <Button color='secondary'  component={NavLink} to=''>{t("Info")}</Button>
