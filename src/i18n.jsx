@@ -47,7 +47,13 @@ i18n
           "Add To Cart":"Add To Cart",
           "My Proflie":"My Proflie",
           "Info":"Info",
-          "Orders":"Orders"
+          "Orders":"Orders",
+          "Sort":"Sort",
+          "Search products...":"Search products...",
+          "Category Id":"Category Id",
+          "Min Price":"Min Price",
+          "Max Price":"Max Price",
+          "Apply Filters":"Apply Filters"
         }
       },
        ar: {
@@ -90,7 +96,13 @@ i18n
           "Add To Cart":"أضف الى السلة",
           "My Proflie":"صفحتي الشخصية",
           "Info":"معلوماتي",
-          "Orders":"طلباتي"
+          "Orders":"طلباتي",
+          "Sort":"فرز",
+          "Search products...":"ابحث عن اسم منتج...",
+          "Category Id":"رقم المنتج",
+          "Min Price":"أقل سعر",
+          "Max Price":"أعلى سعر",
+          "Apply Filters":"بحث"
         }
       }
     },

@@ -11,6 +11,7 @@ export default function Clients() {
   return (
      
         <Box component={'section'} pb={5}>
+          Clients
            <Card>
             <CardMedia image=''></CardMedia>
            </Card>

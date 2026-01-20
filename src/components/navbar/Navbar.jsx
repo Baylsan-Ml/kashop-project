@@ -131,14 +131,12 @@ export default function Navbar() {
 
                   {/* Logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-            <AdbIcon color="secondary" sx={{ mr: 1 }} />
-            <Typography
-              variant="h6"
-              color="secondary"
-              sx={{ fontWeight: 700 }}
-            >
-              KA-Shop {user?.name && `- ${user.name}`}
-            </Typography>
+           <AdbIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
+           sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
+              textDecoration: 'none' }}>
+            KA-Shop {user?.name && `- ${user.name}`}
+          </Typography>
           </Box>
 
 
@@ -217,10 +215,14 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link component={RouterLink} to="/login" color="secondary">
+                <Link component={RouterLink} to="/login" color="secondary"
+                sx={{textDecoration:'none'}}
+                >
                   {t("Login")}
                 </Link>
-                <Link component={RouterLink} to="/register" color="secondary">
+                <Link component={RouterLink} to="/register" color="secondary"
+                sx={{textDecoration:'none'}}
+                >
                   {t("Register")}
                 </Link>
               </>

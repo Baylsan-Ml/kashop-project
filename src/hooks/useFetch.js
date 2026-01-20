@@ -5,7 +5,7 @@ import { keepPreviousData } from "@tanstack/react-query";
 export default function useFetch(queryKey, url,params={}, inctanse= axiosInstance) {
    const fetchData= async()=>{
         const response= await inctanse.get(url, {params});
-        console.log(params);
+        console.log('PARAMS SENT TO API:', params);
         return response.data;
     }
     const query = useQuery({

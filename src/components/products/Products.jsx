@@ -14,15 +14,54 @@ import Select from '@mui/material/Select';
 import Pagination from '@mui/material/Pagination';
 import { useTranslation } from 'react-i18next';
 import Product from './../product/Product.jsx'
+import { useForm } from 'react-hook-form';
+
 
 
 
 export default function Products() {
-   const { t,  } = useTranslation();
-   const[search, setSearch]=useState('');
-    const {isLoading, isError, data}= useProducts({
-      search:search || null,
-    });
+   const { t  } = useTranslation();
+    
+   const {register, handleSubmit}= useForm({
+    defaultValues:{
+      search:'',
+      categoryId:'',
+      minPrice:'',
+      maxPrice:'',
+      page: 1,
+      limit: 8,
+      sortBy: null,
+      order: null,
+      
+    }
+   });
+   const [activeFilters, setActiveFilters]=useState({
+    page: 1,
+    limit: 8,
+   });
+   const {isLoading, isError, data}= useProducts(activeFilters);
+   const product=data?.response.data || [];
+  //  console.log(product);
+
+    const applyFilters=(values)=>{ 
+      let sortBy = "";
+      let ascending = true;
+      if (values.sort) {
+      const [field, order] = values.sort.split("-");
+      sortBy = field;
+      ascending = order === "asc";
+  }
+      setActiveFilters({
+        search:values.search || "",
+        categoryId:values.categoryId || "",
+        minPrice:values.minPrice || "",
+        maxPrice:values.maxPrice || "",
+        page: 1,
+        limit: values.limit || 8,
+        sortBy,
+        ascending,
+      });
+    }
       
        if(isLoading) return <CircularProgress/>
        if(isError) return <Typography>Error</Typography>
@@ -38,35 +77,85 @@ export default function Products() {
                   {t("Check out our products, don't forget to add your favorites to cart")}
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
-
-
-                <TextField fullWidth value={search} onChange={(e)=>setSearch(e.target.value)} />
-                {/* Search products */}
-                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'space-between' }}>
-                  <Box sx={{display: "flex", alignItems: "center", gap: 1, width: "50%" }}>
+                {/* Searc */}
+                <Container component={'section'}>
+                   <Box component={'form'} onSubmit={handleSubmit(applyFilters)} 
+                sx={{display:'flex', justifyContent:'space-evenly', alignItems:'flex-start', py:5}}>
                     <ManageSearchIcon fontSize="large" fullWidth sx={{display:'flex', alignItems:'center', marginBottom:'auto'}} />
-                   <TextField id="outlined-basic" label="Search products..." variant="outlined"
-                   value={search} onChange={(e)=>setSearch(e.target.value)}
-                sx={{ mb: 3, display:'flex', }}  />
+                   <TextField label={t("Search products...")} variant="outlined"
+                   {...register('search')} sx={{ mb: 3, display:'flex',
+                    borderRadius:'20px' }}  
+                   InputProps={{style: {borderRadius: '20px'},}} />
+                  <TextField label={t("Category Id")} variant="outlined"
+                   {...register('categoryId')}  sx={{ mb: 3, display:'flex', }}
+                   InputProps={{style: {borderRadius: '20px'},}}  />
+                   <TextField label={t("Min Price")} variant="outlined"
+                   {...register('minPrice')}  sx={{ mb: 3, display:'flex', }}
+                   InputProps={{style: {borderRadius: '20px'},}}  />
+                   <TextField label={t("Max Price")} variant="outlined"
+                   {...register('maxPrice')}  sx={{ mb: 3, display:'flex', }}
+                   InputProps={{style: {borderRadius: '20px'},}}  />
+
+                    <FormControl sx={{display:'flex',width: "20%", borderRadius:'20px'}} >
+                    <InputLabel id="sort-label">{t("Sort")}</InputLabel>
+                     <Select labelId="sort-label" label={t("Sort")} defaultValue=""
+                     sx={{borderRadius:'20px'}}
+                      {...register("sort")}>
+                      <MenuItem  value="" sx={{borderRadius:'20px'}}>Sort By</MenuItem>
+                      <MenuItem value="name-asc" sx={{borderRadius:'20px'}}>Name A → Z</MenuItem>
+                      <MenuItem value="name-desc" sx={{borderRadius:'20px'}}>Name Z → A</MenuItem>
+                      <MenuItem value="price-asc" sx={{borderRadius:'20px'}}>Price Low → High</MenuItem>
+                      <MenuItem value="price-desc" sx={{borderRadius:'20px'}}>Price High → Low</MenuItem>
+                      </Select>
+                     </FormControl>
+                   <Button type='submit' variant='contained' color='primary'
+                   sx={{py:'15px', borderRadius:'20px', color:'#f2efe8'}}
+                   >{t("Apply Filters")}</Button>
                 </Box>
-               {/* Search products */}
-             <FormControl sx={{display:'flex',width: "20%"}} >
-        <InputLabel id="demo-simple-select-label">Sort</InputLabel>
-        <Select labelId="demo-simple-select-label" id="demo-simple-select"
-          
-          label="Sort"
-          >
-          <MenuItem value=''>Sort By</MenuItem>
-          <MenuItem value='name-asc'>Name A-Z</MenuItem>
-          <MenuItem value='name-desc'>Name Z-A</MenuItem>
-          <MenuItem value='price-asc'>Price Low-High</MenuItem>
-          <MenuItem value='price-desc'>Price High-Low</MenuItem>
-        </Select>
-      </FormControl>
+                </Container>
+                {/* Search products */}
+                {/* Sort Start */}
+                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'space-between' }}>
+            
                 </Container>
                 {/* Sort */} 
-             <Product/>
-          </Box>       
+
+                 <Container maxWidth='xl'>
+                  <Grid container sx={{}}>
+              {product.map((product)=>  
+            <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
+                   <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
+                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
+                     <CardMedia  sx={{height:'400px', objectFit:'contain' }}
+                     image={product.image} title="product image"  />
+                    <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.name}
+        </Typography>
+        <Box sx={{display:'flex',}}>
+          <Typography sx={{display:'flex', flexGrow:1}}>{t("Price")} : {product.price}$</Typography>
+            <Rating sx={{color:'gold'}} value={product.rate} readOnly/>
+        </Box> 
+      </CardContent>
+    </Card> 
+               {/* <Product/> */}
+          </Link>
+  </Grid>
+   )}
+             </Grid>
+            </Container>
+          </Box>     
+
+          <Pagination color="primary" sx={{ display: 'flex', justifyContent: 'center', my: 5}}
+            count={data?.response?.totalCount || 1}
+            page={activeFilters.page}
+            onChange={(e, page) =>
+           setActiveFilters(prev => ({
+            ...prev,
+            page: 1,
+          }))}
+          />
+
     </>
   )
 }

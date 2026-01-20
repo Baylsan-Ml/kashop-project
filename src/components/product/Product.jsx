@@ -5,21 +5,38 @@ import {Link as RouterLink} from 'react-router-dom';
 import { useProducts } from '../../hooks/useProducts';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
-export default function ProductsSection() {
+export default function Product({search,categoryId, minPrice, maxPrice,  }) {
     const { t, i18n } = useTranslation();
-    const {isLoading, isError, data}= useProducts();
-    const prod=data?.response.data || [];
-    console.log(prod);
+
+    const {register, handleSubmit}= useForm({
+        defaultValues:{
+          search:'',
+          categoryId:'',
+          minPrice:'',
+          maxPrice:''
+        }
+       });
+    const [activeFilters, setActiveFilters]=useState({});
+    const {isLoading, isError, data}= useProducts(activeFilters);
+    const product=data?.response.data || [];
+    console.log(product);
+  
+    const applyFilters=(values)=>{
+      setActiveFilters({
+        search:values.search || null,
+        categoryId:values.categoryId || null,
+        minPrice:values.minPrice || null,
+        maxPrice:values.maxPrice || null,
+      });
+    }
 
   return (
      <> 
-              <Container maxWidth='xl'>
-              <Grid container sx={{}}>
-                  {prod.map((product)=>
-            <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
-                   <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
-                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%',  }}>
+     
+                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%',  borderRadius:'25px'}}>
                      <CardMedia  sx={{height:'500px', objectFit:'contain', p:2}}
                      image={product.image} title="product image"  />
                     <CardContent>
@@ -28,16 +45,12 @@ export default function ProductsSection() {
         </Typography>
         <Box sx={{display:'flex',}}>
           <Typography sx={{display:'flex', flexGrow:1}}>{t("Price")} : {product.price}$</Typography>
-            <Rating sx={{color:'gold'}}/>
+            <Rating sx={{color:'gold'}} value={product.rate} readOnly/>
         </Box> 
       </CardContent>
     </Card> 
-                   </Link>
-  </Grid>
-            )
-            }
-              </Grid>
-              </Container>
+                   
+           
     </>
   )
 }

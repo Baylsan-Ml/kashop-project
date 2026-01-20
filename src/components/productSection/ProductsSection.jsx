@@ -1,10 +1,19 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Card, CardContent, CardMedia, CircularProgress, Container, Grid, Link, Rating, Typography } from '@mui/material'
 import Product from './../product/Product.jsx'
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import { useTranslation } from 'react-i18next';
+import { useProducts } from '../../hooks/useProducts.js';
+import {Link as RouterLink} from 'react-router-dom';
+
 
 export default function ProductsSection() {
     const { t, i18n } = useTranslation();
+     const {isLoading, isError, data}= useProducts();
+    const product=data?.response.data || [];
+    console.log(product);
+
+    if(isLoading) return <CircularProgress/>
+    if(isError) return <Typography>Error</Typography>
   return (
     <Box p={3} sx={{textAlign:'center'}}>
               <Typography component={'h2'} variant='h4' m={3} color='tertiary'
@@ -15,7 +24,32 @@ export default function ProductsSection() {
                   Check out our products, don't forget to add your favorites to cart 
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
-   <Product/>
+
+                 <Container maxWidth='xl'>
+                    <Grid container sx={{}}>
+              {product.map((product)=>  
+            <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
+              <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
+               <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
+                     <CardMedia  sx={{height:'400px', objectFit:'contain' }}
+                     image={product.image} title="product image"  />
+                    <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.name}
+        </Typography>
+        <Box sx={{display:'flex',}}>
+          <Typography sx={{display:'flex', flexGrow:1}}>{t("Price")} : {product.price}$</Typography>
+            <Rating sx={{color:'gold'}} value={product.rate} readOnly/>
+        </Box> 
+      </CardContent>
+    </Card> 
+              {/* <Product/> */}
+              </Link>   
+ </Grid>
+   )}
+             </Grid>
+
+              </Container>
 
    </Box>
   )

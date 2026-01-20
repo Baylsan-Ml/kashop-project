@@ -8,7 +8,7 @@ import img1 from '../../assets/imgs/img1.jpg'
 export default function Sales() {
    const { t, i18n } = useTranslation();
   return (
-    <Container>
+    
         <Box component={'section'} sx={{textAlign:'center'}} py={5}>
            <Typography component={'h2'} variant='h4' m={3} color='tertiary'
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
@@ -21,15 +21,21 @@ export default function Sales() {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <img src={img1} alt="Slide 1" style={{ width: '100%', height: '500px' }} />
+        <img src={img1} alt="Slide 1" style={{ width: '100%', height: '100px' }} />
       </SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>
+        <img src={img1} alt="Slide 1" style={{ width: '100%', height: '100px' }} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={img1} alt="Slide 1" style={{ width: '100%', height: '100px' }} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={img1} alt="Slide 1" style={{ width: '100%', height: '100px' }} />
+      </SwiperSlide>
       
     </Swiper>
         </Box>    
-    </Container>
+
    
   )
 }
