@@ -53,7 +53,7 @@ export default function Cart() {
                             </TableCell>
                         <TableCell sx={{fontSize:'17px'}}>{item.totalPrice}</TableCell>
                         <TableCell sx={{fontSize:'17px'}}>
-                            <Button sx={{ color:'#f2efe8', borderRadius:'10px', fontWidth:'bold'}} color='tertiary' variant='contained'
+                            <Button sx={{ color:'#f2efe8', borderRadius:'10px', fontWidth:'bold'}} color='success' variant='contained'
                             onClick={()=>removeItem(item.productId)}
                             disabled={isRemovingItem}>
                                 remove</Button>

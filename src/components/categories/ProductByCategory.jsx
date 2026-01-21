@@ -29,7 +29,7 @@ export default function ProductByCategory() {
 
     <Container sx={{minHeight:'70%'}}>
        <Box p={3} sx={{textAlign:'center'}}>
-              <Typography component={'h2'} variant='h4' m={3} color='tertiary'
+              <Typography component={'h2'} variant='h4' m={3} color='success'
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {category.name}
                 </Typography>

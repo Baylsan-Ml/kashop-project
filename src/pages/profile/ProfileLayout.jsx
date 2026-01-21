@@ -23,8 +23,8 @@ export default function Profile() {
         <Grid size={{xs:6, sm:4, md:3, xl:2 }}>
            <Drawer variant="permanent" color='info' PaperProps={{
         sx: {
-          width: 300,  backgroundColor:'#e38792',
-          position:'absolute', left:'-350px', overflowX:'hidden'
+          width: 300,  backgroundColor:'#e38792', borderRadius:'50%'
+          // position:'absolute', left:'-350px', overflowX:'hidden'
         },
       }} >
           <Button color='secondary'  component={NavLink} to=''>{t("Info")}</Button>

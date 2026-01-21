@@ -20,13 +20,13 @@ const axiosRefresh = axios.create({
  })
 
 axiosAuthInstance.interceptors.response.use((response)=>{
-  console.log(response)
+  console.log(response);
   return response;
 }, async(error)=>{
   const originalRequist=error.config;
   if(error.response.status=== 401 && !originalRequist._retry){
     !originalRequist._retry=== true;
-
+    
     try{
       const refreshResponse= await axiosRefresh.post(`/auth/Account/RefreshToken`,{});
       const newAccessToken = refreshResponse.data.accessToken;

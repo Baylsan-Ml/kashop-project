@@ -13,7 +13,7 @@ export default function Categories() {
   return (
     <>
         <Box p={3} sx={{textAlign:'center'}}>
-        <Typography component={'h2'} variant='h4' color='tertiary'
+        <Typography component={'h2'} variant='h4' color='success'
          m={3} sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
           {t("Categories")}</Typography>
           <Typography color='primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo saepe, nobis obcaecati nesciunt labore.</Typography>

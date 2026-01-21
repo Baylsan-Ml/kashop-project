@@ -25,6 +25,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import CrueltyFreeIcon from '@mui/icons-material/CrueltyFree';
 
 
 
@@ -55,184 +57,157 @@ export default function Navbar() {
   };
   return (
     <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-      <AppBar position="static" color='info'>
+      <AppBar position="static" color='success'
+      sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, p: 1.5, borderRadius:'5%',
+             boxShadow: `0 6px 0 #4e090a, 0 10px 15px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
+             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,},
+             '&:active': {transform: 'translateY(4px)', boxShadow: `0 2px 0 #4e090a, 0 4px 8px rgba(0,0,0,0.3)`,},}}
+      >
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
-            {/* <Box color={'secondary'} sx={{display:'flex', flex: 1}}>
-          <AdbIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
-           sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
-              textDecoration: 'none' }}>
-            KA-Shop {user?.name && `- ${user.name}`}
-          </Typography>
-          </Box>
-          
-            <Box  sx={{flex: 1, display: 'flex', justifyContent: 'center',gap: 3}}>
-            <Link color='secondary' component={RouterLink} to='/'  underline='none' 
-            sx={{display:'flex', flexDirection:'column', alignItems:'center' ,}}>
-            <HomeIcon title='Home' fontSize="large" /> {t("Home")}
-            </Link>
-            <Link component={RouterLink} to='/category' color='secondary' underline='none'
-            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <CategoryIcon fontSize="large" /> {t("Categories")}
-            </Link>
-            <Link component={RouterLink} to='/products' color='secondary' underline='none'
-            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <Inventory2Icon fontSize="large" /> {t("Products")}
-            </Link>
-            {token&&
-            <Link component={RouterLink} to='/cart' color='secondary' underline='none'
-            sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <ShoppingCartIcon fontSize="large" /> {t("Cart")}
-            </Link>
-           }
-            </Box>
-
-            <Box sx={{flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 1,}}>
-             {token? 
-             (
-              <>
-              <Tooltip title="Profile">
-                 <IconButton sx={{ p: 0 }}>
-                  <Link component={RouterLink} to="/profile" sx={{textDecoration:'none'}} color="secondary">
-                  <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
-                  </Link>
-                  </IconButton>
-                 </Tooltip>
-             <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />}>
-              {t("Logout")}
-             </Button>
-              </>
-             
-            ) : (
-             <>
-              <Link component={RouterLink} to="/login" sx={{textDecoration:'none'}} color="secondary">
-              {t("Login")}
-               </Link>
-                <Link component={RouterLink} to="/register" sx={{textDecoration:'none'}} color="secondary">
-                {t("Register")}
-                </Link>
-               </>
-               )
-             }
-
-             <Button color='secondary' onClick={toggleLanguage}>
-              <TranslateIcon color='secondary' />
-             </Button>
-
-              <IconButton
-               onClick={toggleTheme}
-              sx={{color:'secondary.main', transition: '0.3s','&:hover': { transform: 'rotate(20deg)'}}}>
-               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-              </IconButton>
-
-              
-                </Box> */}
-
                   {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-           <AdbIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Box sx={{ display: 'flex', alignItems: 'center'}}>
+            <AutoAwesomeIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,  }} />
+            <CrueltyFreeIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,  }} />
           <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
            sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
               textDecoration: 'none' }}>
             KA-Shop {user?.name && `- ${user.name}`}
           </Typography>
           </Box>
-
-
                  <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton color="secondary" onClick={handleOpenMenu}>
               <MenuIcon />
             </IconButton>
 
-            <Menu
+            <Menu 
               anchorEl={anchorElNav}
               open={Boolean(anchorElNav)}
               onClose={handleCloseMenu}
+
+               sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
             >
-              <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu}>
-                <HomeIcon sx={{ mr: 1 }} /> {t("Home")}
+              <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu} color="success"
+              sx={{}}
+              >
+                <HomeIcon color="success" sx={{ mr: 1 }} /> {t("Home")}
               </MenuItem>
 
-              <MenuItem component={RouterLink} to="/category" onClick={handleCloseMenu}>
-                <CategoryIcon sx={{ mr: 1 }} /> {t("Categories")}
+              <MenuItem component={RouterLink} to="/category" onClick={handleCloseMenu} color="success">
+                <CategoryIcon color="success" sx={{ mr: 1 }} /> {t("Categories")}
               </MenuItem>
 
-              <MenuItem component={RouterLink} to="/products" onClick={handleCloseMenu}>
-                <Inventory2Icon sx={{ mr: 1 }} /> {t("Products")}
+              <MenuItem component={RouterLink} to="/products" onClick={handleCloseMenu} color="success">
+                <Inventory2Icon color="success" sx={{ mr: 1 }} /> {t("Products")}
               </MenuItem>
 
               {token && (
-                <MenuItem component={RouterLink} to="/cart" onClick={handleCloseMenu}>
-                  <ShoppingCartIcon sx={{ mr: 1 }} /> {t("Cart")}
+                <MenuItem component={RouterLink} to="/cart" onClick={handleCloseMenu} color="tertiary">
+                  <ShoppingCartIcon color="success" sx={{ mr: 1 }} /> {t("Cart")}
                 </MenuItem>
               )}
             </Menu>
           </Box>
 
-          {/* Desktop Links */}
           <Box
             sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: {xs: 'none', md: 'flex' },
               gap: 3,
               flex: 1,
               justifyContent: 'center',
+              alignItems:'center'
             }}
           >
-            <Link component={RouterLink} to="/" color="secondary" underline="none">
+
+            {/* <Link component={RouterLink} to="/" color="secondary" underline="none"
+             sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, bgcolor: '#79874f', borderRadius: '30%', p: 1.5,
+             boxShadow: `0 6px 0 #5f6b3d, 0 10px 15px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
+             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #5f6b3d, 0 14px 20px rgba(0,0,0,0.4)`,},
+             '&:active': {transform: 'translateY(4px)', boxShadow: `0 2px 0 #5f6b3d, 0 4px 8px rgba(0,0,0,0.3)`,},}}>
+              <HomeIcon />
+               {t("Home")}
+               </Link> */}
+
+
+            <Link component={RouterLink} to="/" color="secondary" underline="none"  
+            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,}, }}>
               <HomeIcon /> {t("Home")}
             </Link>
 
-            <Link component={RouterLink} to="/category" color="secondary" underline="none">
+            <Link component={RouterLink} to="/category" color="secondary" underline="none"
+             sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            >
               <CategoryIcon /> {t("Categories")}
             </Link>
 
-            <Link component={RouterLink} to="/products" color="secondary" underline="none">
+            <Link component={RouterLink} to="/products" color="secondary" underline="none" 
+            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            >
               <Inventory2Icon /> {t("Products")}
             </Link>
 
             {token && (
-              <Link component={RouterLink} to="/cart" color="secondary" underline="none">
+              <Link component={RouterLink} to="/cart" color="secondary" underline="none"
+              sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #4e090a, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+              >
                 <ShoppingCartIcon /> {t("Cart")}
               </Link>
             )}
           </Box>
 
-          {/* Right actions */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 
             {token ? (
               <>
                 <Tooltip title="Profile">
-                  <IconButton component={RouterLink} to="/profile">
+                  <IconButton component={RouterLink} to="/profile" 
+                   sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+                  >
                     <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
 
-                <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />}>
+                <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />} 
+                 sx={{bgcolor:'',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+                >
                   {t("Logout")}
                 </Button>
               </>
             ) : (
               <>
                 <Link component={RouterLink} to="/login" color="secondary"
-                sx={{textDecoration:'none'}}
+                sx={{textDecoration:'none',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
                 >
                   {t("Login")}
                 </Link>
                 <Link component={RouterLink} to="/register" color="secondary"
-                sx={{textDecoration:'none'}}
+                sx={{textDecoration:'none',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
                 >
                   {t("Register")}
                 </Link>
               </>
             )}
 
-            <IconButton onClick={toggleLanguage} color="secondary">
+            <IconButton onClick={toggleLanguage} color="secondary"
+             sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            >
               <TranslateIcon />
             </IconButton>
 
-            <IconButton onClick={toggleTheme} color="secondary">
+            <IconButton onClick={toggleTheme} color="secondary" 
+             sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            >
               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
           </Box>
