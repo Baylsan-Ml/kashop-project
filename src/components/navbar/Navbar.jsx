@@ -27,6 +27,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import CrueltyFreeIcon from '@mui/icons-material/CrueltyFree';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -169,7 +170,8 @@ export default function Navbar() {
                    sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
             '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #4e090a, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
                   >
-                    <Avatar src="https://mui.com/static/images/avatar/2.jpg" />
+                    {/* <Avatar src="https://mui.com/static/images/avatar/2.jpg" /> */}
+                    <AccountCircleIcon color='secondary' fontSize='large'/>
                   </IconButton>
                 </Tooltip>
 

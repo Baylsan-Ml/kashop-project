@@ -53,7 +53,15 @@ i18n
           "Category Id":"Category Id",
           "Min Price":"Min Price",
           "Max Price":"Max Price",
-          "Apply Filters":"Apply Filters"
+          "Apply Filters":"Apply Filters",
+          "Enter Your Email":"Enter Your Email",
+          "Reviews":"Reviews",
+          "Add Review":"Add Review",
+          "Add":"Add",
+          "Add Your Comment":"Add Your Comment",
+          "Rate":"Rate",
+          "My personal info and details":"My personal info and details",
+          "Order history":"Order history"
         }
       },
        ar: {
@@ -102,7 +110,15 @@ i18n
           "Category Id":"رقم المنتج",
           "Min Price":"أقل سعر",
           "Max Price":"أعلى سعر",
-          "Apply Filters":"بحث"
+          "Apply Filters":"بحث",
+          "Enter Your Email":"ادخل بريدك الالكتروني",
+          "Reviews":"التقييمات",
+          "Add Review":"اضف تقييمك",
+          "Add":"اضافة",
+          "Add Your Comment":"اضف تعليق",
+          "Rate":"التقييم",
+          "My personal info":"معلوماتي الشخصية",
+          "Order history":"سجل الطلبات"
         }
       }
     },

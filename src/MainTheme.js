@@ -15,12 +15,7 @@ const getTheme = (mode)=>{
       main:'#4e090a',
       dark:'#9dac71'
     },
-    success:{
-      main:'#4e090a',
-      dark:'#9dac71'
-    },
-    info: {
-      
+    info: { 
       main: '#9dac71',
       dark:'#4e090a'
     },

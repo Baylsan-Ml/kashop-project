@@ -21,6 +21,7 @@ export default function Product({search,categoryId, minPrice, maxPrice,  }) {
        });
     const [activeFilters, setActiveFilters]=useState({});
     const {isLoading, isError, data}= useProducts(activeFilters);
+    
     const product=data?.response.data || [];
     console.log(product);
   

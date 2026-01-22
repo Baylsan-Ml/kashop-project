@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 
-const decodedUser = localStorage.getItem("user");
+  const decodedUser = JSON.parse(localStorage.getItem("user"));
 
 const useAuthStore= create((set)=>({
 
@@ -15,8 +15,9 @@ const useAuthStore= create((set)=>({
   },
 
   setUser:(user)=>{
-    localStorage.setItem("user", user),
+    localStorage.setItem("user",JSON.stringify(user) ),
     set({user})
+
   },
 
   logout:()=>{

@@ -15,7 +15,11 @@ export default function Footer() {
    
     <Box component={'footer'} mt='5'  elevation={0}
     sx={{background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
-       minHeight: '30vh', py: 7, color:'#eaebe5'
+       minHeight: '30vh', py: 7, color:'#eaebe5',
+    //    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    // backdropFilter: 'blur(4px)', // Apply a blur effect
+    // color: '#fff',
+    // zIndex: (theme) => theme.zIndex.drawer + 1,
      }}>
     <Grid container sx={{textAlign:'center', display:'flex', justifyContent:'center'}}>
        <Container maxWidth="xl" sx={{display:'flex', justifyContent:'space-between'}}>
@@ -30,7 +34,7 @@ export default function Footer() {
             sx={{display:'flex', justifyContent:'center'}}
             >{t("Tokyo's Beika Ward")}</Typography>
             <Typography sx={{display:'flex', justifyContent:'center'}} >0011881188</Typography>
-            <TextField id="outlined-basic" label="Enter Your Email" variant="outlined" color="secondary" focused 
+            <TextField id="outlined-basic" label={t("Enter Your Email")} variant="outlined" color="secondary" focused 
             sx={{display:'flex', justifyContent:'center'}} />
             <Box sx={{display:'flex', gap:2, justifyContent:'center' }}>
               <InstagramIcon  fontSize="large"/>
@@ -96,7 +100,7 @@ export default function Footer() {
           <Typography>
             {t("Get the latest updates on new products and upcoming sales")}
           </Typography>
-   <TextField id="outlined-basic" label="" variant="outlined" fullWidth  multiline
+   <TextField id="outlined-basic" label={t("Enter Your Email")} variant="outlined" fullWidth  
       color="secondary" focused 
          rows={4} />
          <Button variant="outlined" color='secodary' sx={{width:'30%', borderRadius:'10px'}}  >Send</Button>
