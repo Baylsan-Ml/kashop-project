@@ -69,7 +69,11 @@ i18n
           "Email":"Email",
           "Confirm your email":"Confirm your email",
           "Incorrect Email":"Incorrect Email",
-          "Trusted by our Customers and Partners":"Trusted by our Customers and Partners"
+          "Trusted by our Customers and Partners":"Trusted by our Customers and Partners",
+          "Thousands of visitors explore our platform every month.":"Thousands of visitors explore our platform every month.",
+          "A growing community of active and trusted users.":"A growing community of active and trusted users.",
+          "Partnering with leading brands and businesses worldwide.":"Partnering with leading brands and businesses worldwide.",
+          "Explore special discounts made just for you.":"Explore special discounts made just for you."
         }
       },
        ar: {
@@ -134,7 +138,11 @@ i18n
           "Email":"البريد الالكتروني",
           "Confirm your email":"قم بتأكيد بريدك الالكتروني",
           "Incorrect Email":"البريد المدخل غير صحيح",
-          "Trusted by our Customers and Partners":"يثق بنا عملاؤنا وشركاؤنا"
+          "Trusted by our Customers and Partners":"يثق بنا عملاؤنا وشركاؤنا",
+          "Thousands of visitors explore our platform every month.":"آلاف الزوار يستكشفون منصتنا شهريًا.",
+          "A growing community of active and trusted users.":"مجتمع متنامٍ من المستخدمين النشطين والموثوقين.",
+          "Partnering with leading brands and businesses worldwide.":"شراكات مع علامات تجارية وشركات رائدة حول العالم.",
+          "Explore special discounts made just for you.":"عروض مميزة بانتظارك الآن."
         }
       }
     },

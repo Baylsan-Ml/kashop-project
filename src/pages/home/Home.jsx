@@ -14,6 +14,7 @@ import Hero from '../../components/hero/Hero';
 import Clients from '../../components/clients/Clients';
 import Features from '../../components/features/Features';
 import ProductsSection from '../../components/productSection/ProductsSection';
+import StatsSection from '../../components/statsSection/StatsSection';
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
     <Hero />
     <Categories />
     <Sales />
+    <StatsSection/>
     <Features/>
     <ProductsSection />
     <Clients />
