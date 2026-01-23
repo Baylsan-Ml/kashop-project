@@ -73,7 +73,15 @@ i18n
           "Thousands of visitors explore our platform every month.":"Thousands of visitors explore our platform every month.",
           "A growing community of active and trusted users.":"A growing community of active and trusted users.",
           "Partnering with leading brands and businesses worldwide.":"Partnering with leading brands and businesses worldwide.",
-          "Explore special discounts made just for you.":"Explore special discounts made just for you."
+          "Explore special discounts made just for you.":"Explore special discounts made just for you.",
+          "Fast Shipping":"Fast Shipping",
+          "Fast Shipping On All Order":"Fast Shipping On All Order",
+          "Money Guarantee":"Money Guarantee",
+          "30 Day Money Back Guarantee":"30 Day Money Back Guarantee",
+          "Online Support 24/7":"Online Support 24/7",
+          "Technical Support 24/7":"Technical Support 24/7",
+          "Member Discount":"Member Discount",
+          "Upto 40% Discount All Products":"Upto 40% Discount All Products"
         }
       },
        ar: {
@@ -142,7 +150,15 @@ i18n
           "Thousands of visitors explore our platform every month.":"آلاف الزوار يستكشفون منصتنا شهريًا.",
           "A growing community of active and trusted users.":"مجتمع متنامٍ من المستخدمين النشطين والموثوقين.",
           "Partnering with leading brands and businesses worldwide.":"شراكات مع علامات تجارية وشركات رائدة حول العالم.",
-          "Explore special discounts made just for you.":"عروض مميزة بانتظارك الآن."
+          "Explore special discounts made just for you.":"عروض مميزة بانتظارك الآن.",
+          "Fast Shipping":"شحن سريع",
+          "Fast Shipping On All Order":"شحن سريع لجميع الطلبات",
+          "Money Guarantee":"ضمان استرداد الأموال",
+          "30 Day Money Back Guarantee":"ضمان استرداد الأموال لمدة 30 يومًا",
+          "Online Support 24/7":"الدعم عبر الإنترنت متاح على مدار الساعة طوال أيام الأسبوع",
+          "Technical Support 24/7":"الدعم الفني متوفر على مدار الساعة طوال أيام الأسبوع",
+          "Member Discount":"خصم للأعضاء",
+          "Upto 40% Discount All Products":"خصم يصل إلى 40% على جميع المنتجات"
         }
       }
     },
