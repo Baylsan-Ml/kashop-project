@@ -9,7 +9,7 @@ export default function Features() {
     const {t}= useTranslation();
   return (
     // <Container sx={{py:5}}>
-        <Grid container py={5} sx={{display:'flex', justifyContent:'center'}}>
+        <Grid container py={5} spacing={3} sx={{display:'flex', justifyContent:'center'}}>
             <Grid size={{xs:12, sm:6 , md:4, lg:3}} sx={{display:'flex', gap:1, justifyContent:'center'}}>
                 <RocketLaunchIcon color='success' sx={{ fontSize: "40px" }}/>
                 <Box>

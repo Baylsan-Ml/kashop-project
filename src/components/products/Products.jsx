@@ -73,21 +73,21 @@ export default function Products() {
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {t("Products")}
                 </Typography>
-                <Typography color='error.main'
-                sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:''}} 
-                >
-                  {t("Check out our products, don't forget to add your favorites to cart")}
+                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:'primary.main'}}>
+                  {t("Discover our unique collection of products designed to suit all your needs.")}
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
-                {/* Searc */}
-                <Container component={'section'}>
+                {/* Search and Sort */}
+                {/* <Container component={'section'}> */}
                    <Box component={'form'} onSubmit={handleSubmit(applyFilters)} 
                 sx={{display:'flex', justifyContent:'space-evenly', alignItems:'flex-start', py:5}}>
-                    <ManageSearchIcon fontSize="large" fullWidth sx={{display:'flex', alignItems:'center', marginBottom:'auto'}} />
+                  <Box sx={{display:'flex', justifyContent:'center', alignItems:'flex-start'}}>
+                     <ManageSearchIcon fontSize="large" fullWidth sx={{display:'flex', alignItems:'center', marginBottom:'auto'}} />
                    <TextField label={t("Search products...")} variant="outlined"
                    {...register('search')} sx={{ mb: 3, display:'flex',
                     borderRadius:'20px' }}  
                    InputProps={{style: {borderRadius: '20px'},}} />
+                  </Box>
                   <TextField label={t("Category Id")} variant="outlined"
                    {...register('categoryId')}  sx={{ mb: 3, display:'flex', }}
                    InputProps={{style: {borderRadius: '20px'},}}  />
@@ -110,24 +110,19 @@ export default function Products() {
                       <MenuItem value="price-desc" sx={{borderRadius:'20px'}}>Price High → Low</MenuItem>
                       </Select>
                      </FormControl>
-                   <Button type='submit' variant='contained' color='primary'
+                   <Button type='submit' variant='contained' color='primary' 
                    sx={{py:'15px', borderRadius:'20px', color:'#f2efe8'}}
                    >{t("Apply Filters")}</Button>
                 </Box>
-                </Container>
+                {/* </Container> */}
                 {/* Search products */}
-                {/* Sort Start */}
-                <Container maxWidth={'xl'} sx={{display:'flex', justifyContent:'space-between' }}>
-            
-                </Container>
-                {/* Sort */} 
 
                  <Container maxWidth='xl'>
                   <Grid container sx={{}}>
               {product.map((product)=>  
             <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
-                   {/* <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
+                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
                      <CardMedia  sx={{height:'400px', objectFit:'contain' }}
                      image={product.image} title="product image"  />
                     <CardContent>
@@ -139,8 +134,8 @@ export default function Products() {
             <Rating sx={{color:'gold'}} value={product.rate} readOnly/>
         </Box> 
       </CardContent>
-    </Card>  */}
-               <Product/>
+    </Card> 
+               {/* <Product/> */}
           </Link>
   </Grid>
    )}

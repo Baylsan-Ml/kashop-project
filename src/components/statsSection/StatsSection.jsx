@@ -10,7 +10,7 @@ export default function StatsSection() {
   return (
      <Box component={'section'} sx={{textAlign:'center', display:'flex', justifyContent:'center'}} py={5}>
        
-        <Grid container spacing={4}>
+        <Grid container spacing={4}  sx={{textAlign:'center', display:'flex', justifyContent:'center'}}>
             <Grid size={{xs:8, sm:6, xl:4}} sx={{borderRadius:'20%'}}>
                  <Paper elevation={3} sx={{borderRadius:'20%'}}>
                        <Card sx={{borderRadius:'20%', height:'200px' }}>

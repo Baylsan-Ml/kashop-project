@@ -23,8 +23,8 @@ export default function Categories() {
       <Grid  key={category.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
         <Link component={RouterLink}  to={`/Products/category/${category.id}`} sx={{textDecoration:'none'}}>
          <Card  bgColor='info.main'
-             sx={{p:1 ,cursor: 'pointer', width:'100%', fontWeight:'bold', backgroundColor:'#ff724c', borderRadius:'30%'
-               ,boxShadow: 1
+             sx={{p:1 ,cursor: 'pointer', width:'100%', fontWeight:'bold', bgcolor:'success.main', color:'secondary.main',
+               borderRadius:'50%',boxShadow: 1
              }}>
               <Typography>{category.name}</Typography>
               

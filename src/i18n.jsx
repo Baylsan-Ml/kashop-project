@@ -34,7 +34,8 @@ i18n
           "Check out our products, don't forget to add your favorites to cart":
           "Check out our products, don't forget to add your favorites to cart",
           "Action":"Action",
-          "Quantity Total": "Quantity Total",
+          "Quantity": "Quantity",
+          "Total":"Total",
           "Product Name":"Product Name",
           "Remove":"Remove",
           "Cart Total":"Cart Total",
@@ -81,7 +82,22 @@ i18n
           "Online Support 24/7":"Online Support 24/7",
           "Technical Support 24/7":"Technical Support 24/7",
           "Member Discount":"Member Discount",
-          "Upto 40% Discount All Products":"Upto 40% Discount All Products"
+          "Upto 40% Discount All Products":"Upto 40% Discount All Products",
+          "Discover our unique collection of products designed to suit all your needs.":
+          "Discover our unique collection of products designed to suit all your needs.",
+          "Get the latest updates...":"Get the latest updates...",
+          "How long does delivery take?":"How long does delivery take?",
+          "Delivery usually takes 2 to 5 business days, depending on your location.":
+          "Delivery usually takes 2 to 5 business days, depending on your location.",
+          "What payment methods do you accept?":"What payment methods do you accept?",
+          "We accept credit/debit cards, cash on delivery, and other secure online payment options.":
+          "We accept credit/debit cards, cash on delivery, and other secure online payment options.",
+          "Can I return or exchange a product?":"Can I return or exchange a product?",
+          "Yes, you can return or exchange products within 7 days of delivery, as long as they are unused and in original condition.":
+          "Yes, you can return or exchange products within 7 days of delivery, as long as they are unused and in original condition.",
+          "remove":"remove",
+          "Continue Shopping":"Continue Shopping",
+          "Proceed to Checkout":"Proceed to Checkout"
         }
       },
        ar: {
@@ -111,6 +127,8 @@ i18n
           "Check out our products, don't forget to add your favorites to cart":
           "تصفح منتجاتنا ولا تنسَ اضافة ما تحب للسلة",
           "Action":"الإجراء",
+          "Quantity": "الكمية",
+          "Total":"مجمل السعر",
           "Quantity	Total":"الكمية الإجمالية",
           "Product Name":"اسم المنتج",
           "Remove":"حذف",
@@ -158,7 +176,22 @@ i18n
           "Online Support 24/7":"الدعم عبر الإنترنت متاح على مدار الساعة طوال أيام الأسبوع",
           "Technical Support 24/7":"الدعم الفني متوفر على مدار الساعة طوال أيام الأسبوع",
           "Member Discount":"خصم للأعضاء",
-          "Upto 40% Discount All Products":"خصم يصل إلى 40% على جميع المنتجات"
+          "Upto 40% Discount All Products":"خصم يصل إلى 40% على جميع المنتجات",
+          "Discover our unique collection of products designed to suit all your needs.":
+          "اكتشف تشكيلتنا المميزة من المنتجات المصممة لتناسب كل احتياجاتك.",
+          "Get the latest updates...":"احصل على آخر التحديثات...",
+          "How long does delivery take?":"كم يستغرق التوصيل؟",
+          "Delivery usually takes 2 to 5 business days, depending on your location.":
+          "عادةً يستغرق التوصيل من 2 إلى 5 أيام عمل حسب موقعك.",
+          "What payment methods do you accept?":"ما طرق الدفع المتوفرة؟",
+          "We accept credit/debit cards, cash on delivery, and other secure online payment options.":
+          "نوفر الدفع بالبطاقات الائتمانية/المدى، الدفع عند الاستلام، وخيارات دفع إلكترونية آمنة أخرى.",
+          "Can I return or exchange a product?":"هل يمكنني إرجاع أو استبدال المنتج؟",
+          "Yes, you can return or exchange products within 7 days of delivery, as long as they are unused and in original condition.":
+          "نعم، يمكنك إرجاع أو استبدال المنتج خلال 7 أيام من تاريخ الاستلام، بشرط أن يكون غير مستخدم وبحالته الأصلية.",
+          "remove":"حذف",
+          "Continue Shopping":"متابعة التسوق",
+          "Proceed to Checkout":"المتابعة للشراء"
         }
       }
     },

@@ -20,8 +20,8 @@ export default function ProductsSection() {
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {t("Products")}
                 </Typography>
-                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:'#e38792'}}>
-                  Check out our products, don't forget to add your favorites to cart 
+                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:'primary.main'}}>
+                  {t("Discover our unique collection of products designed to suit all your needs.")}
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
 
