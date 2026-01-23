@@ -24,8 +24,8 @@ export default function Home() {
     <Categories />
     <Sales />
     <StatsSection/>
-    <Features/>
     <ProductsSection />
+    <Features/>
     <Clients />
     </>
   )

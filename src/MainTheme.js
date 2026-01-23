@@ -22,7 +22,8 @@ const getTheme = (mode)=>{
     success: {
       // main:'#4e090a',
     //  main:'#2f8ee0',
-        main:'#0038bd'
+        main:'#0038bd',
+        dark:'#2f8ee0'
 
     // main:'#ff724c'
       // dark:'#9dac71'
