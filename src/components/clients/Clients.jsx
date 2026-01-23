@@ -13,7 +13,7 @@ export default function Clients() {
         <Box component={'section'} pb={5}>
           <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px'}}>
                   {t("Trusted by our Customers and Partners")}
-                  <InsertEmoticonIcon fontSize='large'/>
+                
                 </Typography>
            <Card>
             <CardMedia image=''></CardMedia>

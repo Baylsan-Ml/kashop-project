@@ -3,10 +3,15 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import { Box, Button, Container } from '@mui/material';
 import { EffectFade } from 'swiper/modules';
-import img1 from '../../assets/imgs/img1.jpg'
-import img3 from '../../assets/imgs/img3.jpg'
-import img5 from '../../assets/imgs/img5.jpg'
-import img6 from '../../assets/imgs/img6.jpg'
+import hero from '../../assets/imgs/hero.jpg'
+import hero4 from '../../assets/imgs/hero4.jpg'
+import img8 from '../../assets/imgs/img8.jpg'
+import img22 from '../../assets/imgs/img22.jpg'
+import hero6 from '../../assets/imgs/hero6.jpg'
+import { Navigation, Pagination, A11y, Autoplay  } from 'swiper/modules';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 
 
 
@@ -15,22 +20,31 @@ export default function Hero() {
   return (
      
         <Box component={'section'} pb={5}>
-            <Swiper modules={[EffectFade]} effect="fade"
+            <Swiper
+          modules={[EffectFade, Autoplay,Pagination, A11y, Navigation]}
+          effect="fade"
+          autoplay={{ delay: 5000 }}
       spaceBetween={50}
       slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      navigation
+       pagination={{ clickable: true }}
     >
       <SwiperSlide>
-       <img src={img3} alt="Slide 1" style={{ width: '100%', height: '500px' }} />
+       <img src={hero} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
       </SwiperSlide>
       <SwiperSlide>
-        <img src={img6} alt="Slide 1" style={{ width: '100%', height: '500px' }} />
+        <img src={hero6} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
       </SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>
+        <img src={hero4} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={img8} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={img22} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
+      </SwiperSlide>
       
-      <Button onClick={()=> swiper.slideNext()}>next slide</Button>
     </Swiper>
         </Box>    
     
