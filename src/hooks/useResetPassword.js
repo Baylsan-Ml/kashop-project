@@ -12,9 +12,9 @@ export default function useResetPassword(){
     onSuccess:()=>{
       navigate('/login');
     },
-    onError:()=>{
-      alert('Please Check the Code Again');
-    }
+    onError:(error) => {
+        Swal.fire({ icon: 'error', title: `${error.message}`, text: error.response?.data?.message || "Current password might be wrong" });
+            }
   });
 
   return {resetPasswordMutation}

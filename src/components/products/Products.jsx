@@ -73,7 +73,9 @@ export default function Products() {
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {t("Products")}
                 </Typography>
-                <Typography sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:'#e38792'}}>
+                <Typography color='error.main'
+                sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', color:''}} 
+                >
                   {t("Check out our products, don't forget to add your favorites to cart")}
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>

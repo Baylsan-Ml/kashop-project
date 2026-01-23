@@ -16,7 +16,7 @@ export default function ProductsSection() {
     if(isError) return <Typography>Error</Typography>
   return (
     <Box p={3} sx={{textAlign:'center'}}>
-              <Typography component={'h2'} variant='h4' m={3} color='success'
+              <Typography component={'h2'} variant='h4' m={3} color='error'
               sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
                 {t("Products")}
                 </Typography>

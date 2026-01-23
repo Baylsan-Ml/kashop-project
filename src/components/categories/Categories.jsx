@@ -13,7 +13,7 @@ export default function Categories() {
   return (
     <>
         <Box p={3} sx={{textAlign:'center'}}>
-        <Typography component={'h2'} variant='h4' color='success'
+        <Typography component={'h2'} variant='h4' color='error'
          m={3} sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
           {t("Categories")}</Typography>
           <Typography color='primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo saepe, nobis obcaecati nesciunt labore.</Typography>
@@ -22,9 +22,9 @@ export default function Categories() {
             {data.response.map((category)=>
       <Grid  key={category.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
         <Link component={RouterLink}  to={`/Products/category/${category.id}`} sx={{textDecoration:'none'}}>
-         <Card color='primary' 
-             sx={{p:1 ,color:'#eaebe5', backgroundColor:'#e38792',cursor: 'pointer', width:'100%', fontWeight:'bold',
-               boxShadow: 1
+         <Card  bgColor='info.main'
+             sx={{p:1 ,cursor: 'pointer', width:'100%', fontWeight:'bold', backgroundColor:'#ff724c', borderRadius:'30%'
+               ,boxShadow: 1
              }}>
               <Typography>{category.name}</Typography>
               

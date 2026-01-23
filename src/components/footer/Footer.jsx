@@ -13,8 +13,9 @@ export default function Footer() {
       const { t, i18n } = useTranslation();
   return (
    
-    <Box component={'footer'} mt='5'  elevation={0}
-    sx={{background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
+    <Box component={'footer'} mt='5'  elevation={0} bgcolor={'info.main'}
+    sx={{
+      // background: 'radial-gradient(circle,rgba(227, 135, 146, 1) 15%, rgba(144, 64, 70, 1) 40%, rgba(78, 9, 10, 1) 60%, rgba(78, 9, 10, 1) 86%);',
        minHeight: '30vh', py: 7, color:'#eaebe5',
     //    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
     // backdropFilter: 'blur(4px)', // Apply a blur effect
@@ -34,8 +35,6 @@ export default function Footer() {
             sx={{display:'flex', justifyContent:'center'}}
             >{t("Tokyo's Beika Ward")}</Typography>
             <Typography sx={{display:'flex', justifyContent:'center'}} >0011881188</Typography>
-            <TextField id="outlined-basic" label={t("Enter Your Email")} variant="outlined" color="secondary" focused 
-            sx={{display:'flex', justifyContent:'center'}} />
             <Box sx={{display:'flex', gap:2, justifyContent:'center' }}>
               <InstagramIcon  fontSize="large"/>
               <FacebookIcon  fontSize="large"/>

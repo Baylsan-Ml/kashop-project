@@ -61,7 +61,15 @@ i18n
           "Add Your Comment":"Add Your Comment",
           "Rate":"Rate",
           "My personal info and details":"My personal info and details",
-          "Order history":"Order history"
+          "Order history":"Order history",
+          "Personal Information":"Personal Information",
+          "Full Name":"Full Name",
+          "City":"City",
+          "Phone Number":"Phone Number",
+          "Email":"Email",
+          "Confirm your email":"Confirm your email",
+          "Incorrect Email":"Incorrect Email",
+          "Trusted by our Customers and Partners":"Trusted by our Customers and Partners"
         }
       },
        ar: {
@@ -118,7 +126,15 @@ i18n
           "Add Your Comment":"اضف تعليق",
           "Rate":"التقييم",
           "My personal info":"معلوماتي الشخصية",
-          "Order history":"سجل الطلبات"
+          "Order history":"سجل الطلبات",
+          "Personal Information":"المعلومات الشخصية",
+          "Full Name":"الاسم الكامل",
+          "City":"المدينة",
+          "Phone Number":"رقم الهاتف",
+          "Email":"البريد الالكتروني",
+          "Confirm your email":"قم بتأكيد بريدك الالكتروني",
+          "Incorrect Email":"البريد المدخل غير صحيح",
+          "Trusted by our Customers and Partners":"يثق بنا عملاؤنا وشركاؤنا"
         }
       }
     },

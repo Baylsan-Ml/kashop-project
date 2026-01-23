@@ -26,7 +26,7 @@ export default function Profile() {
       <Grid container>
         <Grid size={{xs:6, sm:3, md:2, xl:2 }} sx={{display:'flex', alignItems:'baseline'}}>
        <List  
-       sx={{ width: '100%',  bgcolor: 'info.main', height:'500px', borderRadius:'20%', 
+       sx={{ width: '100%',  bgcolor: 'info.main', height:'70vh', borderRadius:'20%', 
        display:'flex', flexDirection:'column', alignItems:'center' }}>
         <Button component={NavLink} to='' sx={{ borderRadius:'20%',pt:5}}>
            <ListItem>
