@@ -122,23 +122,23 @@ export default function Cart() {
               ))}
 
               <TableRow>
-                <TableCell>
+               
+                <TableCell
+                  align="right" colSpan={4}
+                  sx={{ fontSize: "17px", fontWeight: "bold", pr: 11 }}
+                >
+                  {" "}
+                  {t("Cart Total")}:{data.cartTotal}$
+                </TableCell>
+                 <TableCell>
                   <Button
-                    variant="outlined"
+                    variant="contained"
                     color="error"
                     onClick={() => clearCart()}
                     disabled={isClearing}
                     sx={{alignSelf: "flex-end", borderRadius: "10px", fontWeight: "bold",}}>
                     {t("Clear Cart")}
                   </Button>
-                </TableCell>
-                <TableCell
-                  colSpan={5}
-                  align="right"
-                  sx={{ fontSize: "17px", fontWeight: "bold", pr: 11 }}
-                >
-                  {" "}
-                  {t("Cart Total")}:{data.cartTotal}$
                 </TableCell>
               </TableRow>
             </TableBody>
