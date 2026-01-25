@@ -14,7 +14,7 @@ export default function StatsSection() {
             <Grid size={{xs:8, sm:6, xl:4}} sx={{borderRadius:'20%'}}>
                  <Paper elevation={3} sx={{borderRadius:'20%'}}>
                        <Card sx={{borderRadius:'20%', height:'200px',
-                        '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #ef660c, 0 2px 30px #0038bd`,}
+                        '&:hover': { boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,}
                         }}>
       <CardContent>
         <VisibilityIcon fontSize='large' color='primary'/>
@@ -36,7 +36,7 @@ export default function StatsSection() {
              <Grid size={{xs:8, sm:6, xl:4}} sx={{borderRadius:'20%'}}>
                  <Paper elevation={3} sx={{borderRadius:'20%'}}>
                        <Card sx={{borderRadius:'20%', height:'200px',
-                        '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #ef660c, 0 2px 30px #0038bd`,}
+                        '&:hover': { boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,}
                         }}>
       <CardContent>
         <PersonAddIcon fontSize='large' color='primary'/>
@@ -58,7 +58,7 @@ export default function StatsSection() {
              <Grid size={{xs:8, sm:6, xl:4}} sx={{borderRadius:'20%'}}>
                  <Paper elevation={3} sx={{borderRadius:'20%'}}>
                        <Card sx={{borderRadius:'20%', height:'200px',
-                        '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #ef660c, 0 2px 30px #0038bd`,}
+                        '&:hover': { boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,}
                         }}>
       <CardContent>
         <HandshakeIcon fontSize='large' color='primary'/>

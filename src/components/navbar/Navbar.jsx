@@ -60,9 +60,9 @@ export default function Navbar() {
     <Box color='info' sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
       <AppBar position="static" color='primary'
       sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, p: 1.5, borderRadius:'5%',
-             boxShadow: `0 6px 0 #fcc050, 0 10px 15px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
-             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #fcc050, 0 14px 20px rgba(0,0,0,0.4)`,},
-             '&:active': {transform: 'translateY(4px)', boxShadow: `0 2px 0 #fcc050, 0 4px 8px rgba(0,0,0,0.3)`,},}}
+             boxShadow: `0 1px 0 #fcc050, 0 5px 10px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
+             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 1px 0 #fcc050, 0 3px 20px #9a3b11`,},
+             '&:active': {transform: 'translateY(2px)', boxShadow: `0 2px 0 #fcc050, 0 4px 8px #9a3b11`,},}}
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{display:'flex' }}>
@@ -87,7 +87,7 @@ export default function Navbar() {
               onClose={handleCloseMenu}
 
                sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #b8a8fe, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
             >
               <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu} color="success"
               sx={{}}
@@ -139,14 +139,14 @@ export default function Navbar() {
 
             <Link component={RouterLink} to="/category" color="secondary" underline="none"
              sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
             >
               <CategoryIcon /> {t("Categories")}
             </Link>
 
             <Link component={RouterLink} to="/products" color="secondary" underline="none" 
             sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
             >
               <Inventory2Icon /> {t("Products")}
             </Link>
@@ -154,7 +154,7 @@ export default function Navbar() {
             {token && (
               <Link component={RouterLink} to="/cart" color="secondary" underline="none"
               sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
               >
                 <ShoppingCartIcon /> {t("Cart")}
               </Link>
@@ -168,16 +168,15 @@ export default function Navbar() {
                 <Tooltip title="Profile">
                   <IconButton component={RouterLink} to="/profile" 
                    sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-0.5px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
                   >
-                    {/* <Avatar src="https://mui.com/static/images/avatar/2.jpg" /> */}
                     <AccountCircleIcon color='secondary' fontSize='large'/>
                   </IconButton>
                 </Tooltip>
 
                 <Button color="secondary" onClick={handleLogout} startIcon={<LogoutIcon />} 
                  sx={{bgcolor:'',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
                 >
                   {t("Logout")}
                 </Button>
@@ -186,13 +185,13 @@ export default function Navbar() {
               <>
                 <Link component={RouterLink} to="/login" color="secondary"
                 sx={{textDecoration:'none',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
                 >
                   {t("Login")}
                 </Link>
                 <Link component={RouterLink} to="/register" color="secondary"
                 sx={{textDecoration:'none',borderRadius:'40%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
                 >
                   {t("Register")}
                 </Link>
@@ -201,14 +200,14 @@ export default function Navbar() {
 
             <IconButton onClick={toggleLanguage} color="secondary"
              sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
             >
               <TranslateIcon />
             </IconButton>
 
             <IconButton onClick={toggleTheme} color="secondary" 
              sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 10px 10px rgba(0,0,0,0.4)`,}, }}
+           '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
             >
               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>

@@ -133,9 +133,24 @@ export default function Products() {
               {product.map((product)=>  
             <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
-                   <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
-                     <CardMedia component={'img'}  sx={{height:'400px', objectFit:'contain' }}
-                     image={product.image} title="product image"  />
+                   <Card color='secondary' sx={{ cursor: 'pointer', borderRadius:'25px' }}>
+                     {/* <CardMedia component={'img'}  sx={{height:'400px', objectFit:'contain' }}
+                     image={product.image} title="product image"  /> */}
+                     <Box 
+                     sx={{position: 'relative', overflow: 'hidden',
+                      '&:hover img': {filter: 'brightness(0.5)', transform: 'scale(1.05)',},
+                      '&:hover .details-btn': {opacity: 1, transform: 'translate(-50%, -50%)',},}}>
+                        
+                    <Button className="details-btn" variant="contained" color="primary"
+                    sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -60%)',
+                      opacity: 0, transition: 'all 0.3s ease', zIndex: 2, px: 4, py: 1, borderRadius: '20px',
+                     textTransform: 'none',fontWeight: 'bold',}}>
+                   {t('Details')}
+                   </Button>
+
+                   <CardMedia component="img" image={product.image} title="product image"
+                   sx={{height: '300px', objectFit: 'unset', transition: 'all 0.3s ease',}}/>
+                   </Box>
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
