@@ -7,14 +7,12 @@ import Login from "./src/pages/login/Login.jsx";
 import Register from "./src/pages/register/Register.jsx";
 import SendCode from "./src/pages/sendCode/SendCode.jsx";
 import ResetPassword from "./src/pages/resetPassword/ResetPassword.jsx";
-import ProductDetails from "./src/components/products/ProductDetails.jsx";
-import Products from "./src/components/products/Products.jsx";
+import ProductDetails from "./src/pages/products/ProductDetails.jsx";
+import Products from "./src/pages/products/Products.jsx"
 import Categories from "./src/components/categories/Categories.jsx";
 import ProtectedRouter from "./src/ProtectedRouter.jsx";
-import { Container } from "@mui/material";
 import Sales from "./src/components/sales/Sales.jsx";
 import Hero from "./src/components/hero/Hero.jsx";
-import Dashboard from "./src/pages/dash/Dashboard.jsx";
 import Checkout from "./src/pages/cart/checkout/Checkout.jsx";
 import ProductByCategory from "./src/components/categories/ProductByCategory.jsx";
 import ProfileLayout from "./src/pages/profile/ProfileLayout.jsx";

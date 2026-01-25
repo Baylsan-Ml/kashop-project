@@ -97,7 +97,8 @@ i18n
           "Yes, you can return or exchange products within 7 days of delivery, as long as they are unused and in original condition.",
           "remove":"remove",
           "Continue Shopping":"Continue Shopping",
-          "Proceed to Checkout":"Proceed to Checkout"
+          "Proceed to Checkout":"Proceed to Checkout",
+          "See What Our Customers Said About This Product..":"See What Our Customers Said About This Product..",
         }
       },
        ar: {
@@ -191,7 +192,8 @@ i18n
           "نعم، يمكنك إرجاع أو استبدال المنتج خلال 7 أيام من تاريخ الاستلام، بشرط أن يكون غير مستخدم وبحالته الأصلية.",
           "remove":"حذف",
           "Continue Shopping":"متابعة التسوق",
-          "Proceed to Checkout":"المتابعة للشراء"
+          "Proceed to Checkout":"المتابعة للشراء",
+          "See What Our Customers Said About This Product..":"شاهد ماذا قال زبائننا عن هذا المنتج.."
         }
       }
     },

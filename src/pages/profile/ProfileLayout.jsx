@@ -22,11 +22,11 @@ export default function Profile() {
 
   return (
     //  <Container sx={{minHeight:'70vh', textAlign:'center', py:5}} >
-    <Box component={'section'} sx={{minHeight:'70vh', textAlign:'center', py:5}}>
-      <Grid container>
-        <Grid size={{xs:6, sm:3, md:2, xl:2 }} sx={{display:'flex', alignItems:'baseline'}}>
-       <List  
-       sx={{ width: '100%',  bgcolor: 'info.main', height:'70vh', borderRadius:'20%', 
+    <Box component={'section'} sx={{minHeight:'70vh', textAlign:'center', }}>
+      <Grid container >
+        <Grid size={{xs:6, sm:3, md:2, xl:2 }} sx={{display:'flex', alignItems:'baseline', position:'relative'}}>
+       <List 
+       sx={{ width: '100%', height:'100vh', bgcolor:'info', position:'absolute',
        display:'flex', flexDirection:'column', alignItems:'center' }}>
         <Button component={NavLink} to='' sx={{ borderRadius:'20%',pt:5}}>
            <ListItem>
@@ -53,8 +53,8 @@ export default function Profile() {
 
         <Grid size={{xs:6, sm:8, md:9, xl:9 }}>
            <Box component={'section'}  >
-      <Typography  component={'h2'} variant='h2' m={3} color='success'
-              sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', }}>{t("My Proflie")}</Typography>
+      {/* <Typography  component={'h2'} variant='h2' m={3} color='success'
+              sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', }}>{t("My Proflie")}</Typography> */}
     
     <Outlet/>
     </Box>

@@ -47,12 +47,12 @@ export default function ProductDetails() {
 
     <Container>
     <Box component={'section'} sx={{py:5}}>
-      <Card sx={{p:3}}>
+      <Card sx={{p:3, borderRadius:'10%'}} >
         <Grid sx={{display:'flex', alignItems:'center'}} container spacing={3}>
           <Grid size={{xs:12, md: 5}}>
             <CardMedia component={'img'}
             image={product.image}
-            sx={{height:500, objectFit:'contain'}}
+            sx={{height:500, objectFit:'contain', borderRadius:'10%'}}
             >  
             </CardMedia>
           </Grid>
@@ -64,7 +64,7 @@ export default function ProductDetails() {
             <Typography variant='span'>{t("Available Quantity")}: {product.quantity}</Typography>
             <Button variant='contained' color='primary' 
             onClick={()=>addToCart({ProductId:product.id, Count:1})}
-            disabled={isAddingToCart}
+            disabled={isAddingToCart} sx={{'&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}}}
             >{t("Add To Cart")}</Button>
           </Grid>
 
@@ -82,44 +82,21 @@ export default function ProductDetails() {
 
       </Card>
 
-      <Box  component={'section'} sx={{py:5, textAlign:'center'}}>
-         <Typography component={'h2'} variant='h3' sx={{textAlign:'center'}}>{t("Reviews")}</Typography>
-       <Grid container component={'section'} sx={{py:5, textAlign:'center', display:'flex',justifyContent:'center', gap:3}}> 
-       {/* <Swiper sx={{}}
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    > */}
-            {reviews.map((review)=>
-      //  <SwiperSlide>
-             <Grid  key={review.userName} size={{xs:12, sm:6 , md:5, xl:4}} 
-             sx={{ display:'flex', flexDirection:'column', gap:3}}> 
-               <Card  sx={{display:'flex', flexDirection:'column', justifyContent:'center',
-               borderRadius:'20px', height:'300px',
-               }}>
-              <CardContent 
-              sx={{width:'100%', height:'auot',
-              display:'flex', flexDirection:'column',alignItems:'center', gap:2}}>
-             <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                 {review.userName}
-             </Typography>
-             <Rating value={review.rating} readOnly/>
-      <Stack variant="body2" 
-      sx={{display:'flex', flexDirection:'column', justifyContent:'center', gap:3}}
-      >
-        {review.comment}
-        <Divider  flexItem />
-       <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>{review.createdAt}</Typography>
-      </Stack>
-    </CardContent>
-    <CardActions sx={{display:'flex', justifyContent:'center', alignContent:'center'}}>
+       <Box component={'section'} sx={{textAlign:'center'}} py={5}>
+          <Typography component={'h2'} variant='h4' m={3} color='error.main'
+            sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
+              {t("Reviews")}
+          </Typography>
+          <Typography color='primary' pb={3}
+            sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', textShadow: '2px 2px 2px rgba(56, 31, 18, 0.3)'}}>
+              {t("See What Our Customers Said About This Product..")}
+          </Typography>
+          <CardActions sx={{display:'flex', justifyContent:'center', alignContent:'center', py:3}}>
       <Button size="small" variant='contained' onClick={handleOpen}        
-      sx={{py:1}}>{t("Add Review")}</Button>
+      sx={{py:1, '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}}}>{t("Add Review")}</Button>
    
        <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-
           <Typography variant="h6" mb={2} sx={{textAlign:'center'}}>
            {t("Add Review")}
           </Typography>
@@ -132,7 +109,7 @@ export default function ProductDetails() {
           value={userComment}
           onChange={(e)=>setUserComment(e.target.value)}
           />
-           <Button fullWidth variant="contained" sx={{my:2}}
+           <Button fullWidth variant="contained" sx={{my:2, '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}}}
            disabled={!userRating || !userComment || isAddingReview}
           onClick={() => {addReview({
           rating: userRating,
@@ -148,16 +125,42 @@ export default function ProductDetails() {
       </Modal>
      
     </CardActions>
+                      <Swiper
+              breakpoints={{
+                0: { slidesPerView: 1, spaceBetween: 10 },
+                600: { slidesPerView: 2, spaceBetween: 15 },
+                900: { slidesPerView: 3, spaceBetween: 20 },
+                1200: { slidesPerView: 4, spaceBetween: 30 },
+              }}
+            >
+              {reviews.map((review) => (
+                <SwiperSlide key={review.id} style={{ position: 'relative', display:'flex', justifyContent:'center',
+                  height:'300px', alignItems:'center'
+                  }}>
+                  <Card  
+                  sx={{height:'290px', display:'flex', alignItems:'center',border:1, borderColor:'primary.main',
+                    '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #0038bd`,}
+                  }}>
+              <CardContent 
+              sx={{height:'auto'}}>
+             <Typography gutterBottom sx={{ color: 'error.main', fontSize: 14 }}>
+                 {review.userName}
+             </Typography>
+             <Rating value={review.rating} readOnly/>
+      <Stack variant="body2" 
+      sx={{display:'flex', flexDirection:'column', justifyContent:'center', gap:3}}
+      >
+        {review.comment}
+        <Divider  flexItem />
+       <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>{review.createdAt}</Typography>
+      </Stack>
+    </CardContent>
   </Card>
-                </Grid>
-                // </SwiperSlide>
- 
-           
-            )}
-                          
-         {/* </Swiper> */}
-      </Grid>
-      </Box> 
+</SwiperSlide>
+              ))}
+            </Swiper>
+          
+              </Box>    
     </Box>
 
 

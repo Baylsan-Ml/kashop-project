@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import {Link as RouterLink} from 'react-router-dom';
 import {useEffect, useState } from 'react';
-import { useProducts } from '../../hooks/useProducts';
+import { useProducts } from '../../hooks/useProducts.js';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import InputLabel from '@mui/material/InputLabel';
@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Pagination from '@mui/material/Pagination';
 import { useTranslation } from 'react-i18next';
-import Product from './../product/Product.jsx'
+import Product from '../../components/product/Product.jsx'
 import { useForm } from 'react-hook-form';
 
 
@@ -78,28 +78,36 @@ export default function Products() {
                   <InsertEmoticonIcon fontSize='large'/>
                 </Typography>
                 {/* Search and Sort */}
-                {/* <Container component={'section'}> */}
-                   <Box component={'form'} onSubmit={handleSubmit(applyFilters)} 
+                <Box component={'form'} onSubmit={handleSubmit(applyFilters)} 
                 sx={{display:'flex', justifyContent:'space-evenly', alignItems:'flex-start', py:5}}>
-                  <Box sx={{display:'flex', justifyContent:'center', alignItems:'flex-start'}}>
+                <Grid container spacing={7}>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                     <Box sx={{display:'flex', justifyContent:'center', alignItems:'flex-start'}}>
                      <ManageSearchIcon fontSize="large" fullWidth sx={{display:'flex', alignItems:'center', marginBottom:'auto'}} />
                    <TextField label={t("Search products...")} variant="outlined"
                    {...register('search')} sx={{ mb: 3, display:'flex',
                     borderRadius:'20px' }}  
                    InputProps={{style: {borderRadius: '20px'},}} />
                   </Box>
-                  <TextField label={t("Category Id")} variant="outlined"
+                  </Grid>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                      <TextField label={t("Category Id")} variant="outlined"
                    {...register('categoryId')}  sx={{ mb: 3, display:'flex', }}
                    InputProps={{style: {borderRadius: '20px'},}}  />
-                   <TextField label={t("Min Price")} variant="outlined"
+                  </Grid>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                      <TextField label={t("Min Price")} variant="outlined"
                    {...register('minPrice')}  sx={{ mb: 3, display:'flex', }}
                    InputProps={{style: {borderRadius: '20px'},}}  />
-                   <TextField label={t("Max Price")} variant="outlined"
+                  </Grid>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                       <TextField label={t("Max Price")} variant="outlined"
                    {...register('maxPrice')}  sx={{ mb: 3, display:'flex', }}
                    InputProps={{style: {borderRadius: '20px'},}}  />
-
-                    <FormControl sx={{display:'flex',width: "20%", borderRadius:'20px'}} >
-                    <InputLabel id="sort-label">{t("Sort")}</InputLabel>
+                  </Grid>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                      <FormControl fullWidth sx={{display:'flex', borderRadius:'20px'}} >
+                    <InputLabel fullWidth>{t("Sort")}</InputLabel>
                      <Select labelId="sort-label" label={t("Sort")} defaultValue=""
                      sx={{borderRadius:'20px'}}
                       {...register("sort")}>
@@ -110,20 +118,23 @@ export default function Products() {
                       <MenuItem value="price-desc" sx={{borderRadius:'20px'}}>Price High → Low</MenuItem>
                       </Select>
                      </FormControl>
-                   <Button type='submit' variant='contained' color='primary' 
-                   sx={{py:'15px', borderRadius:'20px', color:'#f2efe8'}}
+                  </Grid>
+                  <Grid size={{xs:4, sm:4, md:2}}>
+                     <Button type='submit' variant='contained' color='primary' 
+                   sx={{py:'15px', borderRadius:'20px'}}
                    >{t("Apply Filters")}</Button>
-                </Box>
-                {/* </Container> */}
+                  </Grid>
+                </Grid>
+                   </Box>
                 {/* Search products */}
 
                  <Container maxWidth='xl'>
-                  <Grid container sx={{}}>
+                  <Grid container sx={{display:'flex', justifyContent:'center'}}>
               {product.map((product)=>  
             <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
                    <Card color='secondary' sx={{ cursor: 'pointer', width:'100%', borderRadius:'25px' }}>
-                     <CardMedia  sx={{height:'400px', objectFit:'contain' }}
+                     <CardMedia component={'img'}  sx={{height:'400px', objectFit:'contain' }}
                      image={product.image} title="product image"  />
                     <CardContent>
         <Typography gutterBottom variant="h5" component="div">

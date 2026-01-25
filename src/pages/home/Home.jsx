@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Categories from '../../components/categories/Categories'
-import Products from '../../components/products/Products'
+import Products from '../products/Products'
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';

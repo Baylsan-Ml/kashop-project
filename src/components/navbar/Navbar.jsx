@@ -92,20 +92,20 @@ export default function Navbar() {
               <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu} color="success"
               sx={{}}
               >
-                <HomeIcon color="success" sx={{ mr: 1 }} /> {t("Home")}
+                <HomeIcon color="success" sx={{ mr: 1 , fontWeight:'bold'}} /> {t("Home")}
               </MenuItem>
 
               <MenuItem component={RouterLink} to="/category" onClick={handleCloseMenu} color="success">
-                <CategoryIcon color="success" sx={{ mr: 1 }} /> {t("Categories")}
+                <CategoryIcon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Categories")}
               </MenuItem>
 
               <MenuItem component={RouterLink} to="/products" onClick={handleCloseMenu} color="success">
-                <Inventory2Icon color="success" sx={{ mr: 1 }} /> {t("Products")}
+                <Inventory2Icon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Products")}
               </MenuItem>
 
               {token && (
                 <MenuItem component={RouterLink} to="/cart" onClick={handleCloseMenu} color="tertiary">
-                  <ShoppingCartIcon color="success" sx={{ mr: 1 }} /> {t("Cart")}
+                  <ShoppingCartIcon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Cart")}
                 </MenuItem>
               )}
             </Menu>
@@ -132,9 +132,9 @@ export default function Navbar() {
 
 
             <Link component={RouterLink} to="/" color="secondary" underline="none"  
-            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #ff724c, 0 14px 20px #ff734c7b`,}, }}>
-              <HomeIcon /> {t("Home")}
+            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1, fontSize:'17px',
+            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}>
+              <HomeIcon  /> {t("Home")}
             </Link>
 
             <Link component={RouterLink} to="/category" color="secondary" underline="none"

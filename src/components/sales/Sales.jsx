@@ -35,17 +35,21 @@ export default function Sales() {
       >
         {saleImages.map((img, index) => (
           <SwiperSlide key={index} style={{ position: 'relative' }}>
-            <Badge badgeContent="30% OFF"  color="primary"
-              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-              sx={{"& .MuiBadge-badge": { fontSize: { xs: 12, md: 16 }, height: { xs: 40, md: 60 }, minWidth: { xs: 80, md: 100 },
-                  borderRadius: '30%', boxShadow: '0 4px 10px rgba(0,0,0,0.4)',
-                  position: 'absolute', top: { xs: 15, md: 30 },right: { xs: 20, md: 50 },}
-              }}
-            >
-              <img src={img} alt="Sale"
-                style={{ width: '100%', height: '500px', maxHeight: '500px', borderRadius: '10%',  objectFit: 'cover',}}
-              />
-            </Badge>
+            <Box sx={{position: 'relative', borderRadius: '10%', overflow: 'hidden', cursor: 'pointer',
+           '&:hover img': {filter: 'brightness(0.5)', transform: 'scale(1.05)',}, 
+           '&:hover .sale-badge': {opacity: 1,transform: 'translate(-50%, -50%) scale(1)',}}}>
+           <Badge badgeContent="30% OFF" color="primary" className="sale-badge"
+            sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(0.8)', opacity: 0, transition: 'all 0.3s ease',zIndex: 2,
+            '& .MuiBadge-badge': 
+            {fontSize: { xs: 14, md: 18 }, height: { xs: 45, md: 60 }, minWidth: { xs: 90, md: 120 }, borderRadius: '30%', boxShadow: '0 4px 10px rgba(0,0,0,0.4)' },
+          }}/>
+           <Badge badgeContent="SALE!" color="primary" className="sale-badge"
+           sx={{position: 'absolute', top: { xs: 15, md: 30 }, right: { xs: 20, md: 50 }, transition: 'all 0.3s ease', zIndex: 2,
+          '& .MuiBadge-badge': {fontSize: { xs: 14, md: 18 }, height: { xs: 40, md: 60 }, minWidth: { xs: 80, md: 100 }, 
+          borderRadius: '30%', boxShadow: '0 4px 10px rgba(0,0,0,0.4)',},}}/>
+          <img src={img} alt="Sale"
+          style={{ width: '100%', height: '400px', borderRadius: '10%', objectFit: 'cover', transition: 'all 0.3s ease',}}/>    
+  </Box>
           </SwiperSlide>
         ))}
       </Swiper>

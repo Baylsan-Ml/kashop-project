@@ -101,9 +101,9 @@ export default function ProfileInfo() {
 };
 
   return (
-     <Box  sx={{minHeight:'70vh', m:5, borderColor: 'grey.500', width:'90%',
+     <Box  sx={{minHeight:'70vh', borderColor: 'grey.500', 
     display:'flex', flexDirection:'column', justifyContent:'center', borderRadius: '5px'}}>
-       <Typography variant='h3' sx={{textAlign: 'center', textShadow:'2px 2px 1px #4e090a', py:5}} color='primary' >
+       <Typography variant='h3' sx={{textAlign: 'center', textShadow:'2px 2px 1px #4e090a', py:5}} color='success' >
         {t("Personal Information")}
         </Typography>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
