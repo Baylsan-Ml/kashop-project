@@ -45,7 +45,7 @@ export default function Cart() {
   return (
     <Container
       component="section"
-      sx={{ display: "flex", justifyContent: "center" }}
+      sx={{ display: "flex", justifyContent: "center",  }}
     >
       <Box
         sx={{
@@ -59,7 +59,7 @@ export default function Cart() {
         }}
       >
         <TableContainer>
-          <Table sx={{}}>
+          <Table sx={{overflow:'auto'}}>
             <TableHead>
               <TableCell sx={{ fontWeight: "bold", fontSize: "large" }}>
                 {t("Product Name")}
@@ -81,34 +81,31 @@ export default function Cart() {
             <TableBody>
               {data.items.map((item) => (
                 <TableRow key={item.productId}>
-                  <TableCell sx={{ fontSize: "17px", fontWeight: "bold" }}>
+                  <TableCell sx={{ fontSize: "14px", fontWeight: "bold" }}>
                     {item.productName}
                   </TableCell>
-                  <TableCell sx={{ fontSize: "17px" }}>{item.price}</TableCell>
-                  <TableCell sx={{ fontSize: "17px" }}>
+                  <TableCell sx={{ fontSize: "14px" }}>{item.price}</TableCell>
+                  <TableCell sx={{ fontSize: "14px" }}>
                     <IconButton
-                      onClick={() => handleUpdate(item.productId, "-")}
-                    >
-                      {" "}
-                      <RemoveIcon sx={{ color: "primary.main", mr: 1 }} />
+                      onClick={() => handleUpdate(item.productId, "-")}>
+                      <RemoveIcon sx={{ color: "primary.main", }} />
                     </IconButton>
                     {item.count}
                     <IconButton
-                      onClick={() => handleUpdate(item.productId, "+")}
-                    >
-                      {" "}
-                      <AddIcon sx={{ color: "primary.main", ml: 1 }} />{" "}
+                      onClick={() => handleUpdate(item.productId, "+")} >
+                      <AddIcon sx={{ color: "primary.main", }} />
                     </IconButton>
                   </TableCell>
-                  <TableCell sx={{ fontSize: "17px" }}>
+                  <TableCell sx={{ fontSize: "14px" }}>
                     {item.totalPrice}
                   </TableCell>
-                  <TableCell sx={{ fontSize: "17px" }}>
+                  <TableCell sx={{ fontSize: "10px" }}>
                     <Button
                       sx={{
                         color: "#f2efe8",
                         borderRadius: "10px",
                         fontWidth: "bold",
+                        fontSize: "11px"
                       }}
                       color="info"
                       variant="contained"
@@ -125,10 +122,9 @@ export default function Cart() {
                
                 <TableCell
                   align="right" colSpan={4}
-                  sx={{ fontSize: "17px", fontWeight: "bold", pr: 11 }}
+                  sx={{ fontSize: "14px", fontWeight: "bold", pr: 11 }}
                 >
-                  {" "}
-                  {t("Cart Total")}:{data.cartTotal}$
+                  {t("Cart Total")}: {data.cartTotal}$
                 </TableCell>
                  <TableCell>
                   <Button
@@ -136,7 +132,7 @@ export default function Cart() {
                     color="error"
                     onClick={() => clearCart()}
                     disabled={isClearing}
-                    sx={{alignSelf: "flex-end", borderRadius: "10px", fontWeight: "bold",}}>
+                    sx={{alignSelf: "flex-end", borderRadius: "10px", fontWeight: "bold",fontSize: "11px"}}>
                     {t("Clear Cart")}
                   </Button>
                 </TableCell>
@@ -149,7 +145,7 @@ export default function Cart() {
           sx={{
             display: "flex",
             gap: 2,
-            mt: 5,
+            mt: 3,
             justifyContent: "space-between",
           }}
         >
@@ -160,6 +156,7 @@ export default function Cart() {
               color: "secondary.main",
               borderRadius: "10px",
               fontWeight: "bold",
+              fontSize:'12px'
             }}
           >
             {t("Continue Shopping")}
@@ -172,6 +169,7 @@ export default function Cart() {
               bgcolor: "success.main",
               borderRadius: "10px",
               fontWeight: "bold",
+              fontSize:'12px'
             }}
           >
             {t("Proceed to Checkout")}

@@ -13,8 +13,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Pagination from '@mui/material/Pagination';
 import { useTranslation } from 'react-i18next';
-import Product from '../../components/product/Product.jsx'
+import Product from '../../components/product/ProductCard.jsx'
 import { useForm } from 'react-hook-form';
+import ProductCard from '../../components/product/ProductCard.jsx';
 
 
 
@@ -134,8 +135,6 @@ export default function Products() {
             <Grid  key={product.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:4}}>
                    <Link component={RouterLink}  to={`/productDetails/${product.id}`} sx={{textDecoration:'none'}}>
                    <Card color='secondary' sx={{ cursor: 'pointer', borderRadius:'25px' }}>
-                     {/* <CardMedia component={'img'}  sx={{height:'400px', objectFit:'contain' }}
-                     image={product.image} title="product image"  /> */}
                      <Box 
                      sx={{position: 'relative', overflow: 'hidden',
                       '&:hover img': {filter: 'brightness(0.5)', transform: 'scale(1.05)',},
@@ -161,8 +160,8 @@ export default function Products() {
         </Box> 
       </CardContent>
     </Card> 
-               {/* <Product/> */}
           </Link>
+         
   </Grid>
    )}
              </Grid>

@@ -22,22 +22,24 @@ const getTheme = (mode)=>{
     success: {
       // main:'#4e090a',
     //  main:'#2f8ee0',
-        main:'#0038bd',
-        dark:'#2f8ee0'
+        main: mode==='dark'?'#305d7a':'#0038bd' ,
+        // dark:'#2f8ee0'
+        // main:'#305d7a'
 
     // main:'#ff724c'
       // dark:'#9dac71'
       // main:'#9a3b11'
     },
     error:{
-      main:'#9a3b11'
+      main: mode==='dark?'?'#ff724c' :'#9a3b11',
     },
     info: { 
       // main: '#9dac71',
       // dark:'#4e090a'
       //  main:'#081535',
       // main:'#2a2c41'
-      main:'#454545'
+      main: mode ==='dark'?'#9cd7d1': '#454545'
+      // main:'#9cd7d1'
     },
 
     background: {
@@ -47,6 +49,7 @@ const getTheme = (mode)=>{
 
         default: mode === 'dark' ? '#081535' : '#f4f3f8',
         paper: mode === 'dark' ?  '#081535' : '#f4f3f8',
+        
     },
     
   },

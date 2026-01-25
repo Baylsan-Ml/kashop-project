@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import useCart from '../../../hooks/useCart';
-import { Box, Button, CircularProgress, Container, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import useCheckout from '../../../hooks/useCheckout';
+import { useTranslation } from 'react-i18next';
 
 export default function Checkout() {
-
+  const {t}=useTranslation();
   const {data, isLoading, isError}=useCart();
   const[paymentMethod, setPaymentMethod]= useState('cash');
   const{mutate:checkout, isPending:isCheckoutPending, isError:isCheckotError}=useCheckout();
@@ -14,14 +15,25 @@ export default function Checkout() {
 
   if(isLoading) return <CircularProgress/>
   if(isError) return <Typography>Error</Typography>
-  
-
-
 
   return (
-    <Container component='section' sx={{display:'flex', justifyContent:'center' }}>
+    // <Container component='section' sx={{display:'flex', justifyContent:'center' }}>
+    <Grid container component='section'>
+      <Grid size={{xs:12, md:4, lg:3}} > 
+         <Typography component={'h2'} variant='h4' m={3} color='primary.main'
+              sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px', textAlign:'center'}} >
+                {t("Checkout")}
+                </Typography>
+                </Grid>
+                <Grid size={{xs:12, md:7, lg:6 }} offset={1}
+                sx={{display:'flex', justifyContent:'center'}}
+                > 
       <Box sx={{minHeight:'70vh', m:5, width:'100%',
    display:'flex', flexDirection:'column', justifyContent:'flex-start', borderRadius: '5px'}}>
+    <Typography component={'h2'} variant='h4' m={3} color='success.main'
+                  sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)'}} >
+                    {t("Order Summary")}
+                    </Typography>
     <TableContainer sx={{mb:3}}>
         <Table sx={{}}>
             <TableHead >
@@ -67,7 +79,10 @@ export default function Checkout() {
     </Box>
        
     </Box>
-    </Container>
+      </Grid>
+    </Grid>
+      
+    // </Container>
 
         
   )

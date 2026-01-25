@@ -62,12 +62,12 @@ export default function Profile() {
             >
               <ListItem>
                 <ListItemAvatar>
-                  <PortraitIcon color="secondary" sx={{ fontSize: "30px" }} />
+                  <PortraitIcon color="primary.main" sx={{ fontSize: "30px" }} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={t("Info")}
                   secondary={t("My personal info")}
-                  sx={{ color: "secondary.main" }}
+                  color="primary.main"
                 />
               </ListItem>
             </Button>
@@ -78,12 +78,12 @@ export default function Profile() {
             >
               <ListItem>
                 <ListItemAvatar>
-                  <ViewStreamIcon color="secondary" sx={{}} />
+                  <ViewStreamIcon color="primary.main" sx={{}} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={t("Orders")}
                   secondary={t("Order history")}
-                  sx={{ color: "secondary.main" }}
+                  color="primary.main"
                 />
               </ListItem>
             </Button>

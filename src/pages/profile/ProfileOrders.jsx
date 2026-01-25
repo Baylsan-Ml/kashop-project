@@ -13,8 +13,9 @@ export default function ProfileOrders() {
       console.log(data);
   return (
     <Container>
-      <Typography component={'h2'} variant='h3' m={3} color='primary'
-              sx={{textShadow: '2px 1px 1px rgba(0,0,0,0.3)'}}>{t("Orders")}</Typography>
+      <Typography variant='h3' sx={{textAlign: 'center', textShadow:'2px 2px 1px #fcc050', py:5}} color='primary.main' >
+              {t("Orders")}
+              </Typography>
        <Box sx={{minHeight:'70vh', m:5, width:'100%',
    display:'flex', flexDirection:'column', justifyContent:'flex-start', borderRadius: '5px'}}>
      <TableContainer>

@@ -100,7 +100,8 @@ i18n
           "Proceed to Checkout":"Proceed to Checkout",
           "See What Our Customers Said About This Product..":"See What Our Customers Said About This Product..",
           "Details":"Details",
-          "Clear Cart":"Clear Cart"
+          "Clear Cart":"Clear Cart",
+          "Show More":"Show More"
         }
       },
        ar: {
@@ -197,7 +198,8 @@ i18n
           "Proceed to Checkout":"المتابعة للشراء",
           "See What Our Customers Said About This Product..":"شاهد ماذا قال زبائننا عن هذا المنتج..",
           "Details":"التفاصيل",
-          "Clear Cart":"افراغ السلة"
+          "Clear Cart":"افراغ السلة",
+          "Show More":"عرض المزيد"
         }
       }
     },

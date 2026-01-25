@@ -16,21 +16,17 @@ export default function Footer() {
     <Box 
       component={'footer'} 
       elevation={0} 
-      bgcolor={'info.main'}
+      // bgcolor={'info.main'}
       sx={{ 
-        mt: 5, // تصحيح الرقم
+        mt: 5,
         py: 7, 
         color: '#eaebe5', 
-        overflowX: 'hidden' 
+        overflowX: 'hidden',
+        background: 'radial-gradient(circle,rgba(54, 54, 54, 1) 14%, rgba(106, 65, 46, 1) 32%, rgba(154, 59, 17, 1) 50%, rgba(115, 64, 41, 1) 67%, rgba(69, 69, 69, 1) 89%);'
       }}
     >
-      {/* 1. الـ Container هو الغلاف الأساسي لضبط العرض */}
       <Container maxWidth="xl">
-        
-        {/* 2. الـ Grid Container يمسك العناصر ويوزعها */}
         <Grid container spacing={4} justifyContent="space-between">
-          
-          {/* --- القسم الأول: اللوجو ومعلومات التواصل --- */}
           <Grid size={{ xs: 12, md: 4, lg: 3 }} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             <Typography 
               variant="h6" 
@@ -39,13 +35,13 @@ export default function Footer() {
               component="a" 
               href="#app-bar-with-responsive-menu"
               sx={{
-                display: 'flex', // تغييرنا هنا ليظهر دائماً أو تحكم فيه كما تشاء
+                display: 'flex',
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 textDecoration: 'none',
                 justifyContent: { xs: 'center', md: 'flex-start' },
-                mb: 2 // مسافة تحت اللوجو
+                mb: 2 
               }}
             >
               KA-Shop - {user?.name}

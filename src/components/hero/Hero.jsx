@@ -27,7 +27,6 @@ export default function Hero() {
       spaceBetween={50}
       slidesPerView={3}
       navigation
-       pagination={{ clickable: true }}
     >
       <SwiperSlide>
        <img src={hero} alt="Slide 1" style={{ width: '100%', height: '60vh' }} />
