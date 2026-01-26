@@ -9,6 +9,7 @@ import useThemeStore from './store/useThemeStore.js'
 import getTheme from './MainTheme.js'
 
 
+
 export default function App() {
   const queryClient = new QueryClient()
   const mode= useThemeStore((state)=>state.mode);

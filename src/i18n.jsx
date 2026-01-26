@@ -101,7 +101,16 @@ i18n
           "See What Our Customers Said About This Product..":"See What Our Customers Said About This Product..",
           "Details":"Details",
           "Clear Cart":"Clear Cart",
-          "Show More":"Show More"
+          "Show More":"Show More",
+          "Pay Now":"Pay Now",
+          "Visa":"Visa",
+          "Cash":"Cash",
+          "Payment Method":"Payment Method",
+          "Checkout":"Checkout",
+          "Order Summary":"Order Summary",
+          "Discover Your Style":"Discover Your Style",
+          "Unique products designed just for you":"Unique products designed just for you",
+          "Shop Now":"Shop Now"
         }
       },
        ar: {
@@ -199,7 +208,16 @@ i18n
           "See What Our Customers Said About This Product..":"شاهد ماذا قال زبائننا عن هذا المنتج..",
           "Details":"التفاصيل",
           "Clear Cart":"افراغ السلة",
-          "Show More":"عرض المزيد"
+          "Show More":"عرض المزيد",
+          "Pay Now":"ادفع الآن",
+          "Visa":"بطاقة فيزا",
+          "Cash":"كاش",
+          "Payment Method":"طريقة الدفع",
+          "Checkout":"اتمام عملية الشراء",
+          "Order Summary":"ملخص الطلب",
+           "Discover Your Style":"استكشف ذوقك معنا",
+          "Unique products designed just for you":"مجموعة مميزة صممت خصيصاً لك بانتظارك",
+          "Shop Now":"تسوق الآن"
         }
       }
     },

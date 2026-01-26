@@ -105,7 +105,8 @@ export default function Cart() {
                         color: "#f2efe8",
                         borderRadius: "10px",
                         fontWidth: "bold",
-                        fontSize: "11px"
+                        fontSize: "11px",
+                        '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,},
                       }}
                       color="info"
                       variant="contained"
@@ -132,7 +133,9 @@ export default function Cart() {
                     color="error"
                     onClick={() => clearCart()}
                     disabled={isClearing}
-                    sx={{alignSelf: "flex-end", borderRadius: "10px", fontWeight: "bold",fontSize: "11px"}}>
+                    sx={{alignSelf: "flex-end", borderRadius: "10px", fontWeight: "bold",fontSize: "11px",
+                      '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,},
+                    }}>
                     {t("Clear Cart")}
                   </Button>
                 </TableCell>
@@ -156,7 +159,8 @@ export default function Cart() {
               color: "secondary.main",
               borderRadius: "10px",
               fontWeight: "bold",
-              fontSize:'12px'
+              fontSize:'12px',
+              '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,},
             }}
           >
             {t("Continue Shopping")}
@@ -169,7 +173,8 @@ export default function Cart() {
               bgcolor: "success.main",
               borderRadius: "10px",
               fontWeight: "bold",
-              fontSize:'12px'
+              fontSize:'12px',
+              '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #305d7a`,},
             }}
           >
             {t("Proceed to Checkout")}

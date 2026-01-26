@@ -12,21 +12,24 @@ export default function Categories() {
     if(isError) return <Typography>Error</Typography>
   return (
     <>
+     
         <Box p={3} sx={{textAlign:'center'}}>
         <Typography component={'h2'} variant='h4' color='error'
-         m={3} sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
+         m={3} sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize: { xs: '32px', sm: '42px', md: '56px' },}} >
           {t("Categories")}</Typography>
-          <Typography color='primary'  sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', textShadow: '2px 2px 2px rgba(56, 31, 18, 0.3)'}}
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo saepe, nobis obcaecati nesciunt labore.</Typography>
+          <Typography color='primary'  
+          sx={{display:'flex', justifyContent:'center', gap:1, 
+          fontSize: { xs: '12px', sm: '20px', md: '25px' }, textShadow: '1px 1px 1px rgba(56, 31, 18, 0.3)'}}
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit.</Typography>
         <Container maxWidth='xl'>
         <Grid container sx={{textAlign:'center'}}>
             {data.response.map((category)=>
-      <Grid  key={category.id} size={{xs:12, sm:6 , md:4, lg:3}} sx={{p:1, display:'flex', flexDirection:'column'}}>
+      <Grid  key={category.id} size={{xs:4, sm:3 , md:2, lg:2}} sx={{p:1, display:'flex', flexDirection:'column', }}>
         <Link component={RouterLink}  to={`/Products/category/${category.id}`} sx={{textDecoration:'none'}}>
          <Card  bgColor='info.main'
              sx={{p:1 ,cursor: 'pointer', width:'100%', fontWeight:'bold', bgcolor:'success.main', color:'secondary.main',
-               borderRadius:'50%',boxShadow: 1,
-               '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}
+             boxShadow: 1,
+               '&:hover': {transform: 'translateY(-1px)', boxShadow: `0 1px 0 #fcc050, 0 8px 8px #ff734c7b`,}
              }}>
               <Typography>{category.name}</Typography>
               
@@ -39,6 +42,7 @@ export default function Categories() {
         </Grid>
         </Container>
     </Box> 
+   
     </>
   )
 }

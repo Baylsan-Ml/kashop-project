@@ -1,31 +1,24 @@
 import React from "react";
 import useProfile from "../../hooks/useProfile";
 import {
-  Avatar,
   Box,
   Button,
   CircularProgress,
-  Container,
-  Drawer,
   Grid,
   List,
   ListItem,
   ListItemAvatar,
-  ListItemButton,
-  ListItemIcon,
   ListItemText,
-  MenuItem,
-  MenuList,
-  Paper,
   Typography,
+  Stack
 } from "@mui/material";
 import { NavLink, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import PortraitIcon from "@mui/icons-material/Portrait";
 import ViewStreamIcon from "@mui/icons-material/ViewStream";
-import ProfileOrders from "./ProfileOrders";
+
+
+
 
 export default function Profile() {
   const { data, isLoading, isError } = useProfile();
@@ -36,23 +29,25 @@ export default function Profile() {
 
   console.log(data);
 
+  
   return (
     //  <Container sx={{minHeight:'70vh', textAlign:'center', py:5}} >
-    <Box component={"section"} sx={{ minHeight: "70vh", textAlign: "center" }}>
+    <Box component={"section"} sx={{ minHeight: "90vh", textAlign: "center" }}>
+       
       <Grid container>
         <Grid
           size={{ xs: 6, sm: 3, md: 2, xl: 2 }}
-          sx={{ display: "flex", alignItems: "baseline", position: "relative" }}
+          sx={{ display: "flex", alignItems: "baseline", position: "relative", }}
         >
           <List
             sx={{
               width: "100%",
               height: "100vh",
-              bgcolor: "info",
               position: "absolute",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              bgcolor:'error.main'
             }}
           >
             <Button

@@ -17,11 +17,12 @@ export default function Sales() {
   return (
         <Box component={'section'} sx={{textAlign:'center'}} py={5}>
            <Typography component={'h2'} variant='h4' m={3} color='error.main'
-              sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)', fontSize:'60px'}} >
+              sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)',  fontSize: { xs: '32px', sm: '42px', md: '56px' },}} >
                 {t("Sales")}
                 </Typography>
                 <Typography color='primary' pb={3}
-                sx={{display:'flex', justifyContent:'center', gap:1, fontSize:'30px', textShadow: '2px 2px 2px rgba(56, 31, 18, 0.3)'}} 
+                sx={{display:'flex', justifyContent:'center', gap:1,
+                   fontSize: { xs: '12px', sm: '20px', md: '25px' }, textShadow: '1px 1px 1px rgba(56, 31, 18, 0.3)'}} 
                 >
                   {t("Explore special discounts made just for you.")}
                 </Typography>

@@ -29,11 +29,8 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import CrueltyFreeIcon from '@mui/icons-material/CrueltyFree';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-
-
-export default function Navbar() {
- 
-  const { t, i18n } = useTranslation();
+export default function NavbarNoOne() {
+   const { t, i18n } = useTranslation();
   const navigate=useNavigate();
   const token= useAuthStore((state)=>state.token);
   const logout=useAuthStore((state)=>state.logout);
@@ -41,7 +38,7 @@ export default function Navbar() {
   const{mode, toggleTheme} = useThemeStore();
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const toggleLanguage = () => {
+    const toggleLanguage = () => {
     const newLang= i18n.language === 'ar'?'en':'ar'
     i18n.changeLanguage(newLang);
   }
@@ -57,100 +54,23 @@ export default function Navbar() {
     setAnchorElNav(null);
   };
   return (
-  
-      <AppBar position='sticky' color='success'
-      sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, borderRadius:'5%',
-             boxShadow: `0 1px 0 #fcc050, 0 5px 10px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
-             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 1px 0 #fcc050, 0 3px 20px #9a3b11`,},
-             '&:active': {transform: 'translateY(2px)', boxShadow: `0 2px 0 #fcc050, 0 4px 8px #9a3b11`,},}}
-      >
-        <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{display:'flex' }}>
-                  {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center'}}>
-            <AutoAwesomeIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,  }} />
-            <CrueltyFreeIcon color='secondary' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,  }} />
-          <Typography variant="h6" noWrap color= 'secondary' component="a" href="#app-bar-with-responsive-menu"
-           sx={{mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace',  fontWeight: 700, letterSpacing: '.3rem',
-              textDecoration: 'none' }}>
-            KA-Shop {user?.name && `- ${user.name}`}
-          </Typography>
-          </Box>
-                 <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton color="secondary" onClick={handleOpenMenu}>
-              <MenuIcon />
-            </IconButton>
-
-            <Menu 
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseMenu}
-
-               sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
-            >
-              <MenuItem component={RouterLink} to="/" onClick={handleCloseMenu} color="success"
-              sx={{}}
-              >
-                <HomeIcon color="success" sx={{ mr: 1 , fontWeight:'bold'}} /> {t("Home")}
-              </MenuItem>
-
-              <MenuItem component={RouterLink} to="/category" onClick={handleCloseMenu} color="success">
-                <CategoryIcon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Categories")}
-              </MenuItem>
-
-              <MenuItem component={RouterLink} to="/products" onClick={handleCloseMenu} color="success">
-                <Inventory2Icon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Products")}
-              </MenuItem>
-
-              {token && (
-                <MenuItem component={RouterLink} to="/cart" onClick={handleCloseMenu} color="tertiary">
-                  <ShoppingCartIcon color="success" sx={{ mr: 1, fontWeight:'bold' }} /> {t("Cart")}
-                </MenuItem>
-              )}
-            </Menu>
-          </Box>
-
-          <Box
-            sx={{
-              display: {xs: 'none', md: 'flex' },
-              gap: 3,
-              flex: 1,
-              justifyContent: 'center',
-              alignItems:'center'
-            }}
+    <Box>
+      <AppBar position="static">
+        <Toolbar>
+          {/* <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
           >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography> */}
 
-            {/* <Link component={RouterLink} to="/" color="secondary" underline="none"
-             sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, bgcolor: '#79874f', borderRadius: '30%', p: 1.5,
-             boxShadow: `0 6px 0 #5f6b3d, 0 10px 15px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
-             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #5f6b3d, 0 14px 20px rgba(0,0,0,0.4)`,},
-             '&:active': {transform: 'translateY(4px)', boxShadow: `0 2px 0 #5f6b3d, 0 4px 8px rgba(0,0,0,0.3)`,},}}>
-              <HomeIcon />
-               {t("Home")}
-               </Link> */}
-
-
-            <Link component={RouterLink} to="/" color="secondary" underline="none"  
-            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1, fontSize:'17px',
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}>
-              <HomeIcon  /> {t("Home")}
-            </Link>
-
-            <Link component={RouterLink} to="/category" color="secondary" underline="none"
-             sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
-            >
-              <CategoryIcon /> {t("Categories")}
-            </Link>
-
-            <Link component={RouterLink} to="/products" color="secondary" underline="none" 
-            sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
-            '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,}, }}
-            >
-              <Inventory2Icon /> {t("Products")}
-            </Link>
-
+          <Box sx={{ flexGrow: 1 }}>
             {token && (
               <Link component={RouterLink} to="/cart" color="secondary" underline="none"
               sx={{bgcolor:'',borderRadius:'50%', p:1, display:'flex',justifyContent:'center', gap:1,
@@ -160,8 +80,7 @@ export default function Navbar() {
               </Link>
             )}
           </Box>
-
-          {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flex:1}}>
 
             {token ? (
               <>
@@ -211,12 +130,11 @@ export default function Navbar() {
             >
               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
-          </Box> */}
-
-                
+          </Box>
         </Toolbar>
-        </Container>
+
+         
       </AppBar>
- 
+    </Box>
   );
 }

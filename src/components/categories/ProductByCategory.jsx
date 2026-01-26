@@ -50,7 +50,7 @@ export default function ProductByCategory() {
             display: "flex",
             justifyContent: "center",
             gap: 1,
-            fontSize: "30px",
+             fontSize: { xs: '12px', sm: '20px', md: '30px' },
             color: "primary.main",
           }}
         >

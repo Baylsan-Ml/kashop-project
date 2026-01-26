@@ -31,7 +31,7 @@ export default function ProductsSection() {
         variant="h4"
         m={3}
         color="error.main"
-        sx={{ textShadow: "2px 2px 2px rgba(0,0,0,0.3)", fontSize: "60px" }}
+         sx={{textShadow: '2px 2px 2px rgba(0,0,0,0.3)',  fontSize: { xs: '32px', sm: '42px', md: '56px' },}}
       >
         {t("Products")}
       </Typography>
@@ -40,8 +40,8 @@ export default function ProductsSection() {
           display: "flex",
           justifyContent: "center",
           gap: 1,
-          fontSize: "30px",
           color: "primary.main",
+          fontSize: { xs: '12px', sm: '20px', md: '25px' }, textShadow: '1px 1px 1px rgba(56, 31, 18, 0.3)'
         }}
       >
         {t(
@@ -69,6 +69,8 @@ export default function ProductsSection() {
                     cursor: "pointer",
                     height:'350px',
                     borderRadius: "25px",
+                     transition: "all 0.3s ease",
+                     "&:hover": {transform: "translateY(-8px)",},
                   }}
                 >
                   {/* <CardMedia component={'img'}  sx={{height:'400px', objectFit:'unset' }}
@@ -95,9 +97,9 @@ export default function ProductsSection() {
                         position: "absolute",
                         top: "50%",
                         left: "50%",
-                        transform: "translate(-50%, -60%)",
+                        transform: "translate(-90%, -70%)",
                         opacity: 0,
-                        transition: "all 0.3s ease",
+                        transition: "all 0.4s ease",
                         zIndex: 2,
                         px: 4,
                         py: 1,

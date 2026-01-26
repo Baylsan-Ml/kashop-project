@@ -69,7 +69,7 @@ export default function ProductDetails() {
               <CardMedia
                 component={"img"}
                 image={product.image}
-                sx={{ height: 500, objectFit: "contain", borderRadius: "10%" }}
+                sx={{ height: 500, objectFit: "contain", borderRadius: "30%" }}
               ></CardMedia>
             </Grid>
 
@@ -97,7 +97,7 @@ export default function ProductDetails() {
                 color="primary"
                 onClick={() => addToCart({ ProductId: product.id, Count: 1 })}
                 disabled={isAddingToCart}
-                sx={{
+                sx={{ borderRadius:'50%',
                   "&:hover": {
                     transform: "translateY(-2px)",
                     boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,
