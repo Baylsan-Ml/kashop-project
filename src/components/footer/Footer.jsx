@@ -22,8 +22,9 @@ export default function Footer() {
         py: 7, 
         color: '#eaebe5', 
         overflowX: 'hidden',
-        background: 'radial-gradient(circle,rgba(10, 23, 29, 1) 0%, rgba(89, 70, 47, 1) 30%, rgba(202, 151, 96, 1) 43%, rgba(255, 189, 119, 1) 52%, rgba(175, 132, 84, 1) 61%, rgba(89, 70, 47, 1) 70%, rgba(10, 23, 29, 1) 99%);'
-        //  'radial-gradient(circle,rgba(54, 54, 54, 1) 14%, rgba(106, 65, 46, 1) 32%, rgba(154, 59, 17, 1) 50%, rgba(115, 64, 41, 1) 67%, rgba(69, 69, 69, 1) 89%);'
+        background: 
+        // 'radial-gradient(circle,rgba(10, 23, 29, 1) 0%, rgba(89, 70, 47, 1) 30%, rgba(202, 151, 96, 1) 43%, rgba(255, 189, 119, 1) 52%, rgba(175, 132, 84, 1) 61%, rgba(89, 70, 47, 1) 70%, rgba(10, 23, 29, 1) 99%);'
+         'radial-gradient(circle,rgba(54, 54, 54, 1) 14%, rgba(106, 65, 46, 1) 32%, rgba(154, 59, 17, 1) 50%, rgba(115, 64, 41, 1) 67%, rgba(69, 69, 69, 1) 89%);'
       }}
     >
       <Container maxWidth="xl">

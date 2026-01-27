@@ -110,7 +110,10 @@ i18n
           "Order Summary":"Order Summary",
           "Discover Your Style":"Discover Your Style",
           "Unique products designed just for you":"Unique products designed just for you",
-          "Shop Now":"Shop Now"
+          "Shop Now":"Shop Now",
+          "Forget Your Password?":"Forget Your Password?",
+          "EXPRESSIVE":"EXPRESSIVE",
+          "TIMELESS ELEGANT":"TIMELESS ELEGANT"
         }
       },
        ar: {
@@ -217,7 +220,10 @@ i18n
           "Order Summary":"ملخص الطلب",
            "Discover Your Style":"استكشف ذوقك معنا",
           "Unique products designed just for you":"مجموعة مميزة صممت خصيصاً لك بانتظارك",
-          "Shop Now":"تسوق الآن"
+          "Shop Now":"تسوق الآن",
+          "Forget Your Password?":"هل نسيت كلمة المرور؟",
+          "EXPRESSIVE":"مبهر",
+          "TIMELESS ELEGANT":"اناقة خالدة"
         }
       }
     },

@@ -19,14 +19,14 @@ const getTheme = (mode)=>{
     // main:'#f2fdff'
     // main:'#2e42c9
     // main:'#f4f3f8'
-    // main:'#fff5f4'
-    main:'#fef6e9'
+    main: mode ==='dark'?'#fef6e9': '#fef6e9'
+    // main:'#fef6e9'
 
    },
     success: {
       // main:'#4e090a',
     //  main:'#2f8ee0',
-        // main: mode==='dark'?'#305d7a':'#0038bd' ,
+        // main: mode==='dark'?'#9a3b11':'#0038bd' ,
         // main:mode==='dark'? '#224666':'#132436'
         // main:'#556133',
         // dark:'#2f8ee0'
@@ -34,11 +34,12 @@ const getTheme = (mode)=>{
        // main:'#ff724c'
       // dark:'#9dac71'
       // main:'#9a3b11'
-      main:'#003f48'
+      // main:'#003f48'
+      main: mode==='dark'?'#0094ab':'#003f48' ,
     },
     error:{
       // main: mode==='dark?'?'#ff724c' :'#9a3b11',
-      // main: mode==='dark?'?'#132436' :'#132436',
+      // main: mode==='dark?'?'#386ba1' :'#132436',
       main:mode==='dark?'?'#ffbd77' :'#0a171d',
     
     },
@@ -50,7 +51,7 @@ const getTheme = (mode)=>{
       // main: mode ==='dark'?'#b3b3b3': '#454545'
       // main: mode ==='dark'?'#efefef': '#b3b3b3'
       // main:'#9cd7d1'
-      main:'#0a171d'
+      main: mode ==='dark'?'#b3b3b3': '#0a171d'
     },
 
     background: {

@@ -125,7 +125,7 @@ export default function Login() {
             sx={{ textDecoration: "none", fontSize: "bold" }}
             color="primary"
           >
-            Forget Your Password?
+            {t("Forget Your Password?")}
           </Link>
         </Box>
       </Box>
