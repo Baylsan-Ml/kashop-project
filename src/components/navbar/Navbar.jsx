@@ -30,6 +30,7 @@ import CrueltyFreeIcon from "@mui/icons-material/CrueltyFree";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SwitchAccessShortcutIcon from '@mui/icons-material/SwitchAccessShortcut';
 import Swal from "sweetalert2";
+import saleImg2 from '../../assets/imgs/sales3.jpg'
 
 
 export default function Navbar() {
@@ -77,6 +78,18 @@ export default function Navbar() {
     timer: 1800,
     showConfirmButton: false,
   });
+};
+ const showSaleModal = () => {
+   Swal.fire({
+  title: "Hurry!",
+  text: "See Our New Offers Before it Ends",
+  imageUrl: saleImg2,
+  imageWidth: 400,
+  imageHeight: 300,
+  imageAlt: "Custom image",
+  timer: 1800,
+  showConfirmButton: false,
+});
 };
   return (
     <AppBar
@@ -274,6 +287,7 @@ export default function Navbar() {
             <Link
               component={RouterLink}
               to="/products"
+              onClick={showSaleModal}
               color="secondary"
               underline="none"
               sx={{
