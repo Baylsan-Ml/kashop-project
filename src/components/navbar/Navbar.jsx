@@ -28,6 +28,9 @@ import { useState } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CrueltyFreeIcon from "@mui/icons-material/CrueltyFree";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SwitchAccessShortcutIcon from '@mui/icons-material/SwitchAccessShortcut';
+import Swal from "sweetalert2";
+
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -53,6 +56,28 @@ export default function Navbar() {
   const handleCloseMenu = () => {
     setAnchorElNav(null);
   };
+  const showWelcome = () => {
+  if (!user?.name) return;
+  Swal.fire({
+   title: t("welcomeMessage", { name: user.name }),
+    showClass: {
+      popup: `
+        animate__animated
+        animate__fadeInUp
+        animate__faster
+      `,
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOutDown
+        animate__faster
+      `,
+    },
+    timer: 1800,
+    showConfirmButton: false,
+  });
+};
   return (
     <AppBar
       position="sticky"
@@ -75,14 +100,14 @@ export default function Navbar() {
         <Toolbar disableGutters sx={{ display: "flex" }}>
           {/* Logo */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <AutoAwesomeIcon
+           
+            {/* <CrueltyFreeIcon
               color="secondary"
               sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            />
-            <CrueltyFreeIcon
-              color="secondary"
-              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            />
+            /> */}
+            <SwitchAccessShortcutIcon 
+             color="secondary"
+              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}/>
             <Typography
               variant="h6"
               noWrap
@@ -98,7 +123,11 @@ export default function Navbar() {
                 textDecoration: "none",
               }}
             >
-              KA-Shop {user?.name && `- ${user.name}`}
+              Helix  
+              {/* <AutoAwesomeIcon
+              color="secondary" fontSize="small"
+              sx={{ display: { xs: "none", md: "flex" }, mx: 2 }}
+            /> */}
             </Typography>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -117,16 +146,19 @@ export default function Navbar() {
                 display: "flex",
                 justifyContent: "center",
                 gap: 1,
-                "&:hover": {
-                  transform: "translateY(-2px)",
-                  boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,
-                },
+                // "&:hover": {
+                //   transform: "translateY(-2px)",
+                //   boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,
+                // },
               }}
             >
               <MenuItem
                 component={RouterLink}
                 to="/"
-                onClick={handleCloseMenu}
+                onClick={()=>{handleCloseMenu();
+                  showWelcome();
+                }
+                }
                 color="success"
                 sx={{}}
               >
@@ -198,6 +230,7 @@ export default function Navbar() {
             <Link
               component={RouterLink}
               to="/"
+              onClick={showWelcome}
               color="secondary"
               underline="none"
               sx={{
@@ -290,6 +323,7 @@ export default function Navbar() {
                   <IconButton
                     component={RouterLink}
                     to="/profile"
+                    onClick={showWelcome}
                     sx={{
                       bgcolor: "",
                       borderRadius: "50%",

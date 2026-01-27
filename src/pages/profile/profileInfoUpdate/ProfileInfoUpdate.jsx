@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useUpdateProfileInfoSchema } from "../../../validation/UpdateProfileInfoSchema";
 import useUpdateProfileInfo from "../../../hooks/useUpdateProfileInfo";
 import useProfile from "../../../hooks/useProfile";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProfileInfoUpdate() {
   const { t } = useTranslation();
@@ -49,6 +49,9 @@ export default function ProfileInfoUpdate() {
     updateProfileInfoMutation.mutateAsync(values);
     reset(values);
   };
+
+  // const [isEditing, setIsEditing] = useState(false);
+
   return (
     <Container
       component={"section"}
@@ -99,6 +102,26 @@ export default function ProfileInfoUpdate() {
             {...register("fullName")}
             error={errors.fullName}
             helperText={errors.fullName?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
 
@@ -125,6 +148,26 @@ export default function ProfileInfoUpdate() {
             {...register("city")}
             error={errors.city}
             helperText={errors.city?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
         <Box
@@ -150,6 +193,26 @@ export default function ProfileInfoUpdate() {
             {...register("phoneNumber")}
             error={errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
         <Stack
@@ -161,15 +224,14 @@ export default function ProfileInfoUpdate() {
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-            sx={{ width: { xs: "100%", sm: "auto" } }}
-            // sx={{ width:'40%'}}
+            fullWidth
           >
             {isSubmitting ? <CircularProgress /> : "Update Info"}
           </Button>
           <Button
             variant="outlined"
             color="success"
-            sx={{ width: { xs: "100%", sm: "auto" } }}
+            fullWidth
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

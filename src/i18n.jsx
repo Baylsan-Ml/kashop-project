@@ -113,7 +113,8 @@ i18n
           "Shop Now":"Shop Now",
           "Forget Your Password?":"Forget Your Password?",
           "EXPRESSIVE":"EXPRESSIVE",
-          "TIMELESS ELEGANT":"TIMELESS ELEGANT"
+          "TIMELESS ELEGANT":"TIMELESS ELEGANT",
+          "welcomeMessage": "Welcome {{name}} ✨\nEnjoy your visit 💫"
         }
       },
        ar: {
@@ -223,7 +224,8 @@ i18n
           "Shop Now":"تسوق الآن",
           "Forget Your Password?":"هل نسيت كلمة المرور؟",
           "EXPRESSIVE":"مبهر",
-          "TIMELESS ELEGANT":"اناقة خالدة"
+          "TIMELESS ELEGANT":"اناقة خالدة",
+          "welcomeMessage": "أهلاً {{name}} ✨\nزيارة ممتعة 💫"
         }
       }
     },

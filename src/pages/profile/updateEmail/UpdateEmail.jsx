@@ -88,6 +88,26 @@ export default function UpdateEmail() {
             {...register("CurrentEmail")}
             error={errors.CurrentEmail}
             helperText={errors.CurrentEmail?.message}
+            sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
 
@@ -115,6 +135,26 @@ export default function UpdateEmail() {
             {...register("NewEmail")}
             error={errors.NewEmail}
             helperText={errors.NewEmail?.message}
+            sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
 
@@ -127,7 +167,8 @@ export default function UpdateEmail() {
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-            sx={{ width: { xs: "100%", sm: "auto" } }}
+            fullWidth
+            // sx={{ width: { xs: "100%", sm: "auto" } }}
             // sx={{ width:'40%'}}
           >
             {isSubmitting ? <CircularProgress /> : "Update Email"}
@@ -135,7 +176,8 @@ export default function UpdateEmail() {
           <Button
             variant="outlined"
             color="success"
-            sx={{ width: { xs: "100%", sm: "auto" } }}
+            fullWidth
+            // sx={{ width: { xs: "100%", sm: "auto" } }}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

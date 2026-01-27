@@ -88,6 +88,26 @@ export default function UpdatePassword() {
             {...register("CurrentPassword")}
             error={errors.CurrentPassword}
             helperText={errors.CurrentPassword?.message}
+            sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
 
@@ -115,6 +135,26 @@ export default function UpdatePassword() {
             {...register("NewPassword")}
             error={errors.NewPassword}
             helperText={errors.NewPassword?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
         <Box
@@ -141,6 +181,26 @@ export default function UpdatePassword() {
             {...register("ConfirmNewPassword")}
             error={errors.ConfirmNewPassword}
             helperText={errors.ConfirmNewPassword?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "success.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
         </Box>
 
@@ -153,7 +213,8 @@ export default function UpdatePassword() {
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-            sx={{ width: { xs: "100%", sm: "auto" } }}
+            fullWidth
+            // sx={{ width: { xs: "100%", sm: "auto" } }}
             // sx={{ width:'40%'}}
           >
             {isSubmitting ? <CircularProgress /> : "Update Password"}
@@ -161,7 +222,8 @@ export default function UpdatePassword() {
           <Button
             variant="outlined"
             color="success.main"
-            sx={{ width: { xs: "100%", sm: "auto" } }}
+            fullWidth
+            // sx={{ width: { xs: "100%", sm: "auto" } }}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

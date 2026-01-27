@@ -3,6 +3,7 @@ import './index.css'
 import './App.css'
 import App from './App.jsx'
 import './i18n.jsx'
+import "animate.css";
 
 
 createRoot(document.getElementById('root')).render(
