@@ -11,11 +11,9 @@ import { useForm } from "react-hook-form";
 import { Link as RouterLink } from "react-router-dom";
 import "../sendCode/SendCode.jsx";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SendCodeSchema } from "../../validation/SendCodeSchema.js";
 import useLogin from "../../hooks/useLogin.js";
-import { jwtDecode } from "jwt-decode";
 import { useTranslation } from "react-i18next";
-import bg1 from "../../assets/imgs/bg1.jpg";
+import { LoginSchema } from "../../validation/LoginSchema.js";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
@@ -24,7 +22,7 @@ export default function Login() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: yupResolver(SendCodeSchema),
+    resolver: yupResolver(LoginSchema),
     mode: "onBlur",
   });
 
@@ -72,18 +70,59 @@ export default function Login() {
             alignItems: "center",
           }}
         >
+
           <TextField
             label="user email"
             {...register("email")}
-            sx={{ width: "90%" }}
+            fullWidth
             variant="outlined"
+            error={errors.email}
+            helperText={errors.email?.message}
+             sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+              
+            }}
           />
           <TextField
             label="password"
             type="password"
             {...register("password")}
-            sx={{ width: "90%" }}
             variant="outlined"
+           sx={{width:'90%',
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <Box
             sx={{
@@ -96,9 +135,10 @@ export default function Login() {
             <Button
               variant="contained"
               type="submit"
+              fullWidth
               disabled={isSubmitting}
               color="primary"
-              sx={{ width: "20%", boxShadow: 2 }}
+              sx={{ boxShadow: 2 }}
             >
               {isSubmitting ? <CircularProgress /> : "Login"}
             </Button>
@@ -106,8 +146,9 @@ export default function Login() {
             <Button
               variant="contained"
               type="submit"
+              fullWidth
               color="info.main"
-              sx={{ width: "20%", boxShadow: 2, bgcolor:'info.main', color:'success.main' }}
+              sx={{ boxShadow: 2, bgcolor:'info.main', color:'success.main' }}
             >
                <Link 
             component={RouterLink}

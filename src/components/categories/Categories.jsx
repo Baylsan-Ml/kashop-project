@@ -40,8 +40,7 @@ export default function Categories() {
             gap: 1,
             fontSize: { xs: "12px", sm: "20px", md: "25px" },
             textShadow: "1px 1px 1px rgba(56, 31, 18, 0.3)",
-          }}
-        >
+          }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </Typography>
         <Container maxWidth="xl">
@@ -49,7 +48,7 @@ export default function Categories() {
             {data.response.map((category) => (
               <Grid
                 key={category.id}
-                size={{ xs: 4, sm: 3, md: 2, lg: 2 }}
+                size={{ xs: 6, sm: 4, md: 3, lg: 2 }}
                 sx={{ p: 1, display: "flex", flexDirection: "column" }}
               >
                 <Link
@@ -61,10 +60,10 @@ export default function Categories() {
                     bgColor="info.main"
                     sx={{
                       py: 1,
-                      px:3,
+                      px:{xs:5, md:3},
                       borderRadius:'25px',
                       cursor: "pointer",
-                      width: "100%",
+                      
                       fontWeight: "bold",
                       bgcolor: "success.main",
                       color: "secondary.main",

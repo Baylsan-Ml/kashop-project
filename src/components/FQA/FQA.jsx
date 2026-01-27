@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 export default function FAQ() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <Container component={'section'} sx={{py:5}}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

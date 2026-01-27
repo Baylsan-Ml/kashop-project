@@ -87,6 +87,25 @@ export default function Regiester() {
             variant="outlined"
             error={errors.userName}
             helperText={errors.userName?.message}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="Full Name"
@@ -95,6 +114,25 @@ export default function Regiester() {
             variant="outlined"
             error={errors.fullName}
             helperText={errors.fullName?.message}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="user email"
@@ -103,6 +141,25 @@ export default function Regiester() {
             variant="outlined"
             error={errors.email}
             helperText={errors.email?.message}
+             sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="password"
@@ -111,6 +168,25 @@ export default function Regiester() {
             variant="outlined"
             error={errors.password}
             helperText={errors.password?.message}
+             sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="phone number"
@@ -119,6 +195,25 @@ export default function Regiester() {
             variant="outlined"
             error={errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
+             sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <Box
             sx={{
@@ -139,7 +234,7 @@ export default function Regiester() {
             </Button>
             <Button
               variant="contained"
-              type="submit"
+              type="button"
               color="info.main"
               fullWidth
               sx={{

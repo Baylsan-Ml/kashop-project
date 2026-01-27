@@ -12,11 +12,11 @@ export default function ProfileOrders() {
   
       console.log(data);
   return (
-    <Container>
-      <Typography variant='h3' sx={{textAlign: 'center', textShadow:'2px 2px 1px #fcc050', py:5}} color='primary.main' >
+    <Container component={'section'} sx={{minHeight:'100vh'}}>
+      <Typography variant='h3' sx={{textAlign: 'center', textShadow:'2px 2px 1px #fcc050', pb:5}} color='primary.main' >
               {t("Orders")}
               </Typography>
-       <Box sx={{minHeight:'70vh', m:5, width:'100%',
+       <Box sx={{ m:5, width:'100%',
    display:'flex', flexDirection:'column', justifyContent:'flex-start', borderRadius: '5px'}}>
      <TableContainer>
       <Table >

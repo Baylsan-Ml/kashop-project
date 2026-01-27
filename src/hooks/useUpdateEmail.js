@@ -9,9 +9,9 @@ export default function useUpdateEmail() {
         },
         onSuccess: () => {
             Swal.fire({ icon: 'success', title: 'Email Updated!', text: 'Your security is updated.', timer: 2000, showConfirmButton: false });           
-           
         },
         onError: (error) => {
+            console.log(error);
             Swal.fire({ icon: 'error', title: 'Failed to Update Email..', text: error.response?.data?.message || "Current email might be wrong" });
         }
     });

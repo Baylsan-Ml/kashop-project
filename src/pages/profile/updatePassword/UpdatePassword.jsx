@@ -160,7 +160,7 @@ export default function UpdatePassword() {
           </Button>
           <Button
             variant="outlined"
-            color="success"
+            color="success.main"
             sx={{ width: { xs: "100%", sm: "auto" } }}
             onClick={() => Navigate("/profile")}
           >

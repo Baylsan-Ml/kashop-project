@@ -81,28 +81,83 @@ export default function ResetPassword() {
             fullWidthvariant="outlined"
             error={errors.newPassword}
             helperText={errors.newPassword?.message}
+             sx={{ width: "85%",
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="code"
             {...register("code")}
-            sx={{ width: "85%", my: 2 }}
             variant="outlined"
             error={errors.code}
             helperText={errors.code?.message}
+             sx={{width: "85%", my: 2,
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
           <TextField
             label="confirm your email"
             {...register("email")}
-            sx={{ width: "85%" }}
             variant="outlined"
             error={errors.email}
             helperText={errors.email?.message}
+             sx={{ width: "85%",
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "secondary.main",
+                },
+                "&.Mui-error fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "red",
+                },
+                "&.Mui-focused Mui-error": {
+                  color: "red",
+                },
+              },
+              "& .MuiFormHelperText-root.Mui-error": {
+                color: "red",
+              },
+            }}
           />
 
           <Box
             sx={{
               display: "flex",
-              width: "100%",
+              width: "85%",
               gap: 2,
               pt: 2,
               flexDirection: { xs: "column", sm: "row" },
