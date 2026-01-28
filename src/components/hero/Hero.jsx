@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Link, Typography, useTheme } from "@mui/material";
 import {
   EffectFade,
   EffectCube,
@@ -10,14 +10,17 @@ import {
   EffectCreative,
 } from "swiper/modules";
 import hero from "../../assets/imgs/hero.jpg";
+import heroo from "../../assets/imgs/heroo.jpg";
 import hero1 from "../../assets/imgs/hero1.jpg";
 import hero4 from "../../assets/imgs/hero4.jpg";
 import hero5 from "../../assets/imgs/hero5.jpg";
 import img8 from "../../assets/imgs/img8.jpg";
-import hero8 from "../../assets/imgs/hero8.jpg";
-import img33 from "../../assets/imgs/img33.jpg";
 import hero6 from "../../assets/imgs/hero6.jpg";
 import hero7 from "../../assets/imgs/hero7.jpg";
+import hero8 from "../../assets/imgs/hero8.jpg";
+import hero9 from "../../assets/imgs/hero9.jpg";
+import hero11 from "../../assets/imgs/hero11.jpg";
+import hero2 from "../../assets/imgs/hero2.jpg";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -28,26 +31,45 @@ export default function Hero() {
   const swiper = useSwiper();
   const heroImgs = [
     hero,
+    heroo,
     hero1,
+    hero2,
     hero6,
     hero8,
     hero4,
     hero5,
     img8,
-    img33,
     hero7,
+    hero9,
+    hero11,
   ];
   const { t, i18n } = useTranslation();
   return (
     <>
       <Container sx={{ py: 5, textAlign: i18n.language === "ar" ? "right" : "center"  }}>
-        <Typography variant="h3" sx={{ mb: 2 }}>
+        <Typography variant="h3" sx={{ mb: 2,  textShadow: `-2px 2px 1px #ffbd77`,
+            fontSize: { xs: "32px", sm: "42px", md: "56px" }, }}>
           {t("EXPRESSIVE")}
         </Typography>
-        <Typography variant="h4" sx={{ fontStyle: "italic", mb: 4 }}>
+        <Typography variant="h4" sx={{ fontStyle: "italic", mb: 4, mb: 2, 
+         textShadow: "-1px 1px 1px #0a171d",
+          fontSize: { xs: "12px", sm: "22px", md: "36px" }, }}>
           {t("TIMELESS ELEGANT")}
         </Typography>
-
+        <Button
+              variant="contained"
+              type="button"
+              sx={{mb:1, bgcolor:'success.main'}}
+            >
+              <Link
+                component={RouterLink}
+                to={"/products"}
+                sx={{ textDecoration: "none" }}
+              >
+                {t("SHOP NOW")}
+              </Link>
+            </Button>
+        
          <Box sx={{ direction: "ltr" }}>
            <Swiper
            key={i18n.language}
@@ -65,7 +87,6 @@ export default function Hero() {
             slideShadows: false,
           }}
           autoplay={{ delay: 3000 }}
-          pagination={{ clickable: true }}
           modules={[EffectCoverflow, Autoplay, Pagination]}
           style={{ paddingBottom: "50px" }}
         >

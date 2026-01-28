@@ -28,10 +28,9 @@ import { useState } from "react";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CrueltyFreeIcon from "@mui/icons-material/CrueltyFree";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SwitchAccessShortcutIcon from '@mui/icons-material/SwitchAccessShortcut';
+import SwitchAccessShortcutIcon from "@mui/icons-material/SwitchAccessShortcut";
 import Swal from "sweetalert2";
-import saleImg2 from '../../assets/imgs/sales3.jpg'
-
+import saleImg2 from "../../assets/imgs/sales3.jpg";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -58,39 +57,39 @@ export default function Navbar() {
     setAnchorElNav(null);
   };
   const showWelcome = () => {
-  if (!user?.name) return;
-  Swal.fire({
-   title: t("welcomeMessage", { name: user.name }),
-    showClass: {
-      popup: `
+    if (!user?.name) return;
+    Swal.fire({
+      title: t("welcomeMessage", { name: user.name }),
+      showClass: {
+        popup: `
         animate__animated
         animate__fadeInUp
         animate__faster
       `,
-    },
-    hideClass: {
-      popup: `
+      },
+      hideClass: {
+        popup: `
         animate__animated
         animate__fadeOutDown
         animate__faster
       `,
-    },
-    timer: 1800,
-    showConfirmButton: false,
-  });
-};
- const showSaleModal = () => {
-   Swal.fire({
-  title: "Hurry!",
-  text: "See Our New Offers Before it Ends",
-  imageUrl: saleImg2,
-  imageWidth: 400,
-  imageHeight: 300,
-  imageAlt: "Custom image",
-  timer: 1800,
-  showConfirmButton: false,
-});
-};
+      },
+      timer: 1800,
+      showConfirmButton: false,
+    });
+  };
+  const showSaleModal = () => {
+    Swal.fire({
+      title: "Hurry!",
+      text: "See Our New Offers Before it Ends",
+      imageUrl: saleImg2,
+      imageWidth: 400,
+      imageHeight: 300,
+      imageAlt: "Custom image",
+      timer: 1800,
+      showConfirmButton: false,
+    });
+  };
   return (
     <AppBar
       position="sticky"
@@ -113,14 +112,21 @@ export default function Navbar() {
         <Toolbar disableGutters sx={{ display: "flex" }}>
           {/* Logo */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-           
             {/* <CrueltyFreeIcon
               color="secondary"
               sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
             /> */}
-            <SwitchAccessShortcutIcon 
-             color="secondary"
-              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}/>
+            <AutoAwesomeIcon
+              color="secondary"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                mr: 1,
+                fontStyle:'oblique',
+                transform: i18n.language === "ar" ? 
+                "scaleX(-1)" : "none",
+                transition: "transform 0.1s ease",
+              }}
+            />
             <Typography
               variant="h6"
               noWrap
@@ -130,17 +136,12 @@ export default function Navbar() {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
+                 fontFamily: "Lugrasimo", 
+                fontWeight: 900,
                 letterSpacing: ".3rem",
                 textDecoration: "none",
-              }}
-            >
-              Helix  
-              {/* <AutoAwesomeIcon
-              color="secondary" fontSize="small"
-              sx={{ display: { xs: "none", md: "flex" }, mx: 2 }}
-            /> */}
+              }}>
+              Helix
             </Typography>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -159,19 +160,15 @@ export default function Navbar() {
                 display: "flex",
                 justifyContent: "center",
                 gap: 1,
-                // "&:hover": {
-                //   transform: "translateY(-2px)",
-                //   boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,
-                // },
               }}
             >
               <MenuItem
                 component={RouterLink}
                 to="/"
-                onClick={()=>{handleCloseMenu();
+                onClick={() => {
+                  handleCloseMenu();
                   showWelcome();
-                }
-                }
+                }}
                 color="success"
                 sx={{}}
               >
@@ -231,15 +228,6 @@ export default function Navbar() {
               alignItems: "center",
             }}
           >
-            {/* <Link component={RouterLink} to="/" color="secondary" underline="none"
-             sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, bgcolor: '#79874f', borderRadius: '30%', p: 1.5,
-             boxShadow: `0 6px 0 #5f6b3d, 0 10px 15px rgba(0,0,0,0.35)`, transform: 'translateY(0)', transition: 'all 0.2s ease',
-             '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 8px 0 #5f6b3d, 0 14px 20px rgba(0,0,0,0.4)`,},
-             '&:active': {transform: 'translateY(4px)', boxShadow: `0 2px 0 #5f6b3d, 0 4px 8px rgba(0,0,0,0.3)`,},}}>
-              <HomeIcon />
-               {t("Home")}
-               </Link> */}
-
             <Link
               component={RouterLink}
               to="/"

@@ -25,9 +25,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
-import Product from "../../components/product/ProductCard.jsx";
 import { useForm } from "react-hook-form";
 import ProductCard from "../../components/product/ProductCard.jsx";
+
+
+
 
 export default function Products() {
   const { t } = useTranslation();
@@ -75,6 +77,8 @@ export default function Products() {
   if (isLoading) return <CircularProgress />;
   if (isError) return <Typography>Error</Typography>;
 
+ 
+  
   return (
     <>
       <Box p={3} sx={{ textAlign: "center" }}>

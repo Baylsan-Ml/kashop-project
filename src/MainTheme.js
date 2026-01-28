@@ -65,6 +65,49 @@ const getTheme = (mode)=>{
     
   },
 
+   typography: {
+     
+      fontFamily: "'Rubik', 'Nunito', sans-serif",
+       brand: {
+        fontFamily: "'Arizonia', cursive",
+        fontWeight: 400,
+        fontSize: "2.5rem",
+        letterSpacing: "0.05em",
+      },
+
+      h1: {
+        fontFamily: "'Varela Round', sans-serif",
+        fontWeight: 700,
+      },
+      h2: {
+        fontFamily: "'Varela Round', sans-serif",
+        fontWeight: 600,
+      },
+      h3: {
+        fontFamily: "'Varela Round', sans-serif",
+      },
+      h4: {
+        fontFamily: "'Nunito', sans-serif",
+        fontWeight: 600,
+      },
+      h5: {
+        fontFamily: "'Nunito', sans-serif",
+      },
+      body1: {
+        fontFamily: "'Rubik', sans-serif",
+        fontSize: "1rem",
+      },
+      body2: {
+        fontFamily: "'Rubik', sans-serif",
+        fontSize: "0.875rem",
+      },
+      button: {
+        fontFamily: "'Rubik', sans-serif",
+        textTransform: "none",
+        fontWeight: 600,
+      },
+    },
+
 })
 }
 
