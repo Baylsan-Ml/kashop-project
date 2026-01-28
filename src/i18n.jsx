@@ -232,7 +232,23 @@ i18n
           "None":"-",
           "Viewers":"مشاهد",
           "Users":"مستخدم",
-          "Partners":"شركاء"
+          "Partners":"شركاء",
+          "Sort By":"ترتيب",
+          "Category":"الفئة",
+          "Update Email":"تعديل الايميل",
+          "Update Password":"تعديل كلمة المرور",
+          "Update Info":"تعديل البيانات",
+          "Cancel":"الغاء",
+          "New Email":"البريد الاكتروني الجديد",
+          "Current Email":"البريد الالكتروني الحالي",
+          "Current Password":"كلمة المرور الحالة",
+          "New Password":"كلمة المرور الجديدة",
+          "Confirm New Password":"تاكيد كلمة المرور",
+          "Order Number":"رقم الطلب",
+          "Order Price":"سعر الطلب",
+          "Payment Status":"حالة الدفع",
+          "Order Status":"حالة الطلب",
+          "Order Date":"تاريخ الطلب"
         }
       }
     },

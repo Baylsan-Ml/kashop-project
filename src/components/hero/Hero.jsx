@@ -46,7 +46,7 @@ export default function Hero() {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <Container sx={{ py: 5, textAlign: i18n.language === "ar" ? "right" : "center"  }}>
+      <Container sx={{ py: 5, textAlign: i18n.language === "ar" ? "center" : "center"  }}>
         <Typography variant="h3" sx={{ mb: 2,  textShadow: `-2px 2px 1px #ffbd77`,
             fontSize: { xs: "32px", sm: "42px", md: "56px" }, }}>
           {t("EXPRESSIVE")}

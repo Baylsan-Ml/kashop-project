@@ -14,7 +14,8 @@ import useUpdateEmail from "../../../hooks/useUpdateEmail";
 import { UpdateEmailSchema } from "../../../validation/UpdateEmailSchema";
 
 export default function UpdateEmail() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
 
   const {
     register,
@@ -93,7 +94,7 @@ export default function UpdateEmail() {
             {...register("CurrentEmail")}
             error={errors.CurrentEmail}
             helperText={errors.CurrentEmail?.message}
-           sx={{width: {xs:'100%', md:'90%'},
+           sx={{width: {xs:'100%', md:'90%'}, 
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -169,7 +170,7 @@ export default function UpdateEmail() {
           spacing={{ xs: 1, sm: 5, md: 7 }}
           sx={{ pt:{xs:1, md:3} , display: "flex", 
           justifyContent:{xs:'center' ,md:"center"}, alignItems:{xs:'center' ,md:"flex-end"},
-            width:{xs:'95%', md:'75%'}
+            width:{xs:'95%', md:'75%'},  flexDirection: isRTL ? "row-reverse" : "row",
           }}
         >
           <Button
@@ -181,7 +182,7 @@ export default function UpdateEmail() {
            }}
   
           >
-            {isSubmitting ? <CircularProgress /> : "Update Email"}
+            {isSubmitting ? <CircularProgress /> : t("Update Email")}
           </Button>
           <Button
             variant="outlined"

@@ -16,7 +16,8 @@ import useProfile from "../../../hooks/useProfile";
 import { useEffect, useState } from "react";
 
 export default function ProfileInfoUpdate() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
   const { data: profileData, isLoading } = useProfile();
 
   const {
@@ -60,7 +61,7 @@ export default function ProfileInfoUpdate() {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-         py: {xs: 0.5, md:2},
+        py: { xs: 0.5, md: 2 },
       }}
     >
       {/* <Typography
@@ -70,7 +71,7 @@ export default function ProfileInfoUpdate() {
       >
         {t("Update Info")}
       </Typography> */}
-      
+
       <Box
         component={"form"}
         onSubmit={handleSubmit(updateProfileInfoForm)}
@@ -78,8 +79,8 @@ export default function ProfileInfoUpdate() {
           gap: 1,
           width: { xs: "100%", sm: "80%", md: "70%" },
           display: "flex",
-          justifyContent:'center',
-          alignItems:'center',
+          justifyContent: "center",
+          alignItems: "center",
           flexDirection: "column",
         }}
       >
@@ -87,8 +88,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems:'center',
-            justifyContent:'center',
+            alignItems: "center",
+            justifyContent: "center",
             gap: 1,
           }}
         >
@@ -107,7 +108,8 @@ export default function ProfileInfoUpdate() {
             {...register("fullName")}
             error={errors.fullName}
             helperText={errors.fullName?.message}
-             sx={{width:'100%',
+            sx={{
+              width: "100%",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -125,7 +127,6 @@ export default function ProfileInfoUpdate() {
               "& .MuiFormHelperText-root.Mui-error": {
                 color: "red",
               },
-              
             }}
           />
         </Box>
@@ -134,8 +135,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems:'center',
-            justifyContent:'center',
+            alignItems: "center",
+            justifyContent: "center",
             gap: 1,
           }}
         >
@@ -154,7 +155,8 @@ export default function ProfileInfoUpdate() {
             {...register("city")}
             error={errors.city}
             helperText={errors.city?.message}
-             sx={{width:'100%',
+            sx={{
+              width: "100%",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -172,7 +174,6 @@ export default function ProfileInfoUpdate() {
               "& .MuiFormHelperText-root.Mui-error": {
                 color: "red",
               },
-              
             }}
           />
         </Box>
@@ -180,8 +181,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems:'center',
-            justifyContent:'center',
+            alignItems: "center",
+            justifyContent: "center",
             gap: 1,
           }}
         >
@@ -200,7 +201,8 @@ export default function ProfileInfoUpdate() {
             {...register("phoneNumber")}
             error={errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
-             sx={{width:'100%',
+            sx={{
+              width: "100%",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -218,31 +220,37 @@ export default function ProfileInfoUpdate() {
               "& .MuiFormHelperText-root.Mui-error": {
                 color: "red",
               },
-              
             }}
           />
         </Box>
         <Stack
-          direction={{ xs: "row", sm: "row" }}
-          spacing={{ xs: 2, sm: 9, md: 12 }}
-          sx={{ pt:{xs:1, md:3}, display: "flex", justifyContent:{xs:'center' ,md:"flex-end"}, alignItems:{xs:'center' ,md:"flex-end"},
-            width:{xs:'93%', md:'70%'}
+          direction="row"
+          spacing={2}
+          sx={{
+            pt: { xs: 1, md: 3 },
+            width: { xs: "93%", md: "70%" },
+            justifyContent: "center",
+            flexDirection: isRTL ? "row-reverse" : "row",
           }}
         >
           <Button
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-             sx={{ width: { xs: "70%", md: "100%" },
-            fontSize:{xs:'11px', md:'15px'}}}
+            sx={{
+              width: { xs: "70%", md: "40%" },
+              fontSize: { xs: "11px", md: "15px" },
+            }}
           >
-            {isSubmitting ? <CircularProgress /> : "Update Info"}
+            {isSubmitting ? <CircularProgress /> : t("Update Info")}
           </Button>
           <Button
             variant="outlined"
             color="success"
-            sx={{ width: { xs: "50%", md: "100%" },
-            fontSize:{xs:'11px', md:'15px'}}}
+            sx={{
+              width: { xs: "50%", md: "40%" },
+              fontSize: { xs: "11px", md: "15px" },
+            }}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

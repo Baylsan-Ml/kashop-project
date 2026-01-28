@@ -14,7 +14,8 @@ import { UpdatePasswordSchema } from "../../../validation/UpdatePasswordSchema";
 import useUpdatePassword from "../../../hooks/useUpdatePassword";
 
 export default function UpdatePassword() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.dir() === "rtl";
 
   const {
     register,
@@ -88,7 +89,7 @@ export default function UpdatePassword() {
           <TextField
             fullWidth
             type="password"
-            label={t("new password")}
+            label={t("Current Password")}
             {...register("CurrentPassword")}
             error={errors.CurrentPassword}
             helperText={errors.CurrentPassword?.message}
@@ -214,7 +215,7 @@ export default function UpdatePassword() {
           spacing={{ xs: 1, sm: 3, md: 7 }}
          sx={{ pt:{xs:1, md:3} , display: "flex", 
           justifyContent:{xs:'center' ,md:"center"}, alignItems:{xs:'center' ,md:"flex-end"},
-            width:{xs:'90%', md:'100%'}
+            width:{xs:'90%', md:'100%'}, flexDirection: isRTL ? "row-reverse" : "row", 
           }}
         >
           <Button
@@ -225,7 +226,7 @@ export default function UpdatePassword() {
             fontSize:{xs:'10px', md:'13px'}
            }}
           >
-            {isSubmitting ? <CircularProgress /> : "Update Password"}
+            {isSubmitting ? <CircularProgress /> : t("Update Password")}
           </Button>
           <Button
             variant="outlined"
