@@ -33,7 +33,7 @@ export default function Categories() {
           {t("Categories")}
         </Typography>
         <Typography
-          color="primary"
+          color="primary.main"
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -57,16 +57,14 @@ export default function Categories() {
                   sx={{ textDecoration: "none" }}
                 >
                   <Card
-                    bgColor="info.main"
                     sx={{
                       py: 1,
                       px:{xs:5, md:3},
                       borderRadius:'25px',
                       cursor: "pointer",
-                      
                       fontWeight: "bold",
                       bgcolor: "success.main",
-                      color: "secondary.main",
+                      color: "warning.main",
                       boxShadow: 1,
                       "&:hover": {
                         transform: "translateY(-1px)",

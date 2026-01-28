@@ -20,8 +20,12 @@ const getTheme = (mode)=>{
     // main:'#f4f3f8'
     main: mode ==='dark'?'#fef6e9': '#fef6e9'
     // main:'#fef6e9'
-
    },
+   warning:{
+    main: mode ==='dark'?'#003f48': '#fef6e9',
+    dark: mode ==='dark'?'#fef6e9': '#003f48',
+   },
+
     success: {
       // main:'#4e090a',
     //  main:'#2f8ee0',
@@ -34,7 +38,7 @@ const getTheme = (mode)=>{
       // dark:'#9dac71'
       // main:'#9a3b11'
       // main:'#003f48'
-      main: mode==='dark'?'#fef6e9':'#003f48' ,
+      main: mode==='dark'?'#b3b3b3':'#003f48' ,
     },
     error:{
       // main: mode==='dark?'?'#ff724c' :'#9a3b11',
@@ -95,7 +99,7 @@ const getTheme = (mode)=>{
       },
       body1: {
         fontFamily: "'Rubik', sans-serif",
-        fontSize: "1rem",
+        fontSize: "1.2rem",
       },
       body2: {
         fontFamily: "'Rubik', sans-serif",
@@ -104,7 +108,7 @@ const getTheme = (mode)=>{
       button: {
         fontFamily: "'Rubik', sans-serif",
         textTransform: "none",
-        fontWeight: 600,
+        fontWeight: 900,
       },
     },
 

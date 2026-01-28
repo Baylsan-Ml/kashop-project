@@ -15,6 +15,7 @@ import Clients from '../../components/clients/Clients';
 import Features from '../../components/features/Features';
 import ProductsSection from '../../components/productSection/ProductsSection';
 import StatsSection from '../../components/statsSection/StatsSection';
+import NewArrival from '../../components/newArrival/NewArrival';
 import FAQ from '../../components/FQA/FQA';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
     <Categories />
     <Sales />
     <StatsSection/>
+    <NewArrival/>
     <ProductsSection />
     <Features/>
     <Clients />

@@ -26,11 +26,11 @@ export default function StatsSection() {
         spacing={4}
         sx={{ textAlign: "center", display: "flex", justifyContent: "center" }}
       >
-        <Grid size={{ xs: 8, sm: 6, xl: 4 }} sx={{ borderRadius: "20%" }}>
-          <Paper elevation={3} sx={{ borderRadius: "20%" }}>
+        <Grid size={{ xs: 8, sm: 6, xl: 4 }} sx={{ borderRadius: "10%" }}>
+          <Paper elevation={3} sx={{ borderRadius: "10%" }}>
             <Card
               sx={{
-                borderRadius: "20%",
+                borderRadius: "10%",
                 height: "200px",
                 "&:hover": {
                   boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,
@@ -55,10 +55,10 @@ export default function StatsSection() {
                 </Typography>
                 <Typography variant="h5" component="div"></Typography>
                 <Typography
-                  color="error.main"
+                  color="warning.dark"
                   sx={{ mb: 1.5, fontWeight: "bold" }}
                 >
-                  Viewers
+                  {t("Viewers")}
                 </Typography>
                 <Typography variant="body2">
                   {t("Thousands of visitors explore our platform every month.")}
@@ -71,7 +71,7 @@ export default function StatsSection() {
           <Paper elevation={3} sx={{ borderRadius: "20%" }}>
             <Card
               sx={{
-                borderRadius: "20%",
+                borderRadius: "10%",
                 height: "200px",
                 "&:hover": {
                   boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,
@@ -96,10 +96,11 @@ export default function StatsSection() {
                 </Typography>
                 <Typography variant="h5" component="div"></Typography>
                 <Typography
-                  color="error.main"
+                 color="warning.dark"
                   sx={{ mb: 1.5, fontWeight: "bold" }}
                 >
-                  Users
+                  {t("Users")}
+                  
                 </Typography>
                 <Typography variant="body2">
                   {t("A growing community of active and trusted users.")}
@@ -108,11 +109,11 @@ export default function StatsSection() {
             </Card>
           </Paper>
         </Grid>
-        <Grid size={{ xs: 8, sm: 6, xl: 4 }} sx={{ borderRadius: "20%" }}>
-          <Paper elevation={3} sx={{ borderRadius: "20%" }}>
+        <Grid size={{ xs: 8, sm: 6, xl: 4 }} sx={{ borderRadius: "10%" }}>
+          <Paper elevation={3} sx={{ borderRadius: "10%" }}>
             <Card
               sx={{
-                borderRadius: "20%",
+                borderRadius: "10%",
                 height: "200px",
                 "&:hover": {
                   boxShadow: `0 0.5px 0 #ef660c, 0 1px 5px #2f8ee0`,
@@ -137,10 +138,10 @@ export default function StatsSection() {
                 </Typography>
                 <Typography variant="h5" component="div"></Typography>
                 <Typography
-                  color="error.main"
+                  color="warning.dark"
                   sx={{ mb: 1.5, fontWeight: "bold" }}
                 >
-                  Partners
+                  {t("Partners")}
                 </Typography>
                 <Typography variant="body2">
                   {t(

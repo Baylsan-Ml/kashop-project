@@ -12,7 +12,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RegiesterSchema } from "../../validation/RegisterSchema";
 import useRegister from "../../hooks/useRegister";
 import { useTranslation } from "react-i18next";
-import bg from "../../assets/imgs/bg.jpg";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Regiester() {

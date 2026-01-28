@@ -114,7 +114,10 @@ i18n
           "Forget Your Password?":"Forget Your Password?",
           "EXPRESSIVE":"EXPRESSIVE",
           "TIMELESS ELEGANT":"TIMELESS ELEGANT",
-          "welcomeMessage": "Welcome {{name}} ✨\nEnjoy your visit 💫"
+          "welcomeMessage": "Welcome {{name}} ✨\nEnjoy your visit 💫",
+          "Viewers":"Viewers",
+          "Users":"Users",
+          "Partners":"Partners"
         }
       },
        ar: {
@@ -226,7 +229,10 @@ i18n
           "EXPRESSIVE":"مبهر",
           "TIMELESS ELEGANT":"اناقة خالدة",
           "welcomeMessage": "أهلاً {{name}} ✨\nزيارة ممتعة 💫",
-          "None":"-"
+          "None":"-",
+          "Viewers":"مشاهد",
+          "Users":"مستخدم",
+          "Partners":"شركاء"
         }
       }
     },
