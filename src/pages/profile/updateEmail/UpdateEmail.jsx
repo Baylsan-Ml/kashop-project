@@ -46,8 +46,10 @@ export default function UpdateEmail() {
       }}
     >
       <Typography
-        variant="h5"
-        sx={{ textAlign: "center", textShadow: "1px 1px 1px #2a2c41", pb: 5 }}
+        variant="h6"
+        sx={{ textAlign: "center", textShadow: "1px 1px 1px #2a2c41", pb:{xs:1, md:5}, display: { xs: "none", sm: "block" },
+        fontSize:{xs:'11px', md:'35px'}
+       }}
         color="primary"
       >
         {t("Update Email")}
@@ -56,10 +58,12 @@ export default function UpdateEmail() {
         component={"form"}
         onSubmit={handleSubmit(updateEmailForm)}
         bgcolor={""}
-        sx={{
+         sx={{
           gap: 1,
-          width: { xs: "100%", sm: "80%", md: "50%" },
+          width: { xs: "100%", sm: "80%", md: "70%" },
           display: "flex",
+          justifyContent:'center',
+          alignItems:'center',
           flexDirection: "column",
         }}
       >
@@ -67,7 +71,8 @@ export default function UpdateEmail() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "flex-start", sm: "center" },
+            alignItems:'center',
+            justifyContent:'center',
             gap: 1,
           }}
         >
@@ -88,7 +93,7 @@ export default function UpdateEmail() {
             {...register("CurrentEmail")}
             error={errors.CurrentEmail}
             helperText={errors.CurrentEmail?.message}
-            sx={{width:'90%',
+           sx={{width: {xs:'100%', md:'90%'},
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -112,10 +117,11 @@ export default function UpdateEmail() {
         </Box>
 
         <Box
-          sx={{
+           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "flex-start", sm: "center" },
+            alignItems:'center',
+            justifyContent:'center',
             gap: 1,
           }}
         >
@@ -135,7 +141,7 @@ export default function UpdateEmail() {
             {...register("NewEmail")}
             error={errors.NewEmail}
             helperText={errors.NewEmail?.message}
-            sx={{width:'90%',
+            sx={{width: {xs:'100%', md:'90%'},
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -159,25 +165,30 @@ export default function UpdateEmail() {
         </Box>
 
         <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 5, sm: 9, md: 12 }}
-          sx={{ pt: 3, display: "flex", justifyContent: "flex-end" }}
+          direction={{ xs: "row", sm: "row" }}
+          spacing={{ xs: 1, sm: 5, md: 7 }}
+          sx={{ pt:{xs:1, md:3} , display: "flex", 
+          justifyContent:{xs:'center' ,md:"center"}, alignItems:{xs:'center' ,md:"flex-end"},
+            width:{xs:'95%', md:'75%'}
+          }}
         >
           <Button
             variant="contained"
             type="submit"
-            disabled={isSubmitting}
-            fullWidth
-            // sx={{ width: { xs: "100%", sm: "auto" } }}
-            // sx={{ width:'40%'}}
+            disabled={isSubmitting} 
+             sx={{ width: { xs: "90%", md: "30%" },
+            fontSize:{xs:'10px', md:'13px'}
+           }}
+  
           >
             {isSubmitting ? <CircularProgress /> : "Update Email"}
           </Button>
           <Button
             variant="outlined"
             color="success"
-            fullWidth
-            // sx={{ width: { xs: "100%", sm: "auto" } }}
+             sx={{ width: { xs: "90%", md: "30%" },
+            fontSize:{xs:'10px', md:'13px'}
+           }}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

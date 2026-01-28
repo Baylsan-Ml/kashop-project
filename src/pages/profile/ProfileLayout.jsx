@@ -87,8 +87,8 @@ export default function Profile() {
           </List>
         </Grid>
 
-        <Grid size={{ xs: 7, sm: 8, md: 9, xl: 9 }}>
-          <Box component={"section"}>
+        <Grid size={{ xs: 8, sm: 8, md: 9, xl: 9 }}>
+          <Box component={"section"} >
             <Outlet />
           </Box>
         </Grid>

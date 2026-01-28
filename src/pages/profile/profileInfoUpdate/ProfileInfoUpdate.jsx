@@ -53,29 +53,33 @@ export default function ProfileInfoUpdate() {
   // const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <Container
+    <Box
       component={"section"}
       sx={{
         display: "flex",
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
+         py: {xs: 0.5, md:2},
       }}
     >
-      <Typography
+      {/* <Typography
         variant="h5"
         sx={{ textAlign: "center", textShadow: "1px 1px 1px #2a2c41", pb: 5 }}
         color="primary"
       >
         {t("Update Info")}
-      </Typography>
+      </Typography> */}
+      
       <Box
         component={"form"}
         onSubmit={handleSubmit(updateProfileInfoForm)}
         sx={{
           gap: 1,
-          width: { xs: "100%", sm: "80%", md: "50%" },
+          width: { xs: "100%", sm: "80%", md: "70%" },
           display: "flex",
+          justifyContent:'center',
+          alignItems:'center',
           flexDirection: "column",
         }}
       >
@@ -83,7 +87,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "flex-start", sm: "center" },
+            alignItems:'center',
+            justifyContent:'center',
             gap: 1,
           }}
         >
@@ -102,7 +107,7 @@ export default function ProfileInfoUpdate() {
             {...register("fullName")}
             error={errors.fullName}
             helperText={errors.fullName?.message}
-             sx={{width:'90%',
+             sx={{width:'100%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -129,7 +134,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "flex-start", sm: "center" },
+            alignItems:'center',
+            justifyContent:'center',
             gap: 1,
           }}
         >
@@ -148,7 +154,7 @@ export default function ProfileInfoUpdate() {
             {...register("city")}
             error={errors.city}
             helperText={errors.city?.message}
-             sx={{width:'90%',
+             sx={{width:'100%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -174,7 +180,8 @@ export default function ProfileInfoUpdate() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            alignItems: { xs: "flex-start", sm: "center" },
+            alignItems:'center',
+            justifyContent:'center',
             gap: 1,
           }}
         >
@@ -193,7 +200,7 @@ export default function ProfileInfoUpdate() {
             {...register("phoneNumber")}
             error={errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
-             sx={{width:'90%',
+             sx={{width:'100%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -216,28 +223,32 @@ export default function ProfileInfoUpdate() {
           />
         </Box>
         <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 5, sm: 9, md: 12 }}
-          sx={{ pt: 3, display: "flex", justifyContent: "flex-end" }}
+          direction={{ xs: "row", sm: "row" }}
+          spacing={{ xs: 2, sm: 9, md: 12 }}
+          sx={{ pt:{xs:1, md:3}, display: "flex", justifyContent:{xs:'center' ,md:"flex-end"}, alignItems:{xs:'center' ,md:"flex-end"},
+            width:{xs:'93%', md:'70%'}
+          }}
         >
           <Button
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-            fullWidth
+             sx={{ width: { xs: "70%", md: "100%" },
+            fontSize:{xs:'11px', md:'15px'}}}
           >
             {isSubmitting ? <CircularProgress /> : "Update Info"}
           </Button>
           <Button
             variant="outlined"
             color="success"
-            fullWidth
+            sx={{ width: { xs: "50%", md: "100%" },
+            fontSize:{xs:'11px', md:'15px'}}}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}
           </Button>
         </Stack>
       </Box>
-    </Container>
+    </Box>
   );
 }

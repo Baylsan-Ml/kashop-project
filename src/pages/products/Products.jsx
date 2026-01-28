@@ -102,7 +102,7 @@ export default function Products() {
           {t(
             "Discover our unique collection of products designed to suit all your needs.",
           )}
-          <InsertEmoticonIcon fontSize="large" />
+          {/* <InsertEmoticonIcon fontSize="large" /> */}
         </Typography>
         {/* Search and Sort */}
         <Grid

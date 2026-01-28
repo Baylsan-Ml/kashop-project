@@ -47,8 +47,10 @@ export default function UpdatePassword() {
       }}
     >
       <Typography
-        variant="h5"
-        sx={{ textAlign: "center", textShadow: "1px 1px 1px #2a2c41", pb: 5 }}
+        variant="h6"
+        sx={{ textAlign: "center", textShadow: "1px 1px 1px #2a2c41", pb:{xs:1, md:5}, display: { xs: "none", sm: "block" },
+        fontSize:{xs:'11px', md:'35px'}
+       }}
         color="primary"
       >
         {t("Update Password")}
@@ -57,10 +59,12 @@ export default function UpdatePassword() {
         component={"form"}
         onSubmit={handleSubmit(updatePasswordForm)}
         bgcolor={""}
-        sx={{
+         sx={{
           gap: 1,
-          width: { xs: "100%", sm: "80%", md: "50%" },
+          width: { xs: "100%", sm: "80%", md: "70%" },
           display: "flex",
+          justifyContent:'center',
+          alignItems:'center',
           flexDirection: "column",
         }}
       >
@@ -74,7 +78,7 @@ export default function UpdatePassword() {
         >
           <Typography
             sx={{
-              minWidth: { sm: "150px" },
+              minWidth: { sm: "150px", md:'200px' },
               fontWeight: "bold",
               display: { xs: "none", sm: "block" },
             }}
@@ -88,7 +92,7 @@ export default function UpdatePassword() {
             {...register("CurrentPassword")}
             error={errors.CurrentPassword}
             helperText={errors.CurrentPassword?.message}
-            sx={{width:'90%',
+            sx={{width:'100%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -121,7 +125,7 @@ export default function UpdatePassword() {
         >
           <Typography
             sx={{
-              minWidth: { sm: "150px" },
+              minWidth: { sm: "150px", md:'200px' },
               fontWeight: "bold",
               display: { xs: "none", sm: "block" },
             }}
@@ -135,7 +139,7 @@ export default function UpdatePassword() {
             {...register("NewPassword")}
             error={errors.NewPassword}
             helperText={errors.NewPassword?.message}
-             sx={{width:'90%',
+             sx={{width:'100%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -166,8 +170,9 @@ export default function UpdatePassword() {
           }}
         >
           <Typography
+         
             sx={{
-              minWidth: { sm: "150px" },
+              minWidth: { sm: "150px", md:'200px' },
               fontWeight: "bold",
               display: { xs: "none", sm: "block" },
             }}
@@ -177,11 +182,11 @@ export default function UpdatePassword() {
           <TextField
             fullWidth
             type="password"
-            label={t("new password")}
+            label={t("Confirm New Password")}
             {...register("ConfirmNewPassword")}
             error={errors.ConfirmNewPassword}
             helperText={errors.ConfirmNewPassword?.message}
-             sx={{width:'90%',
+             sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   borderColor: "success.main",
@@ -205,25 +210,29 @@ export default function UpdatePassword() {
         </Box>
 
         <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 5, sm: 9, md: 12 }}
-          sx={{ pt: 3, display: "flex", justifyContent: "flex-end" }}
+          direction={{ xs: "row", sm: "row" }}
+          spacing={{ xs: 1, sm: 3, md: 7 }}
+         sx={{ pt:{xs:1, md:3} , display: "flex", 
+          justifyContent:{xs:'center' ,md:"center"}, alignItems:{xs:'center' ,md:"flex-end"},
+            width:{xs:'90%', md:'100%'}
+          }}
         >
           <Button
             variant="contained"
             type="submit"
             disabled={isSubmitting}
-            fullWidth
-            // sx={{ width: { xs: "100%", sm: "auto" } }}
-            // sx={{ width:'40%'}}
+             sx={{ width: { xs: "90%", md: "30%" },
+            fontSize:{xs:'10px', md:'13px'}
+           }}
           >
             {isSubmitting ? <CircularProgress /> : "Update Password"}
           </Button>
           <Button
             variant="outlined"
             color="success.main"
-            fullWidth
-            // sx={{ width: { xs: "100%", sm: "auto" } }}
+            sx={{ width: { xs: "30%", md: "20%" },
+            fontSize:{xs:'11px', md:'13px'}
+           }}
             onClick={() => Navigate("/profile")}
           >
             {t("Cancel")}

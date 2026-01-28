@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import useUpdateProfileInfo from '../../hooks/useUpdateProfileInfo'
-import useProfile from '../../hooks/useProfile';
-import { useTranslation } from 'react-i18next';
-import { Box, Button, CircularProgress, Modal, Stack, TextField, Typography, Tabs ,Tab } from '@mui/material';
-import { useForm } from 'react-hook-form';
-import { useUpdateProfileInfoSchema } from '../../validation/UpdateProfileInfoSchema';
+import React, { useEffect, useState } from "react";
+import useUpdateProfileInfo from "../../hooks/useUpdateProfileInfo";
+import useProfile from "../../hooks/useProfile";
+import { useTranslation } from "react-i18next";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Modal,
+  Stack,
+  TextField,
+  Typography,
+  Tabs,
+  Tab,
+} from "@mui/material";
+import { useForm } from "react-hook-form";
+import { useUpdateProfileInfoSchema } from "../../validation/UpdateProfileInfoSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import UpdateEmail from './updateEmail/UpdateEmail';
-import ProfileInfoUpdate from './profileInfoUpdate/ProfileInfoUpdate';
-import UpdatePassword from './updatePassword/UpdatePassword';
-import PropTypes from 'prop-types';
+import UpdateEmail from "./updateEmail/UpdateEmail";
+import ProfileInfoUpdate from "./profileInfoUpdate/ProfileInfoUpdate";
+import UpdatePassword from "./updatePassword/UpdatePassword";
+import PropTypes from "prop-types";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,39 +46,42 @@ CustomTabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
 export default function ProfileInfo() {
-
-   const [value, setValue] =useState(0);
+  const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const{data, isLoading, isError}= useProfile();
- 
-  const {register, handleSubmit, reset, formState:{errors}}=useForm({
-      resolver:yupResolver(useUpdateProfileInfoSchema),
-      mode:'onBlur'
-    })
-  const {t}= useTranslation();
- 
+  const { data, isLoading, isError } = useProfile();
 
-         useEffect(() => {
-         if (data) {
-         reset({
-         fullName: data.fullName,
-         city: data.city,
-         phoneNumber: data.phoneNumber,
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(useUpdateProfileInfoSchema),
+    mode: "onBlur",
+  });
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (data) {
+      reset({
+        fullName: data.fullName,
+        city: data.city,
+        phoneNumber: data.phoneNumber,
       });
     }
   }, [data, reset]);
-    
-        if(isLoading) return <CircularProgress color='primary.main'/>
-        if(isError) return <Typography>Error</Typography>
-        console.log(data);
+
+  if (isLoading) return <CircularProgress color="primary.main" />;
+  if (isError) return <Typography>Error</Typography>;
+  console.log(data);
 
   const onSubmit = (values) => {
     useUpdateProfileInfo(values, {
@@ -77,8 +90,8 @@ export default function ProfileInfo() {
       },
     });
   };
-    
-     const handleCancel = () => {
+
+  const handleCancel = () => {
     reset({
       fullName: data.fullName,
       city: data.city,
@@ -88,41 +101,75 @@ export default function ProfileInfo() {
   };
 
   const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 500,
-  bgcolor: 'secondary.main',
-  // border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  borderRadius:'10%'
-};
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 500,
+    bgcolor: "secondary.main",
+    // border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    borderRadius: "10%",
+  };
 
   return (
-     <Box  sx={{minHeight:'100vh', borderColor: 'grey.500', 
-    display:'flex', flexDirection:'column', justifyContent:'center', borderRadius: '5px'}}>
-       <Typography  color='primary' 
-       sx={{textAlign: 'center', textShadow:'2px 2px 1px #4e090a', pb:5, fontSize: { xs: "32px", sm: "42px", md: "50px" },}}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        borderColor: "grey.500",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        borderRadius: "5px",
+      }}
+    >
+      <Typography
+        color="primary"
+        sx={{
+          textAlign: "center",
+          textShadow: "2px 2px 1px #4e090a",
+          pb: 5,
+          fontSize: { xs: "32px", sm: "42px", md: "50px" },
+        }}
+      >
         {t("Personal Information")}
-        </Typography>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+      </Typography>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          allowScrollButtonsMobile
+          variant="scrollable"
+          scrollButtons="auto"
+          sx={{
+            "& .MuiTab-root": {
+              fontSize: { xs: "0.8rem", sm: "1rem" },
+              minWidth: "auto",
+            },
+          }}
+        >
           <Tab label={t("Info")} {...a11yProps(0)} />
           <Tab label={t("Update Email")} {...a11yProps(1)} />
           <Tab label={t("Update Password")} {...a11yProps(2)} />
         </Tabs>
       </Box>
+      <Box sx={{ m:3}}>
       <CustomTabPanel value={value} index={0}>
-        <ProfileInfoUpdate/>
+        <ProfileInfoUpdate />
       </CustomTabPanel>
+      </Box>
+       <Box sx={{}}>
       <CustomTabPanel value={value} index={1}>
-       <UpdatePassword/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
         <UpdateEmail />
       </CustomTabPanel>
+      </Box>
+       <Box sx={{}}>
+      <CustomTabPanel value={value} index={2}>
+        <UpdatePassword />
+      </CustomTabPanel>
+      </Box>
     </Box>
-  )
+  );
 }
