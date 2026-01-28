@@ -248,7 +248,17 @@ i18n
           "Order Price":"سعر الطلب",
           "Payment Status":"حالة الدفع",
           "Order Status":"حالة الطلب",
-          "Order Date":"تاريخ الطلب"
+          "Order Date":"تاريخ الطلب",
+          "Regiester":"تسجيل",
+          "Full Name":"الاسم الكامل",
+          "User Email":"البريد الالكتروني",
+          "Password":"كلمة المرور",
+          "Phone Number":"رقم الهاتف",
+          "User Name":"اسم المستخدم",
+          "Login":"تسجيل الدخول",
+          "Send Code":"ارسال الرمز",
+          "enter your email":"ادخل بريدك الالكتروني",
+          "Sales":"العروض"
         }
       }
     },

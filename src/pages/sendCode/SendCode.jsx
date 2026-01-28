@@ -78,7 +78,7 @@ export default function SendCode() {
           mt={5}
         >
           <TextField
-            label="enter your email"
+            label={t("enter your email")}
             {...register("email")}
             fullWidth
             variant="outlined"

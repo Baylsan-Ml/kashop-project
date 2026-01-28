@@ -7,6 +7,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+
 
 export default function Footer() {
       const user=useAuthStore((state)=>state.user);
@@ -30,23 +32,32 @@ export default function Footer() {
       <Container maxWidth="xl">
         <Grid container spacing={4} justifyContent="space-between">
           <Grid size={{ xs: 12, md: 4, lg: 3 }} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-            <Typography 
-              variant="h6" 
-              noWrap 
-              color='secondary' 
-              component="a" 
+            {/* <AutoAwesomeIcon
+              color="secondary"
+              sx={{
+                display: { xs: "none", md: "flex" },
+                mr: 1,
+                fontStyle:'oblique',
+                transform: i18n.language === "ar" ? 
+                "scaleX(-1)" : "none",
+                transition: "transform 0.1s ease",
+              }}
+            /> */}
+            <Typography
+              variant="h6"
+              noWrap
+              color="secondary"
+              component="a"
               href="#app-bar-with-responsive-menu"
               sx={{
-                display: 'flex',
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                textDecoration: 'none',
-                justifyContent: { xs: 'center', md: 'flex-start' },
-                mb: 2 
-              }}
-            >
-              KA-Shop - {user?.name}
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                 fontFamily: "Lugrasimo", 
+                fontWeight: 900,
+                letterSpacing: ".3rem",
+                textDecoration: "none",
+              }}>
+              Helix
             </Typography>
             
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>

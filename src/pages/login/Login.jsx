@@ -72,7 +72,7 @@ export default function Login() {
         >
 
           <TextField
-            label="user email"
+            label={t("User Email")}
             {...register("email")}
             fullWidth
             variant="outlined"
@@ -100,7 +100,7 @@ export default function Login() {
             }}
           />
           <TextField
-            label="password"
+             label={t("Password")}
             type="password"
             {...register("password")}
             variant="outlined"
@@ -140,7 +140,7 @@ export default function Login() {
               color="primary"
               sx={{ boxShadow: 2 }}
             >
-              {isSubmitting ? <CircularProgress /> : "Login"}
+              {isSubmitting ? <CircularProgress /> : t("Login")}
             </Button>
            
             <Button

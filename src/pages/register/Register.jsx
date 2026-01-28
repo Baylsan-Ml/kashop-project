@@ -80,7 +80,7 @@ export default function Regiester() {
           }}
         >
           <TextField
-            label="user name"
+            label={t("User Name")}
             {...register("userName")}
             fullWidth
             variant="outlined"
@@ -107,7 +107,7 @@ export default function Regiester() {
             }}
           />
           <TextField
-            label="Full Name"
+            label={t("Full Name")}
             {...register("fullName")}
             fullWidth
             variant="outlined"
@@ -134,7 +134,7 @@ export default function Regiester() {
             }}
           />
           <TextField
-            label="user email"
+            label={t("User Email")}
             {...register("email")}
             fullWidth
             variant="outlined"
@@ -161,7 +161,7 @@ export default function Regiester() {
             }}
           />
           <TextField
-            label="password"
+            label={t("Password")}
             {...register("password")}
             fullWidth
             variant="outlined"
@@ -188,7 +188,7 @@ export default function Regiester() {
             }}
           />
           <TextField
-            label="phone number"
+            label={t("Phone Number")}
             {...register("phoneNumber")}
             fullWidth
             variant="outlined"
@@ -229,7 +229,7 @@ export default function Regiester() {
               color="primary"
               fullWidth
             >
-              {isSubmitting ? <CircularProgress /> : "Regiester"}
+              {isSubmitting ? <CircularProgress /> : t("Regiester")}
             </Button>
             <Button
               variant="contained"
