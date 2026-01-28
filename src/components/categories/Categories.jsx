@@ -72,7 +72,8 @@ export default function Categories() {
                       },
                     }}
                   >
-                    <Typography>{category.name}</Typography>
+                    <Typography sx={{fontSize:{xs: '11px', md:'15px'}}}
+                    >{category.name}</Typography>
                   </Card>
                 </Link>
               </Grid>

@@ -206,7 +206,7 @@ export default function Products() {
               <Grid
                 key={product.id}
                 size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                sx={{ p: 4 }}
+                sx={{ p: 4, display:'flex', justifyContent:'center'}}
               >
                 <Link
                   component={RouterLink}
@@ -215,7 +215,7 @@ export default function Products() {
                 >
                   <Card
                     color="secondary"
-                    sx={{ cursor: "pointer", borderRadius: "10px", width:'90%', height:'100%'
+                    sx={{ cursor: "pointer", borderRadius: "10px", width:'100%', height:'100%'
                      }}
                   >
                     <Box
