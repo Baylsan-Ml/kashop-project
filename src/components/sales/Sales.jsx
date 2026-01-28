@@ -93,8 +93,8 @@ export default function Sales() {
                 className="sale-badge"
                 sx={{
                   position: "absolute",
-                  top: { xs: 15, md: 30 },
-                  right: { xs: 20, md: 50 },
+                  top: { xs: 20, md: 30 },
+                  right: { xs: 40, md: 50 },
                   transition: "all 0.3s ease",
                   zIndex: 2,
                   "& .MuiBadge-badge": {
