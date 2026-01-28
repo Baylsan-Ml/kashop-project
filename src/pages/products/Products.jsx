@@ -27,9 +27,8 @@ import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import ProductCard from "../../components/product/ProductCard.jsx";
-
-
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import useAddToCart from "../../hooks/useAddToCart.js";
 
 export default function Products() {
   const { t } = useTranslation();
@@ -74,11 +73,11 @@ export default function Products() {
     });
   };
 
+    const { mutate: addToCart, isPending: isAddingToCart } = useAddToCart();
+  
   if (isLoading) return <CircularProgress />;
   if (isError) return <Typography>Error</Typography>;
 
- 
-  
   return (
     <>
       <Box p={3} sx={{ textAlign: "center" }}>
@@ -106,96 +105,101 @@ export default function Products() {
           <InsertEmoticonIcon fontSize="large" />
         </Typography>
         {/* Search and Sort */}
-<Grid container  sx={{display:'flex', justifyContent:'center', pt:3}}>
-
-  <Grid size={{ xs: 12,  md: 6,  }}>
- <Box
-      component={"form"}
-      onSubmit={handleSubmit(applyFilters)}
-     
-    >
-      <TextField
-        fullWidth
-        size="small"
-        label={t("Search products...")}
-        {...register("search")}
-        InputProps={{
-          startAdornment: <ManageSearchIcon sx={{ mr: 1 }} />,
-        }}
-      />
-      </Box>
-       </Grid>
-        <Grid size={{ xs: 12,  md: 10,  }} >
-          <Box
-      component={"form"}
-      onSubmit={handleSubmit(applyFilters)}
-      sx={{
-        py: 3,
-      }}
-    >
-      <Grid container spacing={2} 
-      justifyContent="center" alignItems="center"
-      >
-        <Grid  size={{ xs: 4, md: 2, lg: 1.5 }}>
-          <FormControl fullWidth >
-            <TextField {...register("categoryId")} label={t("Category")}  size="small"/>
-          </FormControl>
-        </Grid>
-
-        {/* Sort */}
-        <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
-          <FormControl fullWidth  size="small">
-            <InputLabel>{t("Sort By")}</InputLabel>
-            <Select {...register("sort")} label={t("Sort By")}
-            >
-              <MenuItem value="">{t("None")}</MenuItem>
-              <MenuItem value="name-asc">{t("Name A → Z")}</MenuItem>
-              <MenuItem value="name-desc">{t("Name Z → A")}</MenuItem>
-              <MenuItem value="price-asc">{t("Price Low → High")}</MenuItem>
-              <MenuItem value="price-desc">{t("Price High → Low")}</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-        {/* Min Price */}
-        <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
-          <TextField
-          size="small"
-            label={t("Min Price")}
-            type="number"
-            {...register("minPrice")}
-            fullWidth
-          />
-        </Grid>
-        {/* Max Price */}
-        <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
-          <TextField
-           size="small"
-            label={t("Max Price")}
-            type="number"
-            {...register("maxPrice")}
-            fullWidth
-          />
-        </Grid>
-        {/* Apply Button */}
-      <Box sx={{ textAlign: "center"}}>
-        <Button
-          type="submit"
-          variant="contained"
-          size="small"
-          sx={{ py: 1}}
+        <Grid
+          container
+          sx={{ display: "flex", justifyContent: "center", pt: 3 }}
         >
-          {t("Apply Filters")}
-        </Button>
-      </Box>
-      </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box component={"form"} onSubmit={handleSubmit(applyFilters)}>
+              <TextField
+                fullWidth
+                size="small"
+                label={t("Search products...")}
+                {...register("search")}
+                InputProps={{
+                  startAdornment: <ManageSearchIcon sx={{ mr: 1 }} />,
+                }}
+              />
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 10 }}>
+            <Box
+              component={"form"}
+              onSubmit={handleSubmit(applyFilters)}
+              sx={{
+                py: 3,
+              }}
+            >
+              <Grid
+                container
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
+                  <FormControl fullWidth>
+                    <TextField
+                      {...register("categoryId")}
+                      label={t("Category")}
+                      size="small"
+                    />
+                  </FormControl>
+                </Grid>
 
-      
-    </Box>
+                {/* Sort */}
+                <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>{t("Sort By")}</InputLabel>
+                    <Select {...register("sort")} label={t("Sort By")}>
+                      <MenuItem value="">{t("None")}</MenuItem>
+                      <MenuItem value="name-asc">{t("Name A → Z")}</MenuItem>
+                      <MenuItem value="name-desc">{t("Name Z → A")}</MenuItem>
+                      <MenuItem value="price-asc">
+                        {t("Price Low → High")}
+                      </MenuItem>
+                      <MenuItem value="price-desc">
+                        {t("Price High → Low")}
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                {/* Min Price */}
+                <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
+                  <TextField
+                    size="small"
+                    label={t("Min Price")}
+                    type="number"
+                    {...register("minPrice")}
+                    fullWidth
+                  />
+                </Grid>
+                {/* Max Price */}
+                <Grid size={{ xs: 4, md: 2, lg: 1.5 }}>
+                  <TextField
+                    size="small"
+                    label={t("Max Price")}
+                    type="number"
+                    {...register("maxPrice")}
+                    fullWidth
+                  />
+                </Grid>
+                {/* Apply Button */}
+                <Box sx={{ textAlign: "center" }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="small"
+                    sx={{ py: 1 }}
+                  >
+                    {t("Apply Filters")}
+                  </Button>
+                </Box>
+              </Grid>
+            </Box>
+          </Grid>
         </Grid>
-
-       </Grid>
         {/* Search and Sort */}
-        
+
         <Container maxWidth="xl">
           <Grid container sx={{ display: "flex", justifyContent: "center" }}>
             {product.map((product) => (
@@ -211,7 +215,8 @@ export default function Products() {
                 >
                   <Card
                     color="secondary"
-                    sx={{ cursor: "pointer", borderRadius: "25px" }}
+                    sx={{ cursor: "pointer", borderRadius: "10px", width:'90%', height:'100%'
+                     }}
                   >
                     <Box
                       sx={{
@@ -222,6 +227,10 @@ export default function Products() {
                           transform: "scale(1.05)",
                         },
                         "&:hover .details-btn": {
+                          opacity: 1,
+                          transform: "translate(-50%, -50%)",
+                        },
+                        "&:hover .cart-btn": {
                           opacity: 1,
                           transform: "translate(-50%, -50%)",
                         },
@@ -241,13 +250,38 @@ export default function Products() {
                           zIndex: 2,
                           px: 4,
                           py: 1,
-                          borderRadius: "20px",
+                          borderRadius: "10px",
                           textTransform: "none",
                           fontWeight: "bold",
                         }}
                       >
                         {t("Details")}
                       </Button>
+                      {/* <Link component={RouterLink} to={'/cart'}> */}
+                      <Button
+                        className="cart-btn"
+                        variant="contained"
+                        color="primary"
+                        onClick={() => addToCart({ ProductId: product.id, Count: 1 })}
+                        sx={{
+                          position: "absolute",
+                          top: "65%",
+                          left: "50%",
+                          transform: "translate(-50%, -60%)",
+                          opacity: 0,
+                          transition: "all 0.3s ease",
+                          zIndex: 2,
+                          // px: 2,
+                          // py: 1,
+                          borderRadius: "10px",
+                          textTransform: "none",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        <ShoppingCartIcon/>
+                      </Button>
+
+                      {/* </Link> */}
 
                       <CardMedia
                         component="img"
@@ -261,9 +295,20 @@ export default function Products() {
                       />
                     </Box>
                     <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                     
+                        <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{fontSize: { xs: "10px", sm: "12px", md: "20px" },}}
+                      >
                         {product.name}
                       </Typography>
+                       {/* <LocalMallIcon
+                          sx={{ fontSize: "1.2rem", color: "primary.main" }}
+                        /> */}
+                    
+                      
                       <Box sx={{ display: "flex" }}>
                         <Typography sx={{ display: "flex", flexGrow: 1 }}>
                           {t("Price")} : {product.price}$

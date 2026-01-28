@@ -20,7 +20,7 @@ export default function FAQ() {
         >
           <Typography
             component="span"
-            color="info.main"
+            color="warning.dark"
             sx={{ fontWeight: "bold" }}
           >
             {t("How long does delivery take?")}
@@ -40,7 +40,7 @@ export default function FAQ() {
         >
           <Typography
             component="span"
-            color="info.main"
+            color="warning.dark"
             sx={{ fontWeight: "bold" }}
           >
             {t("What payment methods do you accept?")}
@@ -60,7 +60,7 @@ export default function FAQ() {
         >
           <Typography
             component="span"
-            color="info.main"
+            color="warning.dark"
             sx={{ fontWeight: "bold" }}
           >
             {t("Can I return or exchange a product?")}

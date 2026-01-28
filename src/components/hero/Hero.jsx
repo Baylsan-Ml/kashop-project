@@ -51,7 +51,7 @@ export default function Hero() {
             fontSize: { xs: "32px", sm: "42px", md: "56px" }, }}>
           {t("EXPRESSIVE")}
         </Typography>
-        <Typography variant="h4" sx={{ fontStyle: "italic", mb: 4, mb: 2, 
+        <Typography variant="h4" sx={{ fontStyle: "italic", mb: 6,  
          textShadow: "-1px 1px 1px #0a171d",
           fontSize: { xs: "12px", sm: "22px", md: "36px" }, }}>
           {t("TIMELESS ELEGANT")}

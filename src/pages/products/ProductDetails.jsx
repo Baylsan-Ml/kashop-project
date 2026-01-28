@@ -24,6 +24,7 @@ import useAddReview from "../../hooks/useAddReview";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import useAuthStore from "../../store/authStore";
 
 const style = {
   position: "absolute",
@@ -47,6 +48,8 @@ export default function ProductDetails() {
   const [userRating, setUserRating] = useState(0);
   const [userComment, setUserComment] = useState("");
 
+   const token= useAuthStore((state) => (state.token));
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -59,7 +62,7 @@ export default function ProductDetails() {
   return (
     <Container>
       <Box component={"section"} sx={{ py: 5 }}>
-        <Card sx={{ p: 3, borderRadius: "10%" }}>
+        <Card sx={{ p: 3,  }}>
           <Grid
             sx={{ display: "flex", alignItems: "center" }}
             container
@@ -69,7 +72,7 @@ export default function ProductDetails() {
               <CardMedia
                 component={"img"}
                 image={product.image}
-                sx={{ height: 500, objectFit: "contain", borderRadius: "30%" }}
+                sx={{ height: 500, objectFit: "contain", borderRadius: "15px" }}
               ></CardMedia>
             </Grid>
 
@@ -82,7 +85,9 @@ export default function ProductDetails() {
                 alignItems: "flex-start",
               }}
             >
-              <Typography component={"h1"} variant="h3">
+              <Typography component={"h1"} variant="h3"
+              sx={{fontSize: { xs: "32px", sm: "42px", md: "56px" },}}
+              >
                 {product.name}
               </Typography>
               <Typography component={"h3"} variant="span">
@@ -97,7 +102,7 @@ export default function ProductDetails() {
                 color="primary"
                 onClick={() => addToCart({ ProductId: product.id, Count: 1 })}
                 disabled={isAddingToCart}
-                sx={{ borderRadius:'50%',
+                sx={{ 
                   "&:hover": {
                     transform: "translateY(-2px)",
                     boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,
@@ -119,8 +124,10 @@ export default function ProductDetails() {
             component={"h2"}
             variant="h4"
             m={3}
-            color="error.main"
-            sx={{ textShadow: "2px 2px 2px rgba(0,0,0,0.3)", fontSize: "60px" }}
+            color="info.main"
+            sx={{ textShadow: "2px 2px 2px rgba(0,0,0,0.3)",
+              fontSize: { xs: "32px", sm: "42px", md: "56px" },
+             }}
           >
             {t("Reviews")}
           </Typography>
@@ -131,7 +138,7 @@ export default function ProductDetails() {
               display: "flex",
               justifyContent: "center",
               gap: 1,
-              fontSize: "30px",
+              fontSize: { xs: "12px", sm: "20px", md: "25px" },
               textShadow: "2px 2px 2px rgba(56, 31, 18, 0.3)",
             }}
           >
@@ -145,10 +152,11 @@ export default function ProductDetails() {
               py: 3,
             }}
           >
-            <Button
+           <Button
               size="small"
               variant="contained"
               onClick={handleOpen}
+              disabled={!token}
               sx={{
                 py: 1,
                 "&:hover": {
@@ -159,6 +167,7 @@ export default function ProductDetails() {
             >
               {t("Add Review")}
             </Button>
+           
 
             <Modal open={open} onClose={handleClose}>
               <Box sx={style}>
@@ -221,27 +230,28 @@ export default function ProductDetails() {
                   position: "relative",
                   display: "flex",
                   justifyContent: "center",
-                  height: "300px",
+                  height: "350px",
                   alignItems: "center",
                 }}
               >
                 <Card
                   sx={{
-                    height: "290px",
+                    height: "270px",
+                    width:'100%',
                     display: "flex",
                     alignItems: "center",
                     border: 1,
                     borderColor: "primary.main",
                     "&:hover": {
                       transform: "translateY(-2px)",
-                      boxShadow: `0 2px 0 #fcc050, 0 14px 20px #0038bd`,
+                      boxShadow: `0 1px 0 #fcc050, 0 5px 10px #ffbd77`,
                     },
                   }}
                 >
-                  <CardContent sx={{ height: "auto" }}>
+                  <CardContent sx={{ height: "auto", width:'100%' }}>
                     <Typography
                       gutterBottom
-                      sx={{ color: "error.main", fontSize: 14 }}
+                      sx={{ color: "primary.main", fontSize: 14 }}
                     >
                       {review.userName}
                     </Typography>
@@ -253,11 +263,12 @@ export default function ProductDetails() {
                         flexDirection: "column",
                         justifyContent: "center",
                         gap: 3,
+                        fontSize:'0.85rem'
                       }}
                     >
                       {review.comment}
                       <Divider flexItem />
-                      <Typography sx={{ color: "text.secondary", mb: 1.5 }}>
+                      <Typography sx={{ color: "text.secondary", mb: 1.5, fontSize:'0.8rem'}}>
                         {review.createdAt}
                       </Typography>
                     </Stack>

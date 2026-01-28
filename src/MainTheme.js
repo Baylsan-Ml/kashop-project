@@ -54,7 +54,7 @@ const getTheme = (mode)=>{
       // main: mode ==='dark'?'#b3b3b3': '#454545'
       // main: mode ==='dark'?'#efefef': '#b3b3b3'
       // main:'#9cd7d1'
-      main: mode ==='dark'?'#b3b3b3': '#0a171d'
+      main: mode ==='dark'?'#afcae8': '#0a171d'
     },
 
     background: {
@@ -99,11 +99,11 @@ const getTheme = (mode)=>{
       },
       body1: {
         fontFamily: "'Rubik', sans-serif",
-        fontSize: "1.2rem",
+        fontSize: "1rem",
       },
       body2: {
         fontFamily: "'Rubik', sans-serif",
-        fontSize: "0.875rem",
+        fontSize: "0.85rem",
       },
       button: {
         fontFamily: "'Rubik', sans-serif",

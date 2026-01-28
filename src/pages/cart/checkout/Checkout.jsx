@@ -67,7 +67,7 @@ export default function Checkout() {
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-start",
+            justifyContent:{xs:'center' ,md:"flex-start"},
             borderRadius: "5px",
           }}
         >
@@ -83,16 +83,18 @@ export default function Checkout() {
           <TableContainer sx={{ mb: 3 }}>
             <Table sx={{}}>
               <TableHead>
-                <TableCell sx={{ fontWeight: "bold", fontSize: "large" }}>
+                <TableCell sx={{ fontWeight: "bold", 
+                  fontSize: { xs: "15px", md: "17px" },
+                }}>
                   {t("Product Name")}
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold", fontSize: "large" }}>
+                <TableCell sx={{ fontWeight: "bold", fontSize: { xs: "15px", md: "17px" },}}>
                    {t("Price")}
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold", fontSize: "large" }}>
+                <TableCell sx={{ fontWeight: "bold",fontSize: { xs: "15px", md: "17px" },}}>
                    {t("Quantity")}
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold", fontSize: "large" }}>
+                <TableCell sx={{ fontWeight: "bold", fontSize: { xs: "15px", md: "17px" }, }}>
                    {t("Total")}
                 </TableCell>
               </TableHead>
@@ -100,16 +102,16 @@ export default function Checkout() {
               <TableBody>
                 {data.items.map((item) => (
                   <TableRow key={item.productId}>
-                    <TableCell sx={{ fontSize: "17px" }}>
+                    <TableCell sx={{ fontSize: { xs: "12px", md: "15px" }, }}>
                       {item.productName}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "17px" }}>
+                    <TableCell sx={{ fontSize: { xs: "12px", md: "15px" }, }}>
                       {item.price}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "17px" }}>
+                    <TableCell sx={{ fontSize: { xs: "12px",  md: "15px" }, }}>
                       {item.count}
                     </TableCell>
-                    <TableCell sx={{ fontSize: "17px" }}>
+                    <TableCell sx={{ fontSize: { xs: "12px",  md: "15px" }, }}>
                       {item.totalPrice}
                     </TableCell>
                   </TableRow>
@@ -119,7 +121,7 @@ export default function Checkout() {
                   <TableCell
                     colSpan={4}
                     align="right"
-                    sx={{ fontWeight: "bold", fontSize: "large" }}
+                    sx={{ fontWeight: "bold", fontSize: { xs: "16px", md: "17px" }, }}
                   >
                     {t("Cart Total")}: {data.cartTotal}$
                   </TableCell>
@@ -128,14 +130,14 @@ export default function Checkout() {
             </Table>
           </TableContainer>
 
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <FormControl fullWidth sx={{ maxWidth: "30%" }}>
+          <Box sx={{ display: "flex", justifyContent:"space-between"}}>
+            <FormControl fullWidth sx={{ maxWidth: "30%" }} size="small">
               <InputLabel id="payment-method">{t("Payment Method")}</InputLabel>
               <Select
                 labelId="payment-method"
                 value={paymentMethod}
                 onChange={(e) => setPaymentMethod(e.target.value)}
-                sx={{'&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,},}}
+                sx={{'&:hover': {transform: 'translateY(-2px)', boxShadow: `0 1px 0 #fcc050, 0 5px 10px #ff734c7b`,},}}
               >
                 <MenuItem value={"cash"} sx={{ fontWeight: "bold" }}>
                   {t("Cash")}
@@ -150,10 +152,9 @@ export default function Checkout() {
               variant="contained"
               sx={{
                 width: "30%",
-                py: 2,
                 borderRadius: "10px",
                 fontWeight: "bold",
-                fontSize: "15px",
+                fontSize: { xs: "16px", md: "17px" },
                 '&:hover': {transform: 'translateY(-2px)', boxShadow: `0 2px 0 #fcc050, 0 14px 20px #ff734c7b`,},
               }}
               onClick={handleCheckout}
