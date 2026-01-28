@@ -87,7 +87,7 @@ export default function SendCode() {
              sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",

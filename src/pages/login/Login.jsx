@@ -81,7 +81,7 @@ export default function Login() {
              sx={{width:'90%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",
@@ -107,7 +107,7 @@ export default function Login() {
            sx={{width:'90%',
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",

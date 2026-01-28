@@ -84,7 +84,7 @@ export default function ResetPassword() {
              sx={{ width: "85%",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",
@@ -110,7 +110,7 @@ export default function ResetPassword() {
              sx={{width: "85%", my: 2,
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",
@@ -136,7 +136,7 @@ export default function ResetPassword() {
              sx={{ width: "85%",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 "&.Mui-error fieldset": {
                   borderColor: "red",
