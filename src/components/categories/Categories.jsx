@@ -58,8 +58,9 @@ export default function Categories() {
                 >
                   <Card
                     sx={{
-                      py: 1,
-                      px:{xs:5, md:3},
+                      py:1 ,
+                      px:{xs:3, md:3},
+                      height:{xs:'31px', md:'35px'},
                       borderRadius:'25px',
                       cursor: "pointer",
                       fontWeight: "bold",
