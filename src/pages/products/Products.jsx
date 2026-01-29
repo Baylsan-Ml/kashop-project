@@ -205,7 +205,7 @@ export default function Products() {
             {product.map((product) => (
               <Grid
                 key={product.id}
-                size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                size={{ xs: 12, sm: 6, md: 3, lg: 2.5 }}
                 sx={{ p: 4, display:'flex', justifyContent:'center'}}
               >
                 <Link

@@ -46,12 +46,12 @@ export default function Hero() {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <Container sx={{ py: 5, textAlign: i18n.language === "ar" ? "center" : "center"  }}>
+      <Box sx={{ py: 2, textAlign: i18n.language === "ar" ? "center" : "center"  }}>
         <Typography variant="h3" sx={{ mb: 2,  textShadow: `-2px 2px 1px #ffbd77`,
             fontSize: { xs: "32px", sm: "42px", md: "56px" }, }}>
           {t("EXPRESSIVE")}
         </Typography>
-        <Typography variant="h4" sx={{ fontStyle: "italic", mb: 6,  
+        <Typography variant="h4" sx={{ fontStyle: "italic",  
          textShadow: "-1px 1px 1px #0a171d",
           fontSize: { xs: "12px", sm: "22px", md: "36px" }, }}>
           {t("TIMELESS ELEGANT")}
@@ -59,7 +59,7 @@ export default function Hero() {
         <Button
               variant="contained"
               type="button"
-              sx={{mb:1, bgcolor:'success.main'}}
+              sx={{my:1, bgcolor:'success.main'}}
             >
               <Link
                 component={RouterLink}
@@ -113,7 +113,7 @@ export default function Hero() {
         </Swiper>
          </Box>
        
-      </Container>
+      </Box>
     </>
   );
 }
