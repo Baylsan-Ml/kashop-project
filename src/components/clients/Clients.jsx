@@ -48,7 +48,7 @@ export default function Clients() {
           textShadow: "1px 1px 1px rgba(56, 31, 18, 0.3)",
         }}
       >
-        {t("Trusted By Our Clients.")}
+        {t("Trusted By Our Clients")}
       </Typography>
 
       <Box

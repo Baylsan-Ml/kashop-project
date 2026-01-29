@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import React from 'react'
+import Swal from 'sweetalert2';
 import axiosAuthInstance from '../Api/axiosAuthInstance';
 
 export default function useCheckout() {
