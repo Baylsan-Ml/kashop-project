@@ -310,13 +310,14 @@ export default function Products() {
                     
                       
                       <Box sx={{ display: "flex" }}>
-                        <Typography sx={{ display: "flex", flexGrow: 1 }}>
-                          {t("Price")} : {product.price}$
+                        <Typography sx={{ display: "flex", flexGrow: 1, }}>
+                          {t("Price")}: {product.price}$
                         </Typography>
                         <Rating
                           sx={{ color: "gold" }}
                           value={product.rate}
                           readOnly
+                          size="small"
                         />
                       </Box>
                     </CardContent>
