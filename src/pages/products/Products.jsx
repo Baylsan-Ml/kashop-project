@@ -310,7 +310,7 @@ export default function Products() {
                     
                       
                       <Box sx={{ display: "flex" }}>
-                        <Typography sx={{ display: "flex", flexGrow: 1, }}>
+                        <Typography sx={{ display: "flex", flexGrow: 1, fontSize:'13px' }}>
                           {t("Price")}: {product.price}$
                         </Typography>
                         <Rating
