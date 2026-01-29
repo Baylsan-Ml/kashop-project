@@ -117,7 +117,34 @@ i18n
           "welcomeMessage": "Welcome {{name}} ✨\nEnjoy your visit 💫",
           "Viewers":"Viewers",
           "Users":"Users",
-          "Partners":"Partners"
+          "Partners":"Partners",
+          "Sort By":"Sort By",
+          "Category":"Category",
+          "Update Email":"Update Email",
+          "Update Password":"Update Password",
+          "Update Info":"Update Info",
+          "Cancel":"Cancel",
+          "New Email":"New Email",
+          "Current Email":"Current Email",
+          "Current Password":"Current Password",
+          "New Password":"New Password",
+          "Confirm New Password":"Confirm New Password",
+          "Order Number":"Order Number",
+          "Order Price":"Order Price",
+          "Payment Status":"Payment Status",
+          "Order Status":"Order Status",
+          "Order Date":"Order Date",
+          "Regiester":"Regiester",
+          "Full Name":"Full Name",
+          "User Email":"User Email",
+          "Password":"Password",
+          "Phone Number":"Phone Number",
+          "User Name":"User Name",
+          "Login":"Login",
+          "Send Code":"Send Code",
+          "enter your email":"enter your email",
+          "Sales":"Sales",
+          "Trusted By Our Clients":"Trusted By Our Clients"
         }
       },
        ar: {
@@ -258,7 +285,8 @@ i18n
           "Login":"تسجيل الدخول",
           "Send Code":"ارسال الرمز",
           "enter your email":"ادخل بريدك الالكتروني",
-          "Sales":"العروض"
+          "Sales":"العروض",
+          "Trusted By Our Clients":"نحظى بثقة شركائنا"
         }
       }
     },
