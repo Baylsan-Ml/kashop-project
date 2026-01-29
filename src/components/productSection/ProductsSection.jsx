@@ -25,7 +25,7 @@ export default function ProductsSection() {
   if (isLoading) return <CircularProgress />;
   if (isError) return <Typography>Error</Typography>;
   return (
-    <Box p={3} sx={{ textAlign: "center" }}>
+    <Box p={3} sx={{}}>
       <Typography
         component={"h2"}
         variant="h4"
@@ -34,6 +34,7 @@ export default function ProductsSection() {
         sx={{
           textShadow: "2px 2px 2px rgba(0,0,0,0.3)",
           fontSize: { xs: "32px", sm: "42px", md: "56px" },
+          textAlign:'center'
         }}
       >
         {t("Products")}
@@ -55,12 +56,12 @@ export default function ProductsSection() {
       </Typography>
 
       <Container maxWidth="xl">
-        <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid container sx={{ display: "flex", justifyContent: "center", py:3}}>
           {product.map((product) => (
             <Grid
               key={product.id}
-              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-              sx={{ p: 5 }}
+              size={{ xs: 12, sm: 6, md: 3, lg: 2.5 }}
+              sx={{ }}
             >
               <Link
                 component={RouterLink}
@@ -71,13 +72,13 @@ export default function ProductsSection() {
                   sx={{
                     cursor: "pointer",
                     borderRadius: 3,
+                    width:'90%',
+                    height:'100%',
                     backgroundColor: "transparent",
                     transition: "all 0.3s ease",
                     "&:hover": { transform: "translateY(-4px)" },
                   }}
                 >
-                  {/* <CardMedia component={'img'}  sx={{height:'400px', objectFit:'unset' }}
-                     image={product.image} title="product image"  /> */}
                   <Box
                     sx={{
                       position: "relative",
@@ -104,9 +105,9 @@ export default function ProductsSection() {
                         opacity: 0,
                         transition: "all 0.4s ease",
                         zIndex: 2,
-                        px: 4,
+                        px: 2,
                         py: 1,
-                        borderRadius: "20px",
+                        borderRadius: "10px",
                         textTransform: "none",
                         fontWeight: "bold",
                       }}
@@ -125,18 +126,21 @@ export default function ProductsSection() {
                       }}
                     />
                   </Box>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                  <CardContent sx={{}}>
+                    <Typography gutterBottom variant="h5" component="div"
+                    sx={{fontSize:{xs:'20px', md:'20px'}}}
+                    >
                       {product.name}
                     </Typography>
                     <Box sx={{ display: "flex" }}>
-                      <Typography sx={{ display: "flex", flexGrow: 1 }}>
+                      <Typography sx={{ display: "flex", flexGrow: 1, fontSize:'13px' }}>
                         {t("Price")} : {product.price}$
                       </Typography>
                       <Rating
                         sx={{ color: "gold" }}
                         value={product.rate}
                         readOnly
+                        size="small"
                       />
                     </Box>
                   </CardContent>
@@ -147,7 +151,7 @@ export default function ProductsSection() {
           ))}
         </Grid>
 
-        <Link component={RouterLink} to={"/products"}>
+        <Link component={RouterLink} to={"/products"} sx={{display:'flex', justifyContent:'center'}}>
           <Button
             variant="contained"
             sx={{
@@ -158,7 +162,7 @@ export default function ProductsSection() {
               fontSize: "12px",
               px: 3,
               py: 1,
-              borderRadius: "20px",
+              borderRadius: "10px",
               "&:hover": {
                 transform: "translateY(-2px)",
                 boxShadow: `0 1px 0 #fcc050, 0 3px 20px #9a3b11`,
