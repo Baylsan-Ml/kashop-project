@@ -60,7 +60,7 @@ export default function ProductByCategory() {
         </Typography>
 
         <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-          {products.response.map((product) => (
+          {products.response.data.map((product) => (
             <Grid
               key={product.id}
               size={{ sx: 12, sm: 6, md: 4, lg: 4 }}
