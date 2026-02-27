@@ -45,7 +45,7 @@ export default function Categories() {
         </Typography>
         <Container maxWidth="xl">
           <Grid container sx={{ textAlign: "center" }}>
-            {data.response.map((category) => (
+            {data.response.data.map((category) => (
               <Grid
                 key={category.id}
                 size={{ xs: 6, sm: 4, md: 3, lg: 2 }}
